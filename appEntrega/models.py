@@ -6,7 +6,7 @@ class Cliente(models.Model):
     cif = models.CharField(max_length=12, primary_key=True)
     nombre_empresa = models.CharField(max_length=40)
     email = models.EmailField(max_length=254)
-    telefono = models.IntegerField(max_length=9, unique=True)
+    telefono = models.IntegerField(unique=True)
     nombre_cliente = models.CharField(max_length=20)
 
 
@@ -25,7 +25,8 @@ class Producto(models.Model):
 
 
 class Componente(models.Model):
-    producto_referencia_padre = models.ForeignKey(Producto, on_delete=models.CASCADE)
-    producto_referencia = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    producto_padre = models.ForeignKey(Producto, related_name='producto_padre', null=False, on_delete=models.CASCADE,
+                                       default=0)
+    producto = models.ForeignKey(Producto, related_name='producto', null=False, on_delete=models.CASCADE, default=0)
     componente_cantidad = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     componente_descripcion = models.CharField(max_length=250);
