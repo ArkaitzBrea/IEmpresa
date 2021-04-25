@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<h1> Detalle del pedido: {{pedido.pedido_referencia}}</h1>
+{% if pedido.trabajador_set %}
+	<ul>
+		{% for pedido in pedido.pedido_referencia_set.all %}
+			<li>
+				<a href="/appEntrega/pedidos/{{pedido.pedido_referencia}}">{{pedido.pedido_referencia}}</a>
+			</li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<p>No hay pedido</p>
+{% endif %}
+
+</body>
+</html>
