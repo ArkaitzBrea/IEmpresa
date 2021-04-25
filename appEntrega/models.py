@@ -1,6 +1,7 @@
 from django.db import models
 
-# Tabla Cliente
+
+# Tabla cliente
 class Cliente(models.Model):
     cif = models.CharField(max_length=12, primary_key=True)
     nombre_empresa = models.CharField(max_length=40)
@@ -12,18 +13,7 @@ class Cliente(models.Model):
     def __str__(self):
         return self.nombre_empresa
 
-# Tabla Pedido
-class Pedido(models.Model):
-    pedido_referencia = models.CharField(max_length=12, primary_key=True)
-    pedido_fecha = models.DateField()
-    pedido_precio = models.DecimalField(max_digits=10, decimal_places=2, default=0)
-    pedido_cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
 
-    # Funcion que devuelve el pedido_referencia cuando se visualiza en el /admin
-    def __str__(self):
-        return self.pedido_referencia
-
-# Tabla Producto
 class Producto(models.Model):
     producto_referencia = models.CharField(max_length=12, primary_key=True)
     producto_nombre = models.CharField(max_length=50)
@@ -34,13 +24,36 @@ class Producto(models.Model):
     def __str__(self):
         return self.producto_nombre
 
-# Tabla Componente
+
 class Componente(models.Model):
-    producto_padre = models.ForeignKey(Producto, related_name='producto_padre', null=False, on_delete=models.CASCADE, default=0)
-    producto = models.ForeignKey(Producto, related_name='producto', null=False, on_delete=models.CASCADE, default=0)
-    componente_cantidad = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    componente_producto_padre = models.ForeignKey(Producto, related_name='producto_padre', null=False,
+                                                  on_delete=models.CASCADE,
+                                                  default=0)
+    componente_producto = models.ForeignKey(Producto, related_name='producto', null=False, on_delete=models.CASCADE,
+                                            default=0)
+    componente_unidades = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     componente_descripcion = models.CharField(max_length=250)
 
     # Funcion que devuelve el producto cuando se visualiza en el /admin
     def __str__(self):
         return str(self.producto)
+
+
+class Orden_Pedido(models.Model):
+    pedido_referencia = models.CharField(max_length=12, primary_key=True)
+    pedido_fecha = models.DateField()
+    pedido_descripcion = models.CharField(max_length=250)
+    pedido_precio = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    pedido_curso = models.BooleanField(default=False)
+    pedido_lanzado = models.BooleanField(default=False)
+    pedido_finalizado = models.BooleanField(default=False)
+    pedido_cliente_cif = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+
+
+class Orden_Linea(models.Model):
+    linea_referencia = models.CharField(max_length=12, primary_key=True)
+    linea_descripcion = models.CharField(max_length=250)
+    linea_unidades = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    linea_pedido_referencia = models.ForeignKey(Orden_Pedido, on_delete=models.CASCADE)
+    linea_producto_referencia = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    linea_linea_padre = models.ForeignKey('self', on_delete=models.CASCADE)
