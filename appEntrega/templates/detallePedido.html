@@ -4,7 +4,7 @@
 </head>
 <body>
 <h1> Detalle del pedido: {{pedido.pedido_referencia}}</h1>
-{% if pedido.trabajador_set %}
+{% if pedido.pedido_referencia_set %}
 	<ul>
 		{% for pedido in pedido.pedido_referencia_set.all %}
 			<li>
