@@ -9,7 +9,7 @@ from .models import Orden_Pedido
 
 # Vista Index
 def index(request):
-    return HttpResponse("Hola Amigos!!")
+    return HttpResponse("Hola gente!!")
 
 
 # Vista de PedidoListView
