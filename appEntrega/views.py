@@ -15,7 +15,7 @@ def index(request):
 # Vista de PedidoListView
 class PedidoListView(ListView):
     model = Orden_Pedido
-    #queryset = Empleado.objects.all()
+    # queryset = Empleado.objects.all()
     template_name = 'listaPedidos.html'
     context_object_name = 'lista_pedidos'
 
@@ -23,6 +23,6 @@ class PedidoListView(ListView):
 # Vista de PedidoDetailView
 class PedidoDetailView(DetailView):
     model = Orden_Pedido
-    queryset = Orden_Pedido.objects.all()
+    # queryset = Empleado.objects.all()
     template_name = 'detallePedido.html'
     context_object_name = 'pedido'
