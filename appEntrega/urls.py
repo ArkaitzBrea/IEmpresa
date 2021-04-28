@@ -4,6 +4,6 @@ from appEntrega.views import PedidoDetailView, PedidoListView,CreateNoticiaView
 
 urlpatterns = [
     path('pedidos/<int:pk>', PedidoDetailView.as_view(), name='detallePedido'),
-    path('producto/nuevo/', views.CreateNoticiaView.as_view(), name='producto_form'),
-    path('producto/nuevo/post_producto/', CreateNoticiaView.as_view(), name ='post_producto')
+    path('producto/nuevo/', views.CreateProductoView.as_view(), name='producto_form'),
+    path('producto/nuevo/post_producto/', CreateProductoView.as_view(), name ='post_producto')
 ]

@@ -27,7 +27,7 @@ class PedidoDetailView(DetailView):
     context_object_name = 'pedido'
 
 
-class CreateNoticiaView(View):
+class CreateProductoView(View):
     def get(self, request, *args, **kwargs):
         form = ProductoForm()
         context = {
