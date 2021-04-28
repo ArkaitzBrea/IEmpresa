@@ -1,11 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render ,redirect
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, get_list_or_404
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views import View
 from .models import Orden_Pedido
-from .forms import ProductoForm
+from .forms import ProductoForm, ClienteForm,ComponenteForm,PedidoForm
 
 
 
@@ -26,7 +26,7 @@ class PedidoDetailView(DetailView):
     template_name = 'detallePedido.html'
     context_object_name = 'pedido'
 
-
+# Vista de formulario de crear un nuevo producto
 class CreateProductoView(View):
     def get(self, request, *args, **kwargs):
         form = ProductoForm()
@@ -41,8 +41,67 @@ class CreateProductoView(View):
         if form.is_valid():
             form.save()
 
-            # Volvemos a la lista de noticias
-            return redirect('producto_form')
+            # Volvemos a la pagina que queramos despues de crear un nuevo producto
+            return redirect('')
 
         return render(request, 'nuevoProducto.html', {'form': form})
 
+# Vista de formulario de crear un nuevo cliente
+class CreateClienteView(View):
+    def get(self, request, *args, **kwargs):
+        form = ClienteForm()
+        context = {
+            'form': form,
+            'titulo_pagina': 'Crear cliente'
+        }
+        return render(request, 'nuevoCliente.html', context)
+
+    def post(self, request, *args, **kwargs):
+        form = ClienteForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            # Volvemos a la pagina que queramos despues de crear un nuevo producto
+            return redirect('')
+
+        return render(request, 'nuevoCliente.html', {'form': form})
+
+# Vista de formulario de crear un nuevo componente
+class CreateComponenteView(View):
+    def get(self, request, *args, **kwargs):
+        form = ComponenteForm()
+        context = {
+            'form': form,
+            'titulo_pagina': 'Crear componente'
+        }
+        return render(request, 'nuevoComponente.html', context)
+
+    def post(self, request, *args, **kwargs):
+        form = ComponenteForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            # Volvemos a la pagina que queramos despues de crear un nuevo producto
+            return redirect('')
+
+        return render(request, 'nuevoComponente.html', {'form': form})
+
+# Vista de formulario de crear un nuevo pedido
+class CreatePedidoView(View):
+    def get(self, request, *args, **kwargs):
+        form = PedidoForm()
+        context = {
+            'form': form,
+            'titulo_pagina': 'Nuevo pedido'
+        }
+        return render(request, 'nuevoPedido.html', context)
+
+    def post(self, request, *args, **kwargs):
+        form = PedidoForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            # Volvemos a la pagina que queramos despues de crear un nuevo producto
+            return redirect('')
+
+        return render(request, 'nuevoPedido.html', {'form': form})
