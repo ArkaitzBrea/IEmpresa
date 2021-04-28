@@ -19,7 +19,7 @@ class Producto(models.Model):
     producto_nombre = models.CharField(max_length=50)
     producto_descripcion = models.CharField(max_length=250)
     producto_categoria = models.CharField(max_length=50)
-
+    #Creo que habria que poner el precio aqui para poderluego sumarlo en el pedido
     # Funcion que devuelve el producto_nombre cuando se visualiza en el /admin
     def __str__(self):
         return self.producto_nombre
@@ -48,6 +48,8 @@ class Orden_Pedido(models.Model):
     pedido_lanzado = models.BooleanField(default=False)
     pedido_finalizado = models.BooleanField(default=False)
     pedido_cliente_cif = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+
+    #CREO QUE FALTA OTRA FOREIGNKEY
 
 
 class Orden_Linea(models.Model):
