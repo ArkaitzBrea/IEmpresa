@@ -1,0 +1,24 @@
+{% block content %}
+	
+	<h1> Detalle del cliente: {{producto.producto_nombre}}</h1>
+	
+	{% if producto %}
+		<ul>
+				<li>
+					<p><strong>Referencia del producto: </strong>{{producto.producto_referencia}}</p>
+				</li>
+				<li>
+					<p><strong>Categoría del producto: </strong>{{producto.producto_categoria}}</p>
+				</li>
+				<!--
+                <li>
+					<p><strong>Precio: </strong>{{producto.producto_precio}}</p>
+				</li>
+                -->
+		</ul>
+
+	{% else %}
+		<p>No hay productos</p>
+	{% endif %}
+	
+{% endblock %}

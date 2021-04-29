@@ -7,7 +7,7 @@
     <title>Nuevo cliente</title>
 </head>
 <body>
-    <form action="{% url 'cliente_form'%}" method="POST">
+    <form action="{% url 'cliente_form' %}" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Guardar">

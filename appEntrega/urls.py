@@ -1,16 +1,26 @@
 from django.urls import path
 from . import views
-from appEntrega.views import PedidoDetailView, PedidoListView,CreateProductoView,CreateClienteView,CreateComponenteView, CreatePedidoView
+from appEntrega.views import PedidoDetailView, PedidoListView,CreateProductoView,CreateClienteView,CreateComponenteView, CreatePedidoView, ClienteDetailView, ClienteListView, ProductoListView, ProductoDetailView
 
 urlpatterns = [
-    path('pedidos/<int:pk>', PedidoListView.as_view(), name='detallePedido'),
-
+    # URL detalle pedido
+    path('pedidos/<int:pk>', PedidoDetailView.as_view(), name='detallePedido'),
+    # URL lista pedidos
+    path('pedidos/', PedidoListView.as_view(), name='listaPedido'),
+    # URL detalle cliente
+    path('clientes/<int:pk>', ClienteDetailView.as_view(), name='detalleCliente'),
+    # URL lista clientes
+    path('clientes/', ClienteListView.as_view(), name='listaCliente'),
+    # URL detalle producto
+    path('productos/<str:pk>', ProductoDetailView.as_view(), name='detalleProducto'),
+    # URL lista productos
+    path('productos/', ProductoListView.as_view(), name='listaProducto'),
     #URL nuevo producto
-    path('producto/nuevo/', views.CreateProductoView.as_view(), name='producto_form'),
+    path('productos/nuevo/', views.CreateProductoView.as_view(), name='producto_form'),
     #URL nuevo cliente
-    path('cliente/nuevo/', views.CreateClienteView.as_view(), name='cliente_form'),
+    path('clientes/nuevo/', views.CreateClienteView.as_view(), name='cliente_form'),
     #URL nuevo componente
-    path('componente/nuevo/', views.CreateComponenteView.as_view(), name='componente_form'),
+    path('componentes/nuevo/', views.CreateComponenteView.as_view(), name='componente_form'),
     #URL nuevo orden_pedido
-    path('pedido/nuevo/', views.CreatePedidoView.as_view(), name='pedido_form'),
+    path('pedidos/nuevo/', views.CreatePedidoView.as_view(), name='pedido_form'),
 ]

@@ -1,0 +1,28 @@
+{% block content %}
+	
+	<h1> Detalle del cliente: {{cliente.nombre_empresa}}</h1>
+	
+	{% if cliente %}
+		<ul>
+				<li>
+					<p><strong>Nombre de la empresa: </strong>{{cliente.nombre_empresa}}</p>
+				</li>
+				<li>
+					<p><strong>CIF: </strong>{{cliente.cif}}</p>
+				</li>
+				<li>
+					<p><strong>email: </strong>{{cliente.email}}</p>
+				</li>
+				<li>
+					<p><strong>Número de telefono: </strong>{{cliente.telefono}}</p>
+				</li>
+                <li>
+					<p><strong>Responsable de compras: </strong>{{cliente.nombre_cliente}}</p>
+				</li>
+		</ul>
+
+	{% else %}
+		<p>No hay pedidos</p>
+	{% endif %}
+	
+{% endblock %}

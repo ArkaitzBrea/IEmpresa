@@ -1,0 +1,19 @@
+{% block content %}
+
+    <h1> Listado de productos</h1>
+    
+    {% if lista_productos %}
+    <ul>
+
+        {% for producto in lista_productos %}
+            <li>
+                <a href="http://127.0.0.1:8000/appEntrega/productos/{{producto.pk}}">{{producto.producto_nombre}}</a>
+            </li>
+        {% endfor %}
+
+    </ul>
+    {% else %}
+        <p>No hay productos</p>
+    {% endif %}
+
+{% endblock %}

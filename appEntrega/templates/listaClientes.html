@@ -1,0 +1,19 @@
+{% block content %}
+
+    <h1> Listado de clientes</h1>
+    
+    {% if lista_clientes %}
+    <ul>
+
+        {% for cliente in lista_clientes %}
+            <li>
+                <a href="http://127.0.0.1:8000/appEntrega/clientes/{{cliente.cif}}">{{cliente.nombre_empresa}}</a>
+            </li>
+        {% endfor %}
+
+    </ul>
+    {% else %}
+        <p>No hay empresas</p>
+    {% endif %}
+
+{% endblock %}
