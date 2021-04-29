@@ -1,0 +1,19 @@
+{% block content %}
+
+    <h1> Listado de pedidos</h1>
+    
+    {% if lista_pedidos %}
+    <ul>
+
+        {% for pedido in lista_pedidos %}
+            <li>
+                <a href="http://127.0.0.1:8000/appEntrega/pedidos/{{pedido.pedido_referencia}}">{{pedido.pedido_descripcion}}</a>
+            </li>
+        {% endfor %}
+
+    </ul>
+    {% else %}
+        <p>No hay pedidos</p>
+    {% endif %}
+
+{% endblock %}

@@ -4,25 +4,45 @@ from django.shortcuts import get_object_or_404, get_list_or_404
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views import View
-from .models import Orden_Pedido
+from .models import Orden_Pedido, Cliente, Producto
 from .forms import ProductoForm, ClienteForm, ComponenteForm, PedidoForm
-
 
 # Vista de PedidoListView
 class PedidoListView(ListView):
     model = Orden_Pedido
-    # queryset = Empleado.objects.all()
     template_name = 'listaPedidos.html'
     context_object_name = 'lista_pedidos'
-
 
 # Vista de PedidoDetailView
 class PedidoDetailView(DetailView):
     model = Orden_Pedido
-    # queryset = Empleado.objects.all()
     template_name = 'detallePedido.html'
     context_object_name = 'pedido'
 
+# Vista de ClienteListView
+class ClienteListView(ListView):
+    model = Cliente
+    template_name = 'listaClientes.html'
+    context_object_name = 'lista_clientes'
+
+
+# Vista de ClienteDetailView
+class ClienteDetailView(DetailView):
+    model = Cliente
+    template_name = 'detalleCliente.html'
+    context_object_name = 'cliente'
+
+# Vista de ProductoListView
+class ProductoListView(ListView):
+    model = Producto
+    template_name = 'listaProductos.html'
+    context_object_name = 'lista_productos'
+
+# Vista de ProductoDetailView
+class ProductoDetailView(DetailView):
+    model = Producto
+    template_name = 'detalleProducto.html'
+    context_object_name = 'producto'
 
 # Vista de formulario de crear un nuevo producto
 class CreateProductoView(View):
@@ -40,7 +60,7 @@ class CreateProductoView(View):
             form.save()
 
             # Volvemos a la pagina que queramos despues de crear un nuevo producto
-            return redirect('')
+            return redirect("listaProducto")
 
         return render(request, 'nuevoProducto.html', {'form': form})
 
@@ -61,7 +81,7 @@ class CreateClienteView(View):
             form.save()
 
             # Volvemos a la pagina que queramos despues de crear un nuevo producto
-            return redirect('')
+            return redirect("listaCliente")
 
         return render(request, 'nuevoCliente.html', {'form': form})
 
@@ -82,7 +102,7 @@ class CreateComponenteView(View):
             form.save()
 
             # Volvemos a la pagina que queramos despues de crear un nuevo producto
-            return redirect('')
+            return redirect("listaComponente")
 
         return render(request, 'nuevoComponente.html', {'form': form})
 
@@ -103,6 +123,6 @@ class CreatePedidoView(View):
             form.save()
 
             # Volvemos a la pagina que queramos despues de crear un nuevo producto
-            return redirect('')
+            return redirect("listaPedido")
 
         return render(request, 'nuevoPedido.html', {'form': form})
