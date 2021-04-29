@@ -42,7 +42,7 @@ class Componente(models.Model):
 
 class Orden_Pedido(models.Model):
     pedido_referencia = models.CharField(max_length=12, primary_key=True)   
-    pedido_fecha = models.DateField()
+    pedido_fecha = models.DateField(auto_now=True)
     pedido_descripcion = models.CharField(max_length=250)
     pedido_curso = models.BooleanField(default=False)
     pedido_lanzado = models.BooleanField(default=False)
