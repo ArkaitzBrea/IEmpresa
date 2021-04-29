@@ -15,10 +15,10 @@ class Cliente(models.Model):
 
 
 class Producto(models.Model):
-    producto_referencia = models.CharField(max_length=12, primary_key=True)
-    producto_nombre = models.CharField(max_length=50)
-    producto_descripcion = models.CharField(max_length=250)
-    producto_categoria = models.CharField(max_length=50)
+    producto_referencia = models.CharField(max_length=13, primary_key=True)                     
+    producto_nombre = models.CharField(max_length=50)   
+    producto_descripcion = models.CharField(max_length=250) 
+    producto_categoria = models.CharField(max_length=50)    
     producto_precio = models.DecimalField(max_digits=10, decimal_places=2, default=0)
 
     # Funcion que devuelve el producto_nombre cuando se visualiza en el /admin
@@ -37,11 +37,11 @@ class Componente(models.Model):
 
     # Funcion que devuelve el producto cuando se visualiza en el /admin
     def __str__(self):
-        return str(self.producto)
+        return str(self.producto)   
 
 
 class Orden_Pedido(models.Model):
-    pedido_referencia = models.CharField(max_length=12, primary_key=True)
+    pedido_referencia = models.CharField(max_length=12, primary_key=True)   
     pedido_fecha = models.DateField()
     pedido_descripcion = models.CharField(max_length=250)
     pedido_curso = models.BooleanField(default=False)
