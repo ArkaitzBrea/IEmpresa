@@ -44,9 +44,7 @@ class Orden_Pedido(models.Model):
     pedido_referencia = models.CharField(max_length=12, primary_key=True)   
     pedido_fecha = models.DateField(auto_now=True)
     pedido_descripcion = models.TextField(max_length=250)
-    cantidad = models.PositiveIntegerField()
     pedido_cliente_cif = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-
     # CREO QUE FALTA OTRA FOREIGNKEY
 
 

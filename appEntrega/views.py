@@ -146,12 +146,18 @@ class DeleteClienteView(DeleteView):
 
 class UpdateClienteView(UpdateView):
     model = Cliente
-    template_name = 'updateCliente.html'
+    template_name = 'update.html'
     fields = ['email','telefono','nombre_cliente']
     success_url = reverse_lazy('listaCliente')
 
 class UpdateProductoView(UpdateView):
     model = Producto
-    template_name = 'updateCliente.html'
+    template_name = 'update.html'
     fields = ['producto_nombre','producto_descripcion','producto_categoria','producto_precio']
     success_url = reverse_lazy('listaProducto')
+
+class UpdatePedidoView(UpdateView):
+    model = Orden_Pedido
+    template_name = 'update.html'
+    fields = ['pedido_descripcion','cantidad']
+    success_url = reverse_lazy('listaPedido') 
