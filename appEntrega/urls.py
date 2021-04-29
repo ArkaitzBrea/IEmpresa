@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from appEntrega.views import PedidoDetailView, PedidoListView,CreateProductoView,CreateClienteView,CreateComponenteView, CreatePedidoView, ClienteDetailView, ClienteListView, ProductoListView, ProductoDetailView, DeleteProductoView
+from appEntrega.views import PedidoDetailView, PedidoListView,CreateProductoView,CreateClienteView,CreateComponenteView, CreatePedidoView, ClienteDetailView, ClienteListView, ProductoListView, ProductoDetailView, DeleteProductoView,DeletePedidoView,DeleteClienteView
 
 urlpatterns = [
     # URL detalle pedido
@@ -24,5 +24,9 @@ urlpatterns = [
     #URL nuevo orden_pedido
     path('pedidos/nuevo/', views.CreatePedidoView.as_view(), name='pedido_form'),
     #URL borrar producto
-    path('productos/<int:pk>/delete/', DeleteProductoView.as_view(),name='borrar_producto')
+    path('productos/<int:pk>/delete/', DeleteProductoView.as_view(),name='borrar_producto'),
+    #URL borrar cliente
+    path('clientes/<int:pk>/delete/', DeleteClienteView.as_view(),name='borrar_clientes'),
+    #URL borrar pedido
+    path('pedidos/<int:pk>/delete/', DeletePedidoView.as_view(),name='borrar_pedidos')
 ]

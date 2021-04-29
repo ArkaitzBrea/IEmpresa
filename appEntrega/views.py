@@ -131,5 +131,15 @@ class CreatePedidoView(View):
 
 class DeleteProductoView(DeleteView):
     model = Producto
-    template_name ='borrarProducto.html'
+    template_name ='borrar.html'
     success_url = reverse_lazy('listaProducto')
+
+class DeletePedidoView(DeleteView):
+    model = Orden_Pedido
+    template_name ='borrar.html'
+    success_url = reverse_lazy('listaPedido')
+
+class DeleteClienteView(DeleteView):
+    model = Cliente
+    template_name ='borrar.html'
+    success_url = reverse_lazy('listaCliente')
