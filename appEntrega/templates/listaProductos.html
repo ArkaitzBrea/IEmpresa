@@ -1,19 +1,44 @@
 {% block content %}
+<h1> Listado de productos</h1>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table-ukabi table table-striped table-hover bordertop-0">
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Producto</th>
+                    <th>Descripción</th>
+                    <th>categoria</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for producto in lista_productos %}
+                <tr>
+                    <td><a
+                            href="http://127.0.0.1:8000/appEntrega/productos/{{producto.pk}}">{{producto.producto_referencia}}</a>
+                    </td>
+                    <td>{{producto.producto_nombre}}</td>
+                    <td>{{producto.producto_descripcion}}</td>
+                    <td>{{producto.producto_categoria}}</td>
+                    <td>{{producto.producto_precio}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
 
-    <h1> Listado de productos</h1>
-    
-    {% if lista_productos %}
-    <ul>
-
-        {% for producto in lista_productos %}
+            {% if lista_productos %}
+            {% for producto in lista_productos %}
             <li>
                 <a href="http://127.0.0.1:8000/appEntrega/productos/{{producto.pk}}">{{producto.producto_nombre}}</a>
             </li>
-        {% endfor %}
+            {% endfor %}
 
-    </ul>
-    {% else %}
-        <p>No hay productos</p>
-    {% endif %}
+            </ul>
+            {% else %}
+
+            {% endif %}
+        </table>
+    </div>
+</div>
 
 {% endblock %}

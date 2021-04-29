@@ -1,0 +1,51 @@
+.navbar-nav .nav-item {
+    padding: 0 .5rem;
+}
+
+.color {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: block;
+    float: left;
+    margin-right: .5rem;
+}
+
+.input-buttton {
+    float: right;
+    margin-top: auto;
+    margin-right: auto;
+    margin-left: 180px;
+    position: absolute;
+}
+
+table {
+    overflow: scroll;
+}
+
+.table-ukabi th {
+    color: #949494;
+    font-weight: normal;
+    padding: 0 10px;
+    border: 2px solid #dee2e6;
+    font-family: FiraSans-Regular, Calibri, Verdana;
+    text-align: center !important;
+}
+
+.bordertop-0 th {
+    border-top: 0;
+}
+
+.table-ukabi td {
+    font-size: 13px;
+    padding: 0.5rem;
+    text-align: center !important;
+}
+
+.table-navbar {
+    position: sticky;
+    background-color: white;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+}

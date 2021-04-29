@@ -1,9 +1,12 @@
 from django.urls import path
 from . import views
-from appEntrega.views import PedidoDetailView, PedidoListView,CreateProductoView,CreateClienteView,CreateComponenteView, CreatePedidoView, ClienteDetailView, ClienteListView, ProductoListView, ProductoDetailView, DeleteProductoView,DeletePedidoView,DeleteClienteView
+from appEntrega.views import PedidoDetailView, PedidoListView, CreateProductoView, CreateClienteView, \
+    CreateComponenteView, CreatePedidoView, ClienteDetailView, ClienteListView, ProductoListView, ProductoDetailView, \
+    DeleteProductoView, DeletePedidoView, DeleteClienteView, Index
 
 urlpatterns = [
     # URL detalle pedido
+    path('', Index, name='index'),
     path('pedidos/<int:pk>', PedidoDetailView.as_view(), name='detallePedido'),
     # URL lista pedidos
     path('pedidos/', PedidoListView.as_view(), name='listaPedido'),
@@ -15,18 +18,18 @@ urlpatterns = [
     path('productos/<int:pk>', ProductoDetailView.as_view(), name='detalleProducto'),
     # URL lista productos
     path('productos/', ProductoListView.as_view(), name='listaProducto'),
-    #URL nuevo producto
+    # URL nuevo producto
     path('productos/nuevo/', views.CreateProductoView.as_view(), name='producto_form'),
-    #URL nuevo cliente
+    # URL nuevo cliente
     path('clientes/nuevo/', views.CreateClienteView.as_view(), name='cliente_form'),
-    #URL nuevo componente
+    # URL nuevo componente
     path('componentes/nuevo/', views.CreateComponenteView.as_view(), name='componente_form'),
-    #URL nuevo orden_pedido
+    # URL nuevo orden_pedido
     path('pedidos/nuevo/', views.CreatePedidoView.as_view(), name='pedido_form'),
-    #URL borrar producto
-    path('productos/<int:pk>/delete/', DeleteProductoView.as_view(),name='borrar_producto'),
-    #URL borrar cliente
-    path('clientes/<int:pk>/delete/', DeleteClienteView.as_view(),name='borrar_clientes'),
-    #URL borrar pedido
-    path('pedidos/<int:pk>/delete/', DeletePedidoView.as_view(),name='borrar_pedidos')
+    # URL borrar producto
+    path('productos/<int:pk>/delete/', DeleteProductoView.as_view(), name='borrar_producto'),
+    # URL borrar cliente
+    path('clientes/<int:pk>/delete/', DeleteClienteView.as_view(), name='borrar_clientes'),
+    # URL borrar pedido
+    path('pedidos/<int:pk>/delete/', DeletePedidoView.as_view(), name='borrar_pedidos')
 ]

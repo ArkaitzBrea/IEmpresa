@@ -9,17 +9,26 @@ from .models import Orden_Pedido, Cliente, Producto
 from .forms import ProductoForm, ClienteForm, ComponenteForm, PedidoForm
 from django.urls import reverse_lazy
 
+
+# Index
+def Index(request):
+    context = {'foo': 'bar'}
+    return render(request, 'index.html', context)
+
+
 # Vista de PedidoListView
 class PedidoListView(ListView):
     model = Orden_Pedido
     template_name = 'listaPedidos.html'
     context_object_name = 'lista_pedidos'
 
+
 # Vista de PedidoDetailView
 class PedidoDetailView(DetailView):
     model = Orden_Pedido
     template_name = 'detallePedido.html'
     context_object_name = 'pedido'
+
 
 # Vista de ClienteListView
 class ClienteListView(ListView):
@@ -34,17 +43,20 @@ class ClienteDetailView(DetailView):
     template_name = 'detalleCliente.html'
     context_object_name = 'cliente'
 
+
 # Vista de ProductoListView
 class ProductoListView(ListView):
     model = Producto
     template_name = 'listaProductos.html'
     context_object_name = 'lista_productos'
 
+
 # Vista de ProductoDetailView
 class ProductoDetailView(DetailView):
     model = Producto
     template_name = 'detalleProducto.html'
     context_object_name = 'producto'
+
 
 # Vista de formulario de crear un nuevo producto
 class CreateProductoView(View):
@@ -129,17 +141,20 @@ class CreatePedidoView(View):
 
         return render(request, 'nuevoPedido.html', {'form': form})
 
+
 class DeleteProductoView(DeleteView):
     model = Producto
-    template_name ='borrar.html'
+    template_name = 'borrar.html'
     success_url = reverse_lazy('listaProducto')
+
 
 class DeletePedidoView(DeleteView):
     model = Orden_Pedido
-    template_name ='borrar.html'
+    template_name = 'borrar.html'
     success_url = reverse_lazy('listaPedido')
+
 
 class DeleteClienteView(DeleteView):
     model = Cliente
-    template_name ='borrar.html'
+    template_name = 'borrar.html'
     success_url = reverse_lazy('listaCliente')

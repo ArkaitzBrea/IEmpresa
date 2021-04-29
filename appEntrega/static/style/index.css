@@ -1,0 +1,40 @@
+button{
+    width: 100%;
+    height: 150px;
+    margin: 10px;
+    /*background-color: rgb(42,141,209);*/
+    background:linear-gradient(#429ed6,#2481c6);
+    border:none;
+    box-shadow: 4px 4px 10px 0 rgba(0,0,0,.15);
+    color: white;
+    cursor: pointer;
+}
+
+.alterna{
+  background:linear-gradient(white,rgb(235, 235, 235));
+  color:#2481c6 ;
+}
+button div{
+  text-align: center;
+  margin-top: 10px;
+}
+button:hover{
+  opacity: .8;
+  box-shadow: none;
+}
+button:disabled{
+  opacity: .5;
+  box-shadow: none;
+}
+
+.line-break{
+  width: 100%;
+}
+
+.button-div{
+  width: 150px;
+}
+
+.panel-de-botones{
+  max-width: 750px;
+}
