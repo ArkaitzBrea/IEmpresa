@@ -1,10 +1,10 @@
 from django.urls import path
 from . import views
-from appEntrega.views import PedidoDetailView, PedidoListView,CreateProductoView,CreateClienteView,CreateComponenteView, CreatePedidoView, ClienteDetailView, ClienteListView, ProductoListView, ProductoDetailView, DeleteProductoView,DeletePedidoView,DeleteClienteView
+from appEntrega.views import PedidoDetailView, PedidoListView,CreateProductoView,CreateClienteView,CreateComponenteView, CreatePedidoView, ClienteDetailView, ClienteListView, ProductoListView, ProductoDetailView, DeleteProductoView,DeletePedidoView,DeleteClienteView,UpdateClienteView,UpdateProductoView
 
 urlpatterns = [
     # URL detalle pedido
-    path('pedidos/<int:pk>', PedidoDetailView.as_view(), name='detallePedido'),
+    path('pedidos/<int:pk>/', PedidoDetailView.as_view(), name='detallePedido'),
     # URL lista pedidos
     path('pedidos/', PedidoListView.as_view(), name='listaPedido'),
     # URL detalle cliente
@@ -12,7 +12,7 @@ urlpatterns = [
     # URL lista clientes
     path('clientes/', ClienteListView.as_view(), name='listaCliente'),
     # URL detalle producto
-    path('productos/<int:pk>', ProductoDetailView.as_view(), name='detalleProducto'),
+    path('productos/<str:pk>', ProductoDetailView.as_view(), name='detalleProducto'),
     # URL lista productos
     path('productos/', ProductoListView.as_view(), name='listaProducto'),
     #URL nuevo producto
@@ -28,5 +28,10 @@ urlpatterns = [
     #URL borrar cliente
     path('clientes/<int:pk>/delete/', DeleteClienteView.as_view(),name='borrar_clientes'),
     #URL borrar pedido
-    path('pedidos/<int:pk>/delete/', DeletePedidoView.as_view(),name='borrar_pedidos')
+    path('pedidos/<int:pk>/delete/', DeletePedidoView.as_view(),name='borrar_pedidos'),
+    #URL editar cliente
+    path('clientes/<pk>/editar', UpdateClienteView.as_view(),name='editar_cliente'),
+    #URL editar cliente
+    path('productos/<pk>/editar/', UpdateProductoView.as_view(),name='editar_cliente')
+
 ]

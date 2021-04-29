@@ -43,10 +43,8 @@ class Componente(models.Model):
 class Orden_Pedido(models.Model):
     pedido_referencia = models.CharField(max_length=12, primary_key=True)   
     pedido_fecha = models.DateField(auto_now=True)
-    pedido_descripcion = models.CharField(max_length=250)
-    pedido_curso = models.BooleanField(default=False)
-    pedido_lanzado = models.BooleanField(default=False)
-    pedido_finalizado = models.BooleanField(default=False)
+    pedido_descripcion = models.TextField(max_length=250)
+    cantidad = models.PositiveIntegerField()
     pedido_cliente_cif = models.ForeignKey(Cliente, on_delete=models.CASCADE)
 
     # CREO QUE FALTA OTRA FOREIGNKEY
@@ -55,7 +53,7 @@ class Orden_Pedido(models.Model):
 class Factura(models.Model):
     linea_referencia = models.CharField(max_length=12, primary_key=True)
     linea_descripcion = models.CharField(max_length=250)
-    linea_unidades = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    linea_unidades = models.PositiveIntegerField()
     linea_precio = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     linea_pedido_referencia = models.ForeignKey(Orden_Pedido, on_delete=models.CASCADE)
     linea_producto_referencia = models.ForeignKey(Producto, on_delete=models.CASCADE)

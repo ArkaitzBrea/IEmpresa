@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, get_list_or_404
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import DeleteView
+from django.views.generic.edit import DeleteView,UpdateView
 from django.views import View
 from .models import Orden_Pedido, Cliente, Producto
 from .forms import ProductoForm, ClienteForm, ComponenteForm, PedidoForm
@@ -143,3 +143,15 @@ class DeleteClienteView(DeleteView):
     model = Cliente
     template_name ='borrar.html'
     success_url = reverse_lazy('listaCliente')
+
+class UpdateClienteView(UpdateView):
+    model = Cliente
+    template_name = 'updateCliente.html'
+    fields = ['email','telefono','nombre_cliente']
+    success_url = reverse_lazy('listaCliente')
+
+class UpdateProductoView(UpdateView):
+    model = Producto
+    template_name = 'updateCliente.html'
+    fields = ['producto_nombre','producto_descripcion','producto_categoria','producto_precio']
+    success_url = reverse_lazy('listaProducto')
