@@ -23,7 +23,7 @@ table {
     overflow: scroll;
 }
 
-.table-ukabi th {
+.table-deustronic th {
     color: #949494;
     font-weight: normal;
     padding: 0 10px;
@@ -36,10 +36,11 @@ table {
     border-top: 0;
 }
 
-.table-ukabi td {
+.table-deustronic td {
     font-size: 13px;
     padding: 0.5rem;
     text-align: center !important;
+    cursor: pointer !important;
 }
 
 .table-navbar {
@@ -48,4 +49,19 @@ table {
     z-index: 1;
     top: 0;
     width: 100%;
+}
+
+.c-grey {
+    color: silver !important;
+}
+
+.boton-nav {
+    width: 7rem;
+    height: 3.2rem !important;
+    color: white !important;
+    font-weight: 400;
+    font-size: 1.2rem;
+    text-decoration: none;
+    outline-style: none;
+    background-color: rgb(42, 141, 209);
 }
