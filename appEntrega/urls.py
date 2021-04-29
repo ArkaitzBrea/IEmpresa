@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from appEntrega.views import PedidoDetailView, PedidoListView,CreateProductoView,CreateClienteView,CreateComponenteView, CreatePedidoView, ClienteDetailView, ClienteListView, ProductoListView, ProductoDetailView
+from appEntrega.views import PedidoDetailView, PedidoListView,CreateProductoView,CreateClienteView,CreateComponenteView, CreatePedidoView, ClienteDetailView, ClienteListView, ProductoListView, ProductoDetailView, DeleteProductoView
 
 urlpatterns = [
     # URL detalle pedido
@@ -12,7 +12,7 @@ urlpatterns = [
     # URL lista clientes
     path('clientes/', ClienteListView.as_view(), name='listaCliente'),
     # URL detalle producto
-    path('productos/<str:pk>', ProductoDetailView.as_view(), name='detalleProducto'),
+    path('productos/<int:pk>', ProductoDetailView.as_view(), name='detalleProducto'),
     # URL lista productos
     path('productos/', ProductoListView.as_view(), name='listaProducto'),
     #URL nuevo producto
@@ -23,4 +23,6 @@ urlpatterns = [
     path('componentes/nuevo/', views.CreateComponenteView.as_view(), name='componente_form'),
     #URL nuevo orden_pedido
     path('pedidos/nuevo/', views.CreatePedidoView.as_view(), name='pedido_form'),
+    #URL borrar producto
+    path('productos/<int:pk>/delete/', DeleteProductoView.as_view(),name='borrar_producto')
 ]

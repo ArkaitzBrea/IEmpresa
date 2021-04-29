@@ -3,9 +3,11 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, get_list_or_404
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import DeleteView
 from django.views import View
 from .models import Orden_Pedido, Cliente, Producto
 from .forms import ProductoForm, ClienteForm, ComponenteForm, PedidoForm
+from django.urls import reverse_lazy
 
 # Vista de PedidoListView
 class PedidoListView(ListView):
@@ -126,3 +128,8 @@ class CreatePedidoView(View):
             return redirect("listaPedido")
 
         return render(request, 'nuevoPedido.html', {'form': form})
+
+class DeleteProductoView(DeleteView):
+    model = Producto
+    template_name ='borrarProducto.html'
+    success_url = reverse_lazy('listaProducto')
