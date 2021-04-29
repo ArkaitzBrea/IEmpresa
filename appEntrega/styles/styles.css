@@ -1,0 +1,100 @@
+@font-face {
+    font-family: FiraSans-Regular;
+    src: url(./assets/fonts/Fira_Sans/FiraSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: FiraSans-SemiBold;
+    src: url(./assets/fonts/Fira_Sans/FiraSans-SemiBold.ttf);
+}
+
+.orange-color, .orange-color:hover {
+    color: rgb(239, 126, 58) !important;
+}
+
+* {
+    font-family: 'FiraSans-Regular', sans-serif;
+}
+
+html {
+    overflow-x: hidden;
+    overflow-y: overlay;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.modal-content-no-border .modal-content {
+    border-radius: 0px !important;
+    border: none !important;
+}
+
+@media (min-width: 1200px) {
+    .modal-xxl {
+        max-width: 95%!important;
+    }
+}
+
+.modal-content-blue .modal-content {
+    border-radius: 0px !important;
+    border: none !important;
+    background-color: rgb(19, 131, 195);
+    color: white;
+    height: 70vh;
+}
+
+.modal-content-casi-completo .modal-content {
+    height: 70vh;
+}
+
+.opacity-0 {
+    opacity: 0 !important;
+}
+
+.form-control-w-100 .form-control {
+    width: 100%!important;
+}
+
+.horizontal-layout {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    flex-direction: row;
+    width: 100%;
+}
+
+.vertical-align {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.margen-bottom-navbar {
+    margin-bottom: 70px;
+}
+
+.no-select {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                          supported by Chrome, Edge, Opera and Firefox */
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+}

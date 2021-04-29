@@ -1,14 +1,19 @@
-from django.shortcuts import render ,redirect
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, get_list_or_404
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views import View
+<<<<<<< HEAD
 from .models import Orden_Pedido, Cliente, Producto
 from .forms import ProductoForm, ClienteForm, ComponenteForm, PedidoForm
 
 
 
+=======
+from .models import Orden_Pedido
+from .forms import ProductoForm, ClienteForm, ComponenteForm, PedidoForm
+>>>>>>> 999dfbf38033aa43b95ae7add13eca3db71cbbe9
 
 
 # Vista de PedidoListView
@@ -23,6 +28,7 @@ class PedidoDetailView(DetailView):
     template_name = 'detallePedido.html'
     context_object_name = 'pedido'
 
+<<<<<<< HEAD
 # Vista de ClienteListView
 class ClienteListView(ListView):
     model = Cliente
@@ -47,6 +53,8 @@ class ProductoDetailView(DetailView):
     model = Producto
     template_name = 'detalleProducto.html'
     context_object_name = 'producto'
+=======
+>>>>>>> 999dfbf38033aa43b95ae7add13eca3db71cbbe9
 
 # Vista de formulario de crear un nuevo producto
 class CreateProductoView(View):
@@ -68,6 +76,7 @@ class CreateProductoView(View):
 
         return render(request, 'nuevoProducto.html', {'form': form})
 
+
 # Vista de formulario de crear un nuevo cliente
 class CreateClienteView(View):
     def get(self, request, *args, **kwargs):
@@ -88,6 +97,7 @@ class CreateClienteView(View):
 
         return render(request, 'nuevoCliente.html', {'form': form})
 
+
 # Vista de formulario de crear un nuevo componente
 class CreateComponenteView(View):
     def get(self, request, *args, **kwargs):
@@ -107,6 +117,7 @@ class CreateComponenteView(View):
             return redirect("listaComponente")
 
         return render(request, 'nuevoComponente.html', {'form': form})
+
 
 # Vista de formulario de crear un nuevo pedido
 class CreatePedidoView(View):

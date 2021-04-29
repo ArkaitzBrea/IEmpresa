@@ -1,0 +1,52 @@
+.input-group-mat {
+    position: relative;
+    margin: 40px auto;
+}
+
+.input-buttton {
+    float: right;
+    margin-right: 6px;
+    margin-top: -30px;
+    position: relative;
+    z-index: 2;
+}
+
+.form-control-mat {
+    position: relative;
+    z-index: 1;
+    height: 35px;
+    font-size: 13px;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    background-color: transparent;
+}
+
+.form-control-mat:not(.w-defecto) {
+    width: 100%;
+}
+
+.form-control-mat+label {
+    position: absolute;
+    top: 10px;
+    left: 3px;
+    font-size: 13px;
+    color: gray;
+    transition: all .2s ease-out;
+}
+
+.form-control-mat:focus {
+    outline: none;
+    border-width: 2px;
+    border-color: #429ed6;
+    transition: all .2s ease-out;
+}
+
+.form-control-mat:focus+label, .form-control-mat.has-value+label {
+    top: -15px;
+    color: #429ed6;
+    font-size: 12px;
+}
+
+.warning{
+    color: red;
+}
