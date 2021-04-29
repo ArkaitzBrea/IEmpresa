@@ -4,17 +4,8 @@ from django.shortcuts import get_object_or_404, get_list_or_404
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views import View
-<<<<<<< HEAD
 from .models import Orden_Pedido, Cliente, Producto
 from .forms import ProductoForm, ClienteForm, ComponenteForm, PedidoForm
-
-
-
-=======
-from .models import Orden_Pedido
-from .forms import ProductoForm, ClienteForm, ComponenteForm, PedidoForm
->>>>>>> 999dfbf38033aa43b95ae7add13eca3db71cbbe9
-
 
 # Vista de PedidoListView
 class PedidoListView(ListView):
@@ -28,7 +19,6 @@ class PedidoDetailView(DetailView):
     template_name = 'detallePedido.html'
     context_object_name = 'pedido'
 
-<<<<<<< HEAD
 # Vista de ClienteListView
 class ClienteListView(ListView):
     model = Cliente
@@ -53,8 +43,6 @@ class ProductoDetailView(DetailView):
     model = Producto
     template_name = 'detalleProducto.html'
     context_object_name = 'producto'
-=======
->>>>>>> 999dfbf38033aa43b95ae7add13eca3db71cbbe9
 
 # Vista de formulario de crear un nuevo producto
 class CreateProductoView(View):
