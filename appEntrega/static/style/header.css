@@ -1,15 +1,22 @@
 /* HEADER*/
 
   
-img.logoP1{
+i.fab fa-pied-piper-alt{
     position: relative;
     top: 0px;
     left: 30px;
     overflow-y:hidden;
+    height: 60px;
+    width: 1500px;
   }
+p.logo_empresa{
+  height: 60px;
+  width: 1500px;
 
+
+}
   header.cabeceraPortada{
-    background-image: url(https://c4.wallpaperflare.com/wallpaper/965/708/63/texture-abstract-blue-cyan-wallpaper-preview.jpg);
+    background-image: url(https://img.freepik.com/free-vector/blue-copy-space-digital-background_23-2148821698.jpg?size=626&ext=jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     height: 60px;
@@ -27,7 +34,7 @@ img.logoP1{
   }
 
 a.tituloenlaceP1{
-  color: black;
+  color: rgb(255, 255, 255);
   font-size: 25px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   position: relative;
@@ -70,4 +77,23 @@ nav{
     font-size: 30px;
     color: #fff4f4;
     
+  }
+  a.logo_empresa{
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 40px;
+    color: #36ac42;
+    margin-left: 25px;
+    float: left;
+
+
+  }
+  a.tituloenlaceP1{
+    text-decoration: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    color: #ffffff;
+    float: left;
+    margin-top: 35px;
+
   }
