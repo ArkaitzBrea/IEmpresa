@@ -11,6 +11,8 @@
     <link rel="stylesheet" type="text/css" href="{% static '/style/styles.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/style/index.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/style/productos.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/style/header.css' %}">
+
 
 
 
@@ -18,8 +20,25 @@
 </head>
 
 <body>
-    <header>
-        <h1>meter header aqui</h1>
+    <header class="cabeceraPortada">
+    
+        <a href= "" > 
+        <img class="logoP1" width= "80" height= "120" src="">
+    
+        <a class="tituloenlaceP1" href= "" > TITULO </a>
+        <nav>
+            
+            <ul>    
+    
+                <li><a href= "" > PEDIDOS </a></li>
+                <li><a href= ""> PRODUCTOS </a></li>
+                <li><a href= "" > 
+                    <img class= "registroLogoP1"width= "65" height= "55" src="appEntrega\templates\logo_bueno.png">
+    
+                </a></li>
+            </ul>
+        </nav>
+    
     </header>
     <div class="wrapper">
         {% block content %}
