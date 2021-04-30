@@ -1,0 +1,211 @@
+Index: appEntrega/static/style/header.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/* HEADER*/\r\n\r\nimg.logoP1 {\r\n  position: relative;\r\n  top: 0px;\r\n  left: 30px;\r\n  overflow-y: hidden;\r\n}\r\n\r\nheader.cabeceraPortada {\r\n  background-image: url(https://c4.wallpaperflare.com/wallpaper/965/708/63/texture-abstract-blue-cyan-wallpaper-preview.jpg);\r\n  background-repeat: no-repeat;\r\n  background-size: 100% 100%;\r\n  height: 60px;\r\n  width: 1500px;\r\n  overflow: hidden;\r\n}\r\n\r\nimg.registroLogoP1 {\r\n  position: relative;\r\n  top: -20px;\r\n  left: -10px;\r\n  overflow-y: hidden;\r\n}\r\n\r\na.tituloenlaceP1 {\r\n  color: black;\r\n  font-size: 25px;\r\n  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;\r\n  position: relative;\r\n  margin-left: 25px;\r\n  top: -30px;\r\n  text-decoration: none;\r\n  overflow-y: hidden;\r\n}\r\n\r\nh2 {\r\n  padding: 0px;\r\n  color: #1c3d79;\r\n  font-size: 50px;\r\n  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif\r\n}\r\n\r\nli {\r\n  float: left;\r\n  list-style: none;\r\n  padding: 25px;\r\n  margin: -10px;\r\n  overflow-y: hidden;\r\n}\r\n\r\nli:hover a {\r\n  color: rgb(6, 6, 7);\r\n  overflow-y: hidden;\r\n}\r\n\r\n.nav {\r\n  float: right;\r\n  margin-top: -10px;\r\n}\r\n\r\n.a {\r\n  text-decoration: none;\r\n  font-family: 'Courier New', Courier, monospace;\r\n  font-size: 30px;\r\n  color: #fff4f4;\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/appEntrega/static/style/header.css b/appEntrega/static/style/header.css
+--- a/appEntrega/static/style/header.css	(revision 793b850e15ef9fb1e6b1af0740e92a482278adde)
++++ b/appEntrega/static/style/header.css	(date 1619790423140)
+@@ -1,5 +1,6 @@
+ /* HEADER*/
+ 
++<<<<<<< HEAD
+ img.logoP1 {
+   position: relative;
+   top: 0px;
+@@ -15,6 +16,38 @@
+   width: 1500px;
+   overflow: hidden;
+ }
++=======
++  
++i.fab fa-pied-piper-alt{
++    position: relative;
++    top: 0px;
++    left: 30px;
++    overflow-y:hidden;
++    height: 60px;
++    width: 1500px;
++  }
++p.logo_empresa{
++  height: 60px;
++  width: 1500px;
++
++
++}
++  header.cabeceraPortada{
++    background-image: url(https://img.freepik.com/free-vector/blue-copy-space-digital-background_23-2148821698.jpg?size=626&ext=jpg);
++    background-repeat: no-repeat;
++    background-size: 100% 100%;
++    height: 60px;
++    width: 1500px;
++    overflow: hidden;
++  
++  }
++  
++  img.registroLogoP1{
++    position: relative;
++    top: -20px;
++    left: -10px;
++    overflow-y:hidden;
++>>>>>>> e3eff21678ebf08b27f43688de11612b80eccdf6
+ 
+ img.registroLogoP1 {
+   position: relative;
+@@ -23,8 +56,13 @@
+   overflow-y: hidden;
+ }
+ 
++<<<<<<< HEAD
+ a.tituloenlaceP1 {
+   color: black;
++=======
++a.tituloenlaceP1{
++  color: rgb(255, 255, 255);
++>>>>>>> e3eff21678ebf08b27f43688de11612b80eccdf6
+   font-size: 25px;
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   position: relative;
+@@ -59,9 +97,40 @@
+   margin-top: -10px;
+ }
+ 
++<<<<<<< HEAD
+ .a {
+   text-decoration: none;
+   font-family: 'Courier New', Courier, monospace;
+   font-size: 30px;
+   color: #fff4f4;
+-}
+\ No newline at end of file
++}
++=======
++
++
++   a{
++    text-decoration: none;
++    font-family: 'Courier New', Courier, monospace;
++    font-size: 30px;
++    color: #fff4f4;
++    
++  }
++  a.logo_empresa{
++    text-decoration: none;
++    font-family: 'Courier New', Courier, monospace;
++    font-size: 40px;
++    color: #36ac42;
++    margin-left: 25px;
++    float: left;
++
++
++  }
++  a.tituloenlaceP1{
++    text-decoration: none;
++    font-family: Georgia, 'Times New Roman', Times, serif;
++    font-size: 30px;
++    color: #ffffff;
++    float: left;
++    margin-top: 35px;
++
++  }
++>>>>>>> e3eff21678ebf08b27f43688de11612b80eccdf6
+Index: appEntrega/templates/listaProductos.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{% extends 'base.html' %}\r\n{% block content %}\r\n\r\n<div class=\"\">\r\n    <nav class=\"navbar navbar-light table-navbar\">\r\n        <h2 class=\"orange-color\">Productos</h2>\r\n        <ul class=\"navbar-nav mr-auto flex-row\">\r\n            <li class=\"nav-item ml-3\">\r\n                <i class=\"fas fa-plus-circle fa-lg c-grey\"\r\n                    onclick=\"location.href='http://127.0.0.1:8000/appEntrega/productos/nuevo/'\"></i>\r\n            </li>\r\n\r\n            <li class=\"nav-item ml-3\">\r\n                <i class=\"fas fa-pen fa-lg c-grey\"></i>\r\n            </li>\r\n            <li class=\"nav-item ml-3\">\r\n                <i class=\"fas fa-trash fa-lg c-grey\"></i>\r\n            </li>\r\n        </ul>\r\n    </nav>\r\n</div>\r\n\r\n\r\n<div class=\"row\">\r\n    <div class=\"col-md-12\">\r\n        <table class=\"table-deustronic table table-striped table-hover bordertop-0\">\r\n            <thead>\r\n                <tr>\r\n                    <th>CÓDIGO</th>\r\n                    <th>PRODUCTO</th>\r\n                    <th>DESCRIPCIÓN</th>\r\n                    <th>CATEGORIA</th>\r\n                    <th>PRECIO</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                {% if lista_productos %}\r\n                {% for producto in lista_productos %}\r\n                <tr ondblclick=\"location.href='http://127.0.0.1:8000/appEntrega/productos/{{producto.pk}}'\">\r\n                    <td>\r\n                        {{producto.producto_referencia}}\r\n                    </td>\r\n                    <td>{{producto.producto_nombre}}</td>\r\n                    <td>{{producto.producto_descripcion}}</td>\r\n                    <td>{{producto.producto_categoria}}</td>\r\n                    <td>{{producto.producto_precio}}</td>\r\n                </tr>\r\n                {% endfor %}\r\n\r\n                {% else %}\r\n                <tr>\r\n                    <td colspan=\"5\">\r\n                        <p>No existen Productos</p>\r\n                    </td>\r\n                </tr>\r\n                {% endif %}\r\n            </tbody>\r\n        </table>\r\n    </div>\r\n</div>\r\n\r\n<nav class=\"navbar navbar-light bg-light fixed-bottom position-sticky\">\r\n    <div class=\"form-inline ml-auto\">\r\n        <button onclick=\"location.href='http://127.0.0.1:8000/appEntrega'\" class=\"btn boton-nav btn-secondary m-2\"\r\n            type=\"button\">Volver</button>\r\n    </div>\r\n</nav>\r\n\r\n{% endblock %}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/appEntrega/templates/listaProductos.html b/appEntrega/templates/listaProductos.html
+--- a/appEntrega/templates/listaProductos.html	(revision 793b850e15ef9fb1e6b1af0740e92a482278adde)
++++ b/appEntrega/templates/listaProductos.html	(date 1619790997901)
+@@ -8,6 +8,7 @@
+             <li class="nav-item ml-3">
+                 <i class="fas fa-plus-circle fa-lg c-grey"
+                     onclick="location.href='http://127.0.0.1:8000/appEntrega/productos/nuevo/'"></i>
++
+             </li>
+ 
+             <li class="nav-item ml-3">
+@@ -63,6 +64,8 @@
+     <div class="form-inline ml-auto">
+         <button onclick="location.href='http://127.0.0.1:8000/appEntrega'" class="btn boton-nav btn-secondary m-2"
+             type="button">Volver</button>
++        <button onclick="location.href='http:'//127.0.0.1:8000/appEntrega'"
++            class="btn boton-nav btn-outline-secondary m-2" type="button">Volver</button>
+     </div>
+ </nav>
+ 
+Index: appEntrega/templates/base.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n{% load static %}\r\n<html lang=\"es\">\r\n\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.5.0/css/all.css\">\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"{% static '/style/bootstrap.css' %}\">\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"{% static '/style/styles.css' %}\">\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"{% static '/style/index.css' %}\">\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"{% static '/style/productos.css' %}\">\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"{% static '/style/header.css' %}\">\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"{% static '/style/forms.css' %}\">\r\n\r\n\r\n\r\n\r\n    <title>Document</title>\r\n</head>\r\n\r\n<body>\r\n    <header class=\"cabeceraPortada\">\r\n\r\n        <a href=\"\">\r\n            <img class=\"logoP1\" width=\"80\" height=\"120\" src=\"\">\r\n            <a class=\"tituloenlaceP1\" href=\"\"> TITULO </a>\r\n            <nav class=\".nav\">\r\n                <ul>\r\n                    <li><a href=\"\"> PEDIDOS </a></li>\r\n                    <li><a href=\"\"> PRODUCTOS </a></li>\r\n                    <li><a href=\"\">\r\n                            <img class=\"registroLogoP1\" width=\"65\" height=\"55\"\r\n                                src=\"appEntrega\\templates\\logo_bueno.png\"></a></li>\r\n                </ul>\r\n            </nav>\r\n        </a>\r\n    </header>\r\n    <div class=\"wrapper\">\r\n        {% block content %}\r\n        {% endblock %}\r\n    </div>\r\n\r\n    <script src=\"{% static '/js/bundle.js' %}\"></script>\r\n</body>\r\n\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/appEntrega/templates/base.html b/appEntrega/templates/base.html
+--- a/appEntrega/templates/base.html	(revision 793b850e15ef9fb1e6b1af0740e92a482278adde)
++++ b/appEntrega/templates/base.html	(date 1619791008941)
+@@ -13,35 +13,36 @@
+     <link rel="stylesheet" type="text/css" href="{% static '/style/productos.css' %}">
+     <link rel="stylesheet" type="text/css" href="{% static '/style/header.css' %}">
+     <link rel="stylesheet" type="text/css" href="{% static '/style/forms.css' %}">
+-
+-
+-
+-
+     <title>Document</title>
+ </head>
+ 
+-<body>
+-    <header class="cabeceraPortada">
++
++<header class="cabeceraPortada">
+ 
+-        <a href="">
+-            <img class="logoP1" width="80" height="120" src="">
+-            <a class="tituloenlaceP1" href=""> TITULO </a>
+-            <nav class=".nav">
+-                <ul>
+-                    <li><a href=""> PEDIDOS </a></li>
+-                    <li><a href=""> PRODUCTOS </a></li>
+-                    <li><a href="">
+-                            <img class="registroLogoP1" width="65" height="55"
+-                                src="appEntrega\templates\logo_bueno.png"></a></li>
+-                </ul>
+-            </nav>
+-        </a>
+-    </header>
+-    <div class="wrapper">
+-        {% block content %}
+-        {% endblock %}
+-    </div>
++    <a class="logo_empresa"><i class="fab fa-pied-piper-alt"></i> </a>
++
++    <a class="tituloenlaceP1" href="C:\ingenieria_web_programas\IEmpresa\appEntrega\templates\index.html"> UD COMPANY
++    </a>
++    <nav>
++
++        <ul>
++
++            <li><a href=""> <i class="fas fa-question"></i></li>
++            <li><a href=""> <i class="fas fa-envelope-open-text"></i></li>
++            <li><a href=""> <i class="far fa-bell"></i></li>
++
++            <li><a href="">
++                    <i class="fas fa-user"></i>
++                </a></li>
++        </ul>
++    </nav>
++</header>
++<div class="wrapper">
++    {% block content %}
++    {% endblock %}
++</div>
+ 
++<body>
+     <script src="{% static '/js/bundle.js' %}"></script>
+ </body>
+ 

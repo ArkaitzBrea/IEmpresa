@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="773dc458-3f15-47b2-8da8-3286683ab617" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/IEmpresa.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/static/js/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/static/js/bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/static/style/forms.css" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/static/style/forms.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/static/style/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/static/style/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/static/style/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/static/style/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/static/style/productos.css" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/static/style/productos.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/static/style/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/static/style/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/templates/borrar.html" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/templates/borrar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/templates/detalleCliente.html" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/templates/detalleCliente.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/templates/detallePedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/templates/detallePedido.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/templates/detalleProducto.html" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/templates/detalleProducto.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/templates/forms.html" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/templates/forms.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/templates/listaClientes.html" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/templates/listaClientes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/templates/listaPedidos.html" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/templates/listaPedidos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/templates/listaProductos.html" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/templates/listaProductos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/templates/nuevoCliente.html" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/templates/nuevoCliente.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/templates/nuevoComponente.html" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/templates/nuevoComponente.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/templates/nuevoPedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/templates/nuevoPedido.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/templates/nuevoProducto.html" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/templates/nuevoProducto.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/templates/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/templates/update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appEntrega/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/appEntrega/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entrega/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/asgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entrega/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entrega/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entrega/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/entrega/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1rZYmSJOatH6X1H4AdBJQ8F8KOH" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/appEntrega/migrations" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Industria 4.0\Desktop\Proyectos\IWeb\IEmpresa\appEntrega\migrations" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="773dc458-3f15-47b2-8da8-3286683ab617" name="Default Changelist" comment="" />
+      <created>1619185237490</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1619185237490</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
