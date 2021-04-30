@@ -19,7 +19,7 @@ urlpatterns = [
     # URL lista productos
     path('productos/', ProductoListView.as_view(), name='listaProducto'),
     # URL nuevo producto
-    path('nuevo/productos/', views.CreateProductoView.as_view(), name='producto_form'),
+    path('productos/nuevo/', views.CreateProductoView.as_view(), name='producto_form'),
     # URL nuevo cliente
     path('clientes/nuevo/', views.CreateClienteView.as_view(), name='cliente_form'),
     # URL nuevo componente

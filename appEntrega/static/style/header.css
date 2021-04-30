@@ -1,5 +1,6 @@
 /* HEADER*/
 
+<<<<<<< HEAD
   
 i.fab fa-pied-piper-alt{
     position: relative;
@@ -30,45 +31,73 @@ p.logo_empresa{
     top: -20px;
     left: -10px;
     overflow-y:hidden;
+=======
+img.logoP1 {
+  position: relative;
+  top: 0px;
+  left: 30px;
+  overflow-y: hidden;
+}
 
-  }
+header.cabeceraPortada {
+  background-image: url(https://c4.wallpaperflare.com/wallpaper/965/708/63/texture-abstract-blue-cyan-wallpaper-preview.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 60px;
+  width: 1500px;
+  overflow: hidden;
+}
+>>>>>>> 793b850 (cambios css)
 
+img.registroLogoP1 {
+  position: relative;
+  top: -20px;
+  left: -10px;
+  overflow-y: hidden;
+}
+
+<<<<<<< HEAD
 a.tituloenlaceP1{
   color: rgb(255, 255, 255);
+=======
+a.tituloenlaceP1 {
+  color: black;
+>>>>>>> 793b850 (cambios css)
   font-size: 25px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   position: relative;
   margin-left: 25px;
   top: -30px;
   text-decoration: none;
-  overflow-y:hidden;
+  overflow-y: hidden;
 }
 
-
-h2{
+h2 {
   padding: 0px;
   color: #1c3d79;
   font-size: 50px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
-li{
+li {
   float: left;
   list-style: none;
   padding: 25px;
   margin: -10px;
-  overflow-y:hidden;
-}
-li:hover a{
-  color: rgb(6, 6, 7);
-  overflow-y:hidden;
-}
-nav{
-  float: right;
-  margin-top: -10px;
-  
+  overflow-y: hidden;
 }
 
+li:hover a {
+  color: rgb(6, 6, 7);
+  overflow-y: hidden;
+}
+
+.nav {
+  float: right;
+  margin-top: -10px;
+}
+
+<<<<<<< HEAD
 
 
    a{
@@ -97,3 +126,11 @@ nav{
     margin-top: 35px;
 
   }
+=======
+.a {
+  text-decoration: none;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 30px;
+  color: #fff4f4;
+}
+>>>>>>> 793b850 (cambios css)

@@ -1,26 +1,21 @@
-<!DOCTYPE html>
-{% load static %}
-{% load bootstrap4 %}
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static '/style/forms.css' %}">
-
-    <title>Nuevo producto</title>
-</head>
+{% extends 'base.html' %}
+{% block content %}
 
 <body>
-    <form action="{% url 'producto_form' %}" method="POST">{% csrf_token %}
-
+    <form id="newProduct" action="{% url 'producto_form' %}" method="POST">{% csrf_token %}
         {% include "forms.html"%}
-
-        {% buttons %}
-        <button type="submit" class="btn btn-primary">Guardar</button>
-        {% endbuttons %}
     </form>
-</body>
 
-</html>
+    <nav class="navbar navbar-light bg-light fixed-bottom position-sticky">
+        <div class="d-flex justify-content-around">
+            <div class="form-inline ml-auto">
+                <button type="submit" form="newProduct" class="btn boton-nav btn-primary m-2">Guardar
+                </button>
+            </div>
+            <div class="form-inline ml-auto">
+                <button onclick="location.href='http://127.0.0.1:8000/appEntrega'"
+                    class="btn boton-nav btn-secondary m-2" type="button">Volver</button>
+            </div>
+        </div>
+    </nav>
+{% endblock %}

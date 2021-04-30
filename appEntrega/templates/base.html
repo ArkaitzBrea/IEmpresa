@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{% static '/style/index.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/style/productos.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/style/header.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/style/forms.css' %}">
 
 
 
@@ -20,31 +21,33 @@
 </head>
 
 
-    <header class="cabeceraPortada">
-    
-        <a class = "logo_empresa"><i class="fab fa-pied-piper-alt" ></i> </a>
-    
-        <a class="tituloenlaceP1" href= "C:\ingenieria_web_programas\IEmpresa\appEntrega\templates\index.html" > UD COMPANY </a>
-        <nav>
-            
-            <ul>    
-    
-                <li><a href= "" > <i class="fas fa-question"></i></li>
-                <li><a href= "" > <i class="fas fa-envelope-open-text"></i></li>
-                <li><a href= "" > <i class="far fa-bell"></i></li>
+<header class="cabeceraPortada">
 
-                <li><a href= "" > 
-                    <i class="fas fa-user"></i>    
+    <a class="logo_empresa"><i class="fab fa-pied-piper-alt"></i> </a>
+
+    <a class="tituloenlaceP1" href="C:\ingenieria_web_programas\IEmpresa\appEntrega\templates\index.html"> UD COMPANY
+    </a>
+    <nav>
+
+        <ul>
+
+            <li><a href=""> <i class="fas fa-question"></i></li>
+            <li><a href=""> <i class="fas fa-envelope-open-text"></i></li>
+            <li><a href=""> <i class="far fa-bell"></i></li>
+
+            <li><a href="">
+                    <i class="fas fa-user"></i>
                 </a></li>
-            </ul>
-        </nav>
-    
-    </header>
-    <div class="wrapper">
-        {% block content %}
-        {% endblock %}
-    </div>
-    <body>
+        </ul>
+    </nav>
+
+</header>
+<div class="wrapper">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<body>
     <script src="{% static '/js/bundle.js' %}"></script>
 </body>
 
