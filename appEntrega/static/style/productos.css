@@ -25,8 +25,9 @@ table {
 
 .table-deustronic th {
     color: #949494;
-    font-weight: normal;
-    padding: 0 10px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 5px 10px;
     border: 2px solid #dee2e6;
     font-family: FiraSans-Regular, Calibri, Verdana;
     text-align: center !important;
@@ -37,7 +38,7 @@ table {
 }
 
 .table-deustronic td {
-    font-size: 13px;
+    font-size: 14px;
     padding: 0.5rem;
     text-align: center !important;
     cursor: pointer !important;
@@ -63,4 +64,11 @@ table {
     font-size: 1.2rem;
     text-decoration: none;
     outline-style: none;
+}
+
+.nav-footer {
+
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
 }

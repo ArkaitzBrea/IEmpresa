@@ -1,5 +1,6 @@
 .orange-color, .orange-color:hover {
     color: rgb(239, 126, 58) !important;
+    font-weight: 100 !important;
 }
 
 * {
@@ -91,10 +92,14 @@ body {
 
 .contenedor {
     width: 95%;
-    margin: 0 auto !important;
+    margin: 0 auto;
     overflow: hidden;
 }
 
 i {
     cursor: pointer !important;
+}
+
+ul {
+    padding: 0 !important;
 }

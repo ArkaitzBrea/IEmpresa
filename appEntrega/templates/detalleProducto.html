@@ -1,24 +1,89 @@
+{% extends 'base.html' %}
 {% block content %}
-	
-	<h1> Detalle del cliente: {{producto.producto_nombre}}</h1>
-	
-	{% if producto %}
+
+
+<div class="contenedor my-3 row justify-content-around">
+	<div class="producto col-4">
+		<h3 class="orange-color mt-3 mb-5">{{producto.producto_nombre}}</h3>
+
+		{% if producto %}
 		<ul>
-				<li>
-					<p><strong>Referencia del producto: </strong>{{producto.producto_referencia}}</p>
-				</li>
-				<li>
-					<p><strong>Categoría del producto: </strong>{{producto.producto_categoria}}</p>
-				</li>
-				
-                <li>
-					<p><strong>Precio: </strong>{{producto.producto_precio}}</p>
-				</li>
-                
+			<li>
+				<p><strong>REFERENCIA PRODUCTO:</strong>{{producto.producto_referencia | upper }}</p>
+			</li>
+			<li>
+				<p><strong>DESCRIPCIÓN PRODUCTO: </strong>{{producto.producto_descripcion}}</p>
+			</li>
+			<li>
+				<p><strong>CATEGORÍA: </strong>{{producto.producto_categoria}}</p>
+			</li>
+
+			<li>
+				<p><strong>PRECIO: </strong>{{producto.producto_precio}}</p>
+			</li>
+
 		</ul>
 
-	{% else %}
+		{% else %}
 		<p>No hay productos</p>
-	{% endif %}
-	
+		{% endif %}
+	</div>
+
+	<div class="componentes col-8">
+		<h3 class="orange-color mt-3 mb-5">Componentes</h3>
+
+		<table class="table-deustronic table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>CÓDIGO</th>
+					<th>COMPONENTE</th>
+					<th>UNIDADES</th>
+					<th>DESCRIPCION</th>
+					<th>PRECIO</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% if lista_productos %}
+				{% for producto in lista_productos %}
+				<tr ondblclick="location.href='http://127.0.0.1:8000/appEntrega/productos/{{producto.pk}}'">
+					<td>
+						{{producto.producto_referencia}}
+					</td>
+					<td>{{producto.producto_nombre}}</td>
+					<td>{{producto.producto_descripcion}}</td>
+					<td>{{producto.producto_categoria}}</td>
+					<td>{{producto.producto_precio}}</td>
+				</tr>
+				{% endfor %}
+
+				{% else %}
+				<tr>
+					<td colspan="5">
+						<p>No existen Productos</p>
+					</td>
+				</tr>
+				{% endif %}
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<nav class="nav-footer navbar-light bg-light fixed-bottom">
+	<div class="row justify-content-between">
+		<div class="d-flex">
+			<div class="form-inline ml-auto">
+				<button type="button" class="btn boton-nav btn-primary m-2">Guardar
+				</button>
+			</div>
+			<div class="form-inline ml-auto">
+				<button type="button" class="btn boton-nav btn-danger m-2">Eliminar
+				</button>
+			</div>
+		</div>
+		<div class="form-inline ml-auto">
+			<button onclick="location.href='http://127.0.0.1:8000/appEntrega/productos'"
+				class="btn boton-nav btn-secondary m-2" type="button">Volver</button>
+		</div>
+	</div>
+</nav>
 {% endblock %}
