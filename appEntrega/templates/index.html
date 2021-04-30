@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container-fluid p-3">
+    <div class="d-flex align-content-start flex-wrap panel-de-botones">
+        <div class="p-2 button-div">
+
+            <a href="http://127.0.0.1:8000/appEntrega/clientes/"><button>
+                    <i class="fas fa-user-tie fa-3x"></i>
+                    <div>Clientes</div>
+                </button>
+            </a>
+        </div>
+        <div class="p-2 button-div">
+            <a href="http://127.0.0.1:8000/appEntrega/productos/"><button>
+                    <i class="fas fa-cube fa-3x"></i>
+                    <div>Productos</div>
+                </button></a>
+        </div>
+        <div class="p-2 button-div">
+            <a href=""><button>
+                    <i class="fas fa-file-signature fa-3x"></i>
+                    <div>Pedidos</div>
+                </button>
+            </a>
+        </div>
+
+    </div>
+    <div class="d-flex align-content-start flex-wrap panel-de-botones">
+        <div class="p-2 button-div">
+            <button class="alterna">
+                <i class="fas fa-cogs fa-3x"></i>
+                <div>Configuración</div>
+            </button>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

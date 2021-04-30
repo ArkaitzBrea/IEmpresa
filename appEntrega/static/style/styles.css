@@ -1,13 +1,3 @@
-@font-face {
-    font-family: FiraSans-Regular;
-    src: url(./assets/fonts/Fira_Sans/FiraSans-Regular.ttf);
-}
-
-@font-face {
-    font-family: FiraSans-SemiBold;
-    src: url(./assets/fonts/Fira_Sans/FiraSans-SemiBold.ttf);
-}
-
 .orange-color, .orange-color:hover {
     color: rgb(239, 126, 58) !important;
 }
@@ -97,4 +87,14 @@ html, body {
 
 body {
     margin: 0;
+}
+
+.contenedor {
+    width: 95%;
+    margin: 0 auto !important;
+    overflow: hidden;
+}
+
+i {
+    cursor: pointer !important;
 }

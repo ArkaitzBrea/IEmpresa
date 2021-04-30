@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="stylesheet" type="text/css" href="{% static '/style/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/style/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/style/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/style/productos.css' %}">
+
+
+
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>meter header aqui</h1>
+    </header>
+    <div class="wrapper">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <script src="{% static '/js/bundle.js' %}"></script>
+</body>
+
+</html>
