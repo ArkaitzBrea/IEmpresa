@@ -1,0 +1,19 @@
+{% block content %}
+	
+	<h1> Detalle del factura: {{factura.referencia}}</h1>
+	
+	{% if factura %}
+		<ul>
+				<li>
+					<p><strong>Descripción del pedido: </strong>{{factura.descripcion}}</p>
+				</li>
+				<li>
+					<p><strong>Referencia de la factura: </strong>{{factura.referencia}}</p>
+				</li>
+		</ul>
+
+	{% else %}
+		<p>No hay facturas</p>
+	{% endif %}
+	
+{% endblock %}

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Producto, Cliente, Componente, Orden_Pedido
+from .models import Producto, Cliente, Componente, Orden_Pedido, Factura
 
 
 # Formulario nuevo producto
@@ -40,4 +40,12 @@ class ComponenteForm(forms.ModelForm):
 class PedidoForm(forms.ModelForm):
     class Meta:
         model = Orden_Pedido
+        fields = '__all__'
+
+# Formulario nueva  factura
+
+
+class FacturaForm(forms.ModelForm):
+    class Meta:
+        model = Factura
         fields = '__all__'

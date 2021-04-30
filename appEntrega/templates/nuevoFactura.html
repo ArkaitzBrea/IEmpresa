@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<body>
+    <form id="newProduct" action="{% url 'factura_form' %}" method="POST">{% csrf_token %}
+        {% include "forms.html"%}
+    </form>
+
+    <nav class="navbar navbar-light bg-light fixed-bottom position-sticky">
+        <div class="d-flex justify-content-around">
+            <div class="form-inline ml-auto">
+                <button type="submit" form="newProduct" class="btn boton-nav btn-primary m-2">Guardar
+                </button>
+            </div>
+            <div class="form-inline ml-auto">
+                <button onclick="location.href='http://127.0.0.1:8000/appEntrega'"
+                    class="btn boton-nav btn-secondary m-2" type="button">Volver</button>
+            </div>
+        </div>
+    </nav>
+{% endblock %}

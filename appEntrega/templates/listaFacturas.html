@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<h1> Listado de facturas</h1>
+
+{% if lista_facturas %}
+<ul>
+
+    {% for factura in lista_facturas %}
+    <li>
+        <a
+            href="http://127.0.0.1:8000/appEntrega/facturas/{{factura.referencia}}">{{factura.descripcion}}</a>
+    </li>
+    {% endfor %}
+
+</ul>
+{% else %}
+<p>No hay facturas</p>
+{% endif %}
+
+{% endblock %}
