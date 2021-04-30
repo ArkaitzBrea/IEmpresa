@@ -6,11 +6,8 @@
         <h2 class="orange-color">Productos</h2>
         <ul class="navbar-nav mr-auto flex-row">
             <li class="nav-item ml-3">
-                <i class="fas fa-plus-circle fa-lg c-grey" <<<<<<< HEAD
-                    onclick="location.href='http:'//127.0.0.1:8000/appEntrega/productos/nuevo'"></i>
-                =======
-                onclick="location.href='http://127.0.0.1:8000/appEntrega/productos/nuevo/'"></i>
-                >>>>>>> 793b850 (cambios css)
+                <i class="fas fa-plus-circle fa-lg c-grey"
+                    onclick="location.href='http:'//127.0.0.1:8000/appEntrega/productos/nuevo/'"></i>
             </li>
 
             <li class="nav-item ml-3">
@@ -39,7 +36,7 @@
             <tbody>
                 {% if lista_productos %}
                 {% for producto in lista_productos %}
-                <tr ondblclick="location.href='http:'//127.0.0.1:8000/appEntrega/productos/{{producto.pk}}'">
+                <tr ondblclick="location.href='http://127.0.0.1:8000/appEntrega/productos/{{producto.pk}}'">
                     <td>
                         {{producto.producto_referencia}}
                     </td>
@@ -64,8 +61,8 @@
 
 <nav class="navbar navbar-light bg-light fixed-bottom position-sticky">
     <div class="form-inline ml-auto">
-        <button onclick="location.href='http:'//127.0.0.1:8000/appEntrega'"
-            class="btn boton-nav btn-outline-secondary m-2" type="button">Volver</button>
+        <button onclick="location.href='http://127.0.0.1:8000/appEntrega'"
+            class="btn boton-nav btn-secondary m-2" type="button">Volver</button>
 
     </div>
 </nav>

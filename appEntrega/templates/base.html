@@ -13,34 +13,27 @@
     <link rel="stylesheet" type="text/css" href="{% static '/style/productos.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/style/header.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/style/forms.css' %}">
-
-
-
-
     <title>Document</title>
 </head>
 
 
 <header class="cabeceraPortada">
-
-    <a class="logo_empresa"><i class="fab fa-pied-piper-alt"></i> </a>
-
-    <a class="tituloenlaceP1" href="C:\ingenieria_web_programas\IEmpresa\appEntrega\templates\index.html"> UD COMPANY
-    </a>
-    <nav>
-
-        <ul>
-
-            <li><a href=""> <i class="fas fa-question"></i></li>
-            <li><a href=""> <i class="fas fa-envelope-open-text"></i></li>
-            <li><a href=""> <i class="far fa-bell"></i></li>
-
-            <li><a href="">
-                    <i class="fas fa-user"></i>
-                </a></li>
-        </ul>
-    </nav>
-
+    <div class="container-header row justify-content-between align-items-center my-2">
+        <div class="col-3 d-flex align-items-center">
+            <i class="fab fa-pied-piper-alt logo_empresa"></i>
+            <h1><a class="tituloenlaceP1" href="http://127.0.0.1:8000/appEntrega/"> UD
+                    COMPANY
+                </a></h1>
+        </div>
+        <nav>
+            <ul class="col-9 d-flex">
+                <li><a class="a" href=""><i class="fas fa-question"></i></a></li>
+                <li><a class="a" href=""><i class="fas fa-envelope-open-text"></i></a></li>
+                <li><a class="a" href=""><i class="far fa-bell"></i></a></li>
+                <li><a class="a" href=""><i class="fas fa-user"></i></a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
 <div class="wrapper">
     {% block content %}
