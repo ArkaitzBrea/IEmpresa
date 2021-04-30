@@ -9,7 +9,7 @@ urlpatterns = [
 =======
 from appEntrega.views import PedidoDetailView, PedidoListView, CreateProductoView, CreateClienteView, \
     CreateComponenteView, CreatePedidoView, ClienteDetailView, ClienteListView, ProductoListView, ProductoDetailView, \
-    DeleteProductoView, DeletePedidoView, DeleteClienteView, Index
+    DeleteProductoView, DeletePedidoView, DeleteClienteView, Index,UpdateClienteView,UpdatePedidoView,UpdateProductoView
 
 urlpatterns = [
     # URL detalle pedido
