@@ -1,14 +1,33 @@
+{% extends 'base.html' %}
 {% block content %}
-	
-	<h1> Detalle del factura: {{factura.referencia}}</h1>
-	
-	{% if factura %}
+
+
+<div class="contenedor my-3 row justify-content-around">
+	<div class="producto col-4">
+		<h3 class="orange-color mt-3 mb-5">{{factura.descripcion}}</h3>
+
+		{% if factura %}
 		<ul>
 				<li>
-					<p><strong>Descripción del pedido: </strong>{{factura.descripcion}}</p>
+					<p><strong>Referencia de la factura: </strong>{{factura.referencia}}</p>
 				</li>
 				<li>
-					<p><strong>Referencia de la factura: </strong>{{factura.referencia}}</p>
+					<p><strong>Descripción de la factura: </strong>{{factura.descripcion}}</p>
+				</li>
+				<li>
+					<p><strong>Refrencia del producto: </strong>{{factura.producto_referencia}}</p>
+				</li>
+				<li>
+					<p><strong>Producto: </strong>{{producto.producto_nombre}}</p>
+				</li>
+				<li>
+					<p><strong>Unidades: </strong>{{factura.unidades}}</p>
+				</li>
+				<li>
+					<p><strong>Pedido: </strong>{{factura.pedido_referencia}}</p>
+				</li>
+				<li>
+					<p><strong>Precio: </strong>{{factura.linea_precio}}</p>
 				</li>
 		</ul>
 
@@ -16,4 +35,95 @@
 		<p>No hay facturas</p>
 	{% endif %}
 	
+	</div>
+
+	<div class="componentes col-8">
+		<h3 class="orange-color mt-3 mb-5">Información de la factura {{factura.referencia}}</h3>
+
+		<table class="table-deustronic table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>CÓDIGO FACTURA</th>
+					<th>FACTURA</th>
+					<th>CÓDIGO PRODUCTO</th>
+					<th>UNIDADES</th>
+					<th>PEDIDO</th>
+					<th>PRECIO</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% if factura %}
+				{% for factura in lista_facturas %}
+				<tr ondblclick="location.href='http://127.0.0.1:8000/appEntrega/facturas/{{factura.pk}}'">
+					<td>{{factura.referencia}}</td>
+					<td>{{factura.descripcion}}</td>
+					<td>{{factura.producto_referencia}}</td>
+					<td>{{factura.unidades}}</td>
+					<td>{{factura.pedido_referencia}}</td>
+					<td>{{factura.linea_precio}}</td>
+				</tr>
+				{% endfor %}
+				{% else %}
+				<tr>
+					<td colspan="6">
+						<p>No existen productos en la factura</p>
+					</td>
+				</tr>
+				{% endif %}
+			</tbody>
+		</table>
+	</div>
+</div>
+
+{% block updateProduct %}
+{% endblock %}
+
+<nav class="p-2 px-4 navbar-light bg-light fixed-bottom">
+	<div class="row justify-content-between">
+		<div class="d-flex">
+			<div class="form-inline ml-auto">
+				<button type="button" class="btn boton-nav btn-primary m-2">Guardar
+				</button>
+			</div>
+			<div class="form-inline ml-auto">
+				<button type="button" class="btn boton-nav btn-danger m-2" data-toggle="modal"
+					data-target="#delete-modal" onclick="location.href='http://127.0.0.1:8000/appEntrega/facturas/{{factura.pk}}/delete/'">Eliminar
+				</button>
+			</div>
+		</div>
+		<div class="form-inline ml-auto">
+			<button onclick="location.href='http://127.0.0.1:8000/appEntrega/facturas'"
+				class="btn boton-nav btn-secondary m-2" type="button">Volver</button>
+		</div>
+	</div>
+</nav>
+
+
+<!--MODAL-->
+<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="delete-modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header p-4 d-flex align-items-center">
+                <h4 class="modal-title text-center">¿Desea eliminar la factura?</h4>
+                <button class="close" data-dismiss="modal" aria-label="Cerrar"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+
+            <div class="modal-body p-5">
+                <form id="deleteProduct" method="post">
+                    {% csrf_token %}
+                    <p>Se eliminará del pedido <strong>{{factura.pedido_referencia}} </strong>el producto <strong>{{producto.producto_descripcion}} </strong>de manera permanente.</p>
+                </form>
+            </div>
+            <div class="modal-footer bt-0 row justify-content-between">
+                <button type="submit" form="deleteProduct" value="Confirm"
+                    class="btn boton-nav btn-danger m-2 mx-4">Eliminar
+                </button>
+                <button class="btn boton-nav btn-secondary m-2 mx-4" data-dismiss="modal" aria-label="Cerrar">Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

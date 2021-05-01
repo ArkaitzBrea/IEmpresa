@@ -32,7 +32,7 @@ urlpatterns = [
 
     #CREAR  /nuevo/
     # URL nueva factura
-    path('factura/nuevo/', views.CreateFacturaView.as_view(), name='factura_form'),
+    path('facturas/nuevo/', views.CreateFacturaView.as_view(), name='factura_form'),
     # URL nuevo producto
     path('productos/nuevo/', views.CreateProductoView.as_view(), name='producto_form'),
     # URL nuevo cliente
@@ -51,7 +51,7 @@ urlpatterns = [
     #URL borrar pedido
     path('pedidos/<int:pk>/delete/', DeletePedidoView.as_view(),name='borrar_pedidos'),
     #URL borrar factura
-    path('factura/<int:pk>/delete/', DeleteFacturaView.as_view(),name='borrar_facturas'),
+    path('facturas/<int:pk>/delete/', DeleteFacturaView.as_view(),name='borrar_facturas'),
     #URL borrar componente
     path('componente/<int:pk>/delete/', DeleteComponenteView.as_view(),name='borrar_componentes'),
 
@@ -65,7 +65,7 @@ urlpatterns = [
     #URL editar cliente
     path('componentes/<pk>/editar/', UpdateComponenteView.as_view(),name='editar_componente'),
     #URL editar cliente
-    path('factura/<pk>/editar/', UpdateFacturaView.as_view(),name='editar_factura'),
+    path('facturas/<pk>/editar/', UpdateFacturaView.as_view(),name='editar_factura'),
 
 
 ]
