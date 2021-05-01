@@ -45,7 +45,7 @@ urlpatterns = [
 
     #BORRAR /delete/
     #URL borrar producto
-    path('productos/<int:pk>/delete/', DeleteProductoView.as_view(),name='borrar_producto'),
+    path('productos/<str:pk>/delete/', DeleteProductoView.as_view(),name='borrar_producto'),
     #URL borrar cliente
     path('clientes/<int:pk>/delete/', DeleteClienteView.as_view(),name='borrar_clientes'),
     #URL borrar pedido

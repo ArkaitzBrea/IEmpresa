@@ -1,0 +1,91 @@
+:root {
+    --lightgray: #efefef;
+    --blue: steelblue;
+    --white: #fff;
+    --black: rgba(0, 0, 0, 0.8);
+    --bounceEasing: cubic-bezier(0.51, 0.92, 0.24, 1.15);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.open-modale {
+    font-weight: bold;
+    background: var(--blue);
+    color: var(--white);
+    padding: 0.75rem 1.75rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+/* MODALe
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.modale {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: var(--black);
+    cursor: pointer;
+    visibility: inherit;
+    transition: all 0.35s ease-in;
+}
+
+.modale-dialog {
+    max-width: 800px;
+    max-height: 80vh;
+    border-radius: 5px;
+    background: var(--white);
+    overflow: auto;
+    cursor: default;
+}
+
+.modale-dialog>* {
+    padding: 1rem;
+}
+
+.modale-header, .modale-footer {
+    background: var(--lightgray);
+}
+
+.modale-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modale-header .close-modale {
+    font-size: 1.5rem;
+}
+
+.modale p+p {
+    margin-top: 1rem;
+}
+
+/* FOOTER
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+
+.z-100 {
+    z-index: 3;
+    position: relative;
+}
+
+.z-2 {
+    z-index: 2;
+}
