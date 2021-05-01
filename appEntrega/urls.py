@@ -59,13 +59,11 @@ urlpatterns = [
     #URL editar cliente
     path('clientes/<pk>/editar', UpdateClienteView.as_view(),name='editar_cliente'),
     #URL editar cliente
-    path('productos/<pk>/editar/', UpdateProductoView.as_view(),name='editar_producto'),
+    path('productos/<str:pk>/editar/', UpdateProductoView.as_view(),name='editar_producto'),
     #URL editar cliente
     path('pedidos/<pk>/editar/', UpdatePedidoView.as_view(),name='editar_pedido'),
     #URL editar cliente
     path('componentes/<pk>/editar/', UpdateComponenteView.as_view(),name='editar_componente'),
     #URL editar cliente
     path('facturas/<pk>/editar/', UpdateFacturaView.as_view(),name='editar_factura'),
-
-
 ]
