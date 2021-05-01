@@ -9,12 +9,15 @@ class ProductoForm(forms.ModelForm):
         fields = '__all__'
 
     producto_referencia = forms.CharField(widget=forms.TextInput(
-        attrs={'class': 'form-control'}))
-    producto_nombre = forms.CharField(
-        widget=forms.NumberInput(attrs={'class': 'form-control'}))
+        attrs={'class': 'formulario__input'}))
+    producto_nombre = forms.CharField(widget=forms.TextInput(
+        attrs={'class': 'formulario__input'}))
     producto_descripcion = forms.CharField(widget=forms.TextInput(
-        attrs={'class': 'form-control'}))
-
+        attrs={'class': 'formulario__input'}))
+    producto_categoria = forms.CharField(widget=forms.TextInput(
+        attrs={'class': 'formulario__input'}))
+    producto_precio = forms.DecimalField(widget=forms.NumberInput(
+        attrs={'class': 'formulario__input'}))
 
 # Formulario nuevo cliente
 

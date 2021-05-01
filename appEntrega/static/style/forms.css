@@ -47,6 +47,74 @@
     font-size: 12px;
 }
 
-.warning{
-    color: red;
+.formulario__grupo .formulario__input, .formulario__grupo .formulario__span {
+    font: 16px 16px "Poppins", sans-serif;
+    font-weight: 300;
+    padding: 0;
+}
+
+.mostrar {
+    display: block !important;
+}
+
+.formulario__input {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    display: block;
+    width: 100%;
+}
+
+.formulario__label {
+    padding: 0.5rem 1rem;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    border: 0.1rem solid silver;
+    border-radius: 0.4rem;
+    position: relative;
+    box-sizing: border-box;
+    transition: 0.25s;
+}
+
+.formulario__span {
+    color: silver;
+    position: absolute;
+    top: 0.8rem;
+    left: 1rem;
+    transition: 0.25s;
+}
+
+.focus .formulario__label {
+    border-color: #1a73e8;
+}
+
+.focus .formulario__span {
+    color: #1a73e8;
+    left: 0.2rem;
+    top: -1rem;
+    font-size: 1.2rem;
+    background-color: white;
+    padding: 0 0.5rem;
+}
+
+.formulario__p {
+    color: #1a1b15;
+    font-size: 1.2rem;
+    text-align: justify;
+    margin-top: 1rem;
+    padding: 0 5rem 0 0;
+    display: none;
+}
+
+.formulario__grupo-input {
+    position: relative;
+}
+
+.text-muted {
+    color: #6c757d !important;
+}
+
+.m-footer {
+    padding-bottom: 3rem;
 }
