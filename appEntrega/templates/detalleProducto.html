@@ -30,7 +30,7 @@
 	</div>
 
 	<div class="componentes col-8">
-		<h3 class="orange-color mt-3 mb-5">Componentes</h3>
+		<h3 class="orange-color mt-3 mb-5">Componentes de {{producto.producto_nombre}}</h3>
 
 		<table class="table-deustronic table table-striped table-hover">
 			<thead>
@@ -43,23 +43,22 @@
 				</tr>
 			</thead>
 			<tbody>
-				{% if lista_productos %}
-				{% for producto in lista_productos %}
+				{% if lista_componentes %}
+				{% for c in lista_componentes %}
 				<tr ondblclick="location.href='http://127.0.0.1:8000/appEntrega/productos/{{producto.pk}}'">
 					<td>
-						{{producto.producto_referencia}}
+						{{c.componente_producto.producto_referencia}}
 					</td>
-					<td>{{producto.producto_nombre}}</td>
-					<td>{{producto.producto_descripcion}}</td>
-					<td>{{producto.producto_categoria}}</td>
-					<td>{{producto.producto_precio}}</td>
+					<td>{{c.componente_producto.producto_nombre}}</td>
+					<td>{{c.componente_unidades}}</td>
+					<td>{{c.componente_descripcion}}</td>
+					<td>{{c.componente_producto.producto_precio}}</td>
 				</tr>
 				{% endfor %}
-
 				{% else %}
 				<tr>
 					<td colspan="5">
-						<p>No existen Productos</p>
+						<p>No existen componentes</p>
 					</td>
 				</tr>
 				{% endif %}
@@ -68,7 +67,10 @@
 	</div>
 </div>
 
-<nav class="nav-footer navbar-light bg-light fixed-bottom">
+{% block updateProduct %}
+{% endblock %}
+
+<nav class="p-2 px-4 navbar-light bg-light fixed-bottom">
 	<div class="row justify-content-between">
 		<div class="d-flex">
 			<div class="form-inline ml-auto">
@@ -76,7 +78,8 @@
 				</button>
 			</div>
 			<div class="form-inline ml-auto">
-				<button type="button" class="btn boton-nav btn-danger m-2">Eliminar
+				<button type="button" class="btn boton-nav btn-danger m-2" data-toggle="modal"
+					data-target="#delete-modal" onclick="location.href='http://127.0.0.1:8000/appEntrega/productos/{{producto.pk}}/delete/'">Eliminar
 				</button>
 			</div>
 		</div>
@@ -86,4 +89,33 @@
 		</div>
 	</div>
 </nav>
+
+
+<!--MODAL-->
+<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="delete-modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header p-4 d-flex align-items-center">
+                <h4 class="modal-title text-center">¿Desea eliminar el producto?</h4>
+                <button class="close" data-dismiss="modal" aria-label="Cerrar"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+
+            <div class="modal-body p-5">
+                <form id="deleteProduct" method="post">
+                    {% csrf_token %}
+                    <p>Se eliminará de manera permanente {{producto.producto_nombre}}</p>
+                </form>
+            </div>
+            <div class="modal-footer bt-0 row justify-content-between">
+                <button type="submit" form="deleteProduct" value="Confirm"
+                    class="btn boton-nav btn-danger m-2 mx-4">Eliminar
+                </button>
+                <button class="btn boton-nav btn-secondary m-2 mx-4" data-dismiss="modal" aria-label="Cerrar">Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

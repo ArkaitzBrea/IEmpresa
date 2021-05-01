@@ -67,8 +67,12 @@ table {
 }
 
 .nav-footer {
-
+    display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem 1rem;
+}
+
+.bt-0{
+    border-top: none !important;
 }

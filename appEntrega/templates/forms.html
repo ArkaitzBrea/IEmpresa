@@ -1,7 +1,7 @@
 <div class="row justify-content-between"></div>
 {% for field in form %}
-<div class="form-group input-group-mat col-4">
-    <label class="warning">{{ field.label_tag }}</label>
+<div class="col-4">
+    <label class="">{{ field.label_tag }}</label>
     <p class="">{{ field }}</p>
     <p class="error warning">{{ field.errors }}</p>
 </div>

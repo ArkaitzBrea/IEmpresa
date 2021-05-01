@@ -18,7 +18,6 @@ urlpatterns = [
     # URL lista productos
     path('facturas/', FacturaListView.as_view(), name='listaFacturas'),
 
-
     # URL Detalle
     # URL detalle pedido
     path('pedidos/<int:pk>', PedidoDetailView.as_view(), name='detallePedido'),
@@ -42,6 +41,7 @@ urlpatterns = [
     path('componentes/nuevo/', views.CreateComponenteView.as_view(), name='componente_form'),
     # URL nuevo orden_pedido
     path('pedidos/nuevo/', views.CreatePedidoView.as_view(), name='pedido_form'),
+
 
     #BORRAR /delete/
     #URL borrar producto
