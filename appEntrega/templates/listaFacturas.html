@@ -1,21 +1,68 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% block content %}
 
-<h1> Listado de facturas</h1>
+<div class="">
+    <nav class="navbar navbar-light table-navbar">
+        <h2 class="orange-color">Facturas</h2>
+        <ul class="navbar-nav mr-auto flex-row">
+            <li class="nav-item m-0 ml-3">
+                <i class="fas fa-plus-circle fa-lg c-grey"
+                    onclick="location.href='http://127.0.0.1:8000/appEntrega/facturas/nuevo/'"></i>
+            </li>
+            <li class="nav-item m-0">
+                <i class="fas fa-pen fa-lg c-grey"></i>
+            </li>
+            <li class="nav-item m-0">
+                <i class="fas fa-trash fa-lg c-grey"></i>
+            </li>
+        </ul>
+    </nav>
+</div>
 
-{% if lista_facturas %}
-<ul>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table-deustronic table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>CÓDIGO FACTURA</th>
+					<th>FACTURA</th>
+					<th>CÓDIGO PRODUCTO</th>
+					<th>UNIDADES</th>
+					<th>PEDIDO</th>
+					<th>PRECIO</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if lista_facturas %}
+                {% for factura in lista_facturas %}
+                <tr ondblclick="location.href='http://127.0.0.1:8000/appEntrega/facturas/{{factura.pk}}'">
+                    <td>{{factura.referencia}}</td>
+					<td>{{factura.descripcion}}</td>
+					<td>{{factura.producto_referencia}}</td>
+					<td>{{factura.unidades}}</td>
+					<td>{{factura.pedido_referencia}}</td>
+					<td>{{factura.linea_precio}}</td>
+                </tr>
+                {% endfor %}
 
-    {% for factura in lista_facturas %}
-    <li>
-        <a
-            href="http://127.0.0.1:8000/appEntrega/facturas/{{factura.referencia}}">{{factura.descripcion}}</a>
-    </li>
-    {% endfor %}
+                {% else %}
+                <tr>
+                    <td colspan="5">
+                        <p>No existen Facturas</p>
+                    </td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
 
-</ul>
-{% else %}
-<p>No hay facturas</p>
-{% endif %}
+<nav class="navbar navbar-light bg-light fixed-bottom">
+    <div class="form-inline ml-auto">
+        <button onclick="location.href='http://127.0.0.1:8000/appEntrega'" class="btn boton-nav btn-secondary m-2"
+            type="button">Volver</button>
+
+    </div>
+</nav>
 
 {% endblock %}

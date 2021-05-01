@@ -1,19 +1,68 @@
+{% extends 'base.html' %}
 {% block content %}
 
-    <h1> Listado de clientes</h1>
-    
-    {% if lista_clientes %}
-    <ul>
-
-        {% for cliente in lista_clientes %}
-            <li>
-                <a href="http://127.0.0.1:8000/appEntrega/clientes/{{cliente.cif}}">{{cliente.nombre_empresa}}</a>
+<div class="">
+    <nav class="navbar navbar-light table-navbar">
+        <h2 class="orange-color">Clientes</h2>
+        <ul class="navbar-nav mr-auto flex-row">
+            <li class="nav-item m-0 ml-3">
+                <i class="fas fa-plus-circle fa-lg c-grey"
+                onclick="location.href='http://127.0.0.1:8000/appEntrega/clientes/nuevo/'"></i>
             </li>
-        {% endfor %}
+            <li class="nav-item m-0">
+                <i class="fas fa-pen fa-lg c-grey"
+                onclick="location.href='http://127.0.0.1:8000/appEntrega/clientes/{{cliente.pk}}/editar'"></i>
+            </li>
+            <li class="nav-item m-0">
+                <i class="fas fa-trash fa-lg c-grey"
+                onclick="location.href='http://127.0.0.1:8000/appEntrega/clientes/{{cliente.pk}}/borrar'"></i>
+            </li>
+        </ul>
+    </nav>
+</div>
 
-    </ul>
-    {% else %}
-        <p>No hay empresas</p>
-    {% endif %}
+<div class="row">
+    <div class="col-md-12">
+        <table class="table-deustronic table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>NOMBRE DE LA EMPRESA</th>
+					<th>CIF</th>
+					<th>EMAIL</th>
+					<th>Nº TELEFONO</th>
+					<th>RESPONSABLE dpto. COMPRAS</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if lista_clientes %}
+                {% for cliente in lista_clientes %}
+                <tr ondblclick="location.href='http://127.0.0.1:8000/appEntrega/clientes/{{cliente.pk}}'">
+					<td>{{cliente.nombre_empresa}}</td>
+					<td>{{cliente.cif}}</td>
+					<td>{{cliente.email}}</td>
+					<td>{{cliente.telefono}}</td>
+					<td>{{cliente.nombre_cliente}}</td>
+				</tr>
+                {% endfor %}
+
+                {% else %}
+                <tr>
+                    <td colspan="5">
+                        <p>No existen Clientes</p>
+                    </td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<nav class="navbar navbar-light bg-light fixed-bottom">
+    <div class="form-inline ml-auto">
+        <button onclick="location.href='http://127.0.0.1:8000/appEntrega'" class="btn boton-nav btn-secondary m-2"
+            type="button">Volver</button>
+
+    </div>
+</nav>
 
 {% endblock %}

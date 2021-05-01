@@ -1,28 +1,92 @@
+{% extends 'base.html' %}
 {% block content %}
-	
-	<h1> Detalle del cliente: {{cliente.nombre_empresa}}</h1>
-	
-	{% if cliente %}
-		<ul>
-				<li>
-					<p><strong>Nombre de la empresa: </strong>{{cliente.nombre_empresa}}</p>
-				</li>
-				<li>
-					<p><strong>CIF: </strong>{{cliente.cif}}</p>
-				</li>
-				<li>
-					<p><strong>email: </strong>{{cliente.email}}</p>
-				</li>
-				<li>
-					<p><strong>Número de telefono: </strong>{{cliente.telefono}}</p>
-				</li>
-                <li>
-					<p><strong>Responsable de compras: </strong>{{cliente.nombre_cliente}}</p>
-				</li>
-		</ul>
 
-	{% else %}
-		<p>No hay pedidos</p>
-	{% endif %}
-	
+
+<div class="contenedor my-3 row justify-content-around">
+
+	<div class="componentes col-8">
+		<h3 class="orange-color mt-3 mb-5">Información del cliente: {{cliente.nombre_empresa}}</h3>
+
+		<table class="table-deustronic table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>NOMBRE DE LA EMPRESA</th>
+					<th>CIF</th>
+					<th>EMAIL</th>
+					<th>Nº TELEFONO</th>
+					<th>RESPONSABLE dpto. COMPRAS</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% if cliente %}
+				<tr ondblclick="location.href='http://127.0.0.1:8000/appEntrega/clientes/{{cliente.pk}}'">
+					<td>{{cliente.nombre_empresa}}</td>
+					<td>{{cliente.cif}}</td>
+					<td>{{cliente.email}}</td>
+					<td>{{cliente.telefono}}</td>
+					<td>{{cliente.nombre_cliente}}</td>
+				</tr>
+				{% else %}
+				<tr>
+					<td colspan="5">
+						<p>No existen clientes</p>
+					</td>
+				</tr>
+				{% endif %}
+			</tbody>
+		</table>
+	</div>
+</div>
+
+{% block updateProduct %}
+{% endblock %}
+
+<nav class="p-2 px-4 navbar-light bg-light fixed-bottom">
+	<div class="row justify-content-between">
+		<div class="d-flex">
+			<div class="form-inline ml-auto">
+				<button type="button" class="btn boton-nav btn-primary m-2">Guardar
+				</button>
+			</div>
+			<div class="form-inline ml-auto">
+				<button type="button" class="btn boton-nav btn-danger m-2" data-toggle="modal"
+					data-target="#delete-modal" onclick="location.href='http://127.0.0.1:8000/appEntrega/clientes/{{cliente.pk}}/delete/'">Eliminar
+				</button>
+			</div>
+		</div>
+		<div class="form-inline ml-auto">
+			<button onclick="location.href='http://127.0.0.1:8000/appEntrega/clientes'"
+				class="btn boton-nav btn-secondary m-2" type="button">Volver</button>
+		</div>
+	</div>
+</nav>
+
+
+<!--MODAL-->
+<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="delete-modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header p-4 d-flex align-items-center">
+                <h4 class="modal-title text-center">¿Desea eliminar el cliente?</h4>
+                <button class="close" data-dismiss="modal" aria-label="Cerrar"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+
+            <div class="modal-body p-5">
+                <form id="deleteProduct" method="post">
+                    {% csrf_token %}
+                    <p>Se eliminará el cliente: <strong>{{cliente.nombre_empresa}} </strong>de manera permanente.</p>
+                </form>
+            </div>
+            <div class="modal-footer bt-0 row justify-content-between">
+                <button type="submit" form="deleteProduct" value="Confirm"
+                    class="btn boton-nav btn-danger m-2 mx-4">Eliminar
+                </button>
+                <button class="btn boton-nav btn-secondary m-2 mx-4" data-dismiss="modal" aria-label="Cerrar">Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

@@ -38,7 +38,7 @@ class ProductoListView(ListView):
     context_object_name = 'lista_productos'
 
 
-# Vista de Factura
+# Vista de FacturaListView
 class FacturaListView(ListView):
     model = Factura
     template_name = 'listaFacturas.html'
@@ -77,6 +77,11 @@ class FacturaDetailView(DetailView):
     model = Factura
     template_name = 'detalleFactura.html'
     context_object_name = 'factura'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['lista_productos'] = Producto.objects.all().filter(producto_referencia=self.kwargs['pk'])
+        return context
 
 
 # Vistas para AÑADIR/CREAR
