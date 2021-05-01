@@ -1,0 +1,36 @@
+table {
+    overflow: scroll;
+}
+
+table td{
+    vertical-align: middle !important;
+}
+
+.table-deustronic th {
+    color: #949494;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 5px 10px;
+    border: 2px solid #dee2e6;
+    font-family: FiraSans-Regular, Calibri, Verdana;
+    text-align: center !important;
+}
+
+.bordertop-0 th {
+    border-top: 0;
+}
+
+.table-deustronic td {
+    font-size: 14px;
+    padding: 0.5rem;
+    text-align: center !important;
+    cursor: pointer !important;
+}
+
+.table-navbar {
+    position: sticky;
+    background-color: white;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+}

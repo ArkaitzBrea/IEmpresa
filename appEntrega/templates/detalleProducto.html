@@ -40,6 +40,7 @@
 					<th>UNIDADES</th>
 					<th>DESCRIPCION</th>
 					<th>PRECIO</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -53,11 +54,14 @@
 					<td>{{c.componente_unidades}}</td>
 					<td>{{c.componente_descripcion}}</td>
 					<td>{{c.componente_producto.producto_precio}}</td>
+					<td><button class="btn"
+							onclick="location.href='http://127.0.0.1:8000/appEntrega/productos/componente/{{c.pk}}/delete/'"><i
+								class="fas fa-trash-alt"></i></button></td>
 				</tr>
 				{% endfor %}
 				{% else %}
 				<tr>
-					<td colspan="5">
+					<td colspan="6">
 						<p>No existen componentes</p>
 					</td>
 				</tr>
@@ -67,10 +71,14 @@
 	</div>
 </div>
 
-{% block deleteModal %}
+{% block deleteProducto %}
+{% endblock %}
+
+{% block deleteComponente %}
 {% endblock %}
 
 
+<!--  NAVEGACIÓN FOOTER -->
 <nav class="p-2 px-4 navbar-light bg-light fixed-bottom z-2">
 	<div class="row justify-content-between">
 		<div class="d-flex">
@@ -80,7 +88,8 @@
 			</div>
 			<div class="form-inline ml-auto">
 				<button type="button" class="btn boton-nav btn-danger m-2" data-toggle="modal"
-					data-target="#delete-modal" onclick="location.href='http://127.0.0.1:8000/appEntrega/productos/{{producto.pk}}/delete/'">Eliminar
+					data-target="#delete-modal"
+					onclick="location.href='http://127.0.0.1:8000/appEntrega/productos/{{producto.pk}}/delete/'">Eliminar
 				</button>
 			</div>
 		</div>

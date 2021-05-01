@@ -1,17 +1,17 @@
-{% extends 'detalleProducto.html'%}
-{% block deleteModal %}
+{% extends 'detalleCliente.html'%}
+{% block deleteCliente %}
 
 <div class="modale" id="modal1" id="delete-modal">
     <div class="modale-dialog">
         <header class="modale-header">
-            <h4 class="modale-title text-center">¿Desea eliminar el producto?</h4>
+            <h4 class="modale-title text-center">¿Desea eliminar el cliente?</h4>
             <button class="z-100 close" data-dismiss="modale" aria-label="Cerrar"><span
                     aria-hidden="true">&times;</span></button>
         </header>
         <section class="modale-content">
             <form id="deleteProduct" method="post">
                 {% csrf_token %}
-                <p>Se eliminará de manera permanente {{producto.producto_nombre}}</p>
+                <p>Se eliminará de manera permanente {{cliente.nombre_cliente}}</p>
             </form>
         </section>
         <footer class="d-flex justify-content-between">
@@ -19,7 +19,7 @@
                 class="z-100 btn boton-nav btn-danger m-2 mx-4">Eliminar
             </button>
             <button class="z-100 btn boton-nav btn-secondary m-2 mx-4"
-                onclick="location.href='http://127.0.0.1:8000/appEntrega/productos/{{producto.pk}}'">Cancelar
+                onclick="location.href='http://127.0.0.1:8000/appEntrega/clientes/'">Cancelar
             </button>
         </footer>
     </div>
