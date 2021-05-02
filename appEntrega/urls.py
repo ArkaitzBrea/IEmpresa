@@ -1,8 +1,9 @@
 from django.urls import path
 from . import views
 from appEntrega.views import PedidoDetailView, PedidoListView, CreateProductoView, CreateClienteView, \
-    CreateComponenteView, CreatePedidoView, ClienteDetailView, ClienteListView, ProductoListView, ProductoDetailView, ComponenteListView, \
-    DeleteProductoView, DeletePedidoView, DeleteClienteView, Index, UpdateClienteView, \
+    CreateComponenteView, CreatePedidoView, ClienteDetailView, ClienteListView, ProductoListView, ProductoDetailView, \
+    ComponenteListView, \
+    DeleteProductoView, DeletePedidoView, DeleteClienteView, DeleteComponenteProductView, Index, UpdateClienteView, \
     CreateFacturaView, DeleteFacturaView, DeleteComponenteView, UpdateComponenteView, \
     FacturaListView, FacturaDetailView
 
@@ -51,8 +52,9 @@ urlpatterns = [
     path('pedidos/<int:pk>/delete/', DeletePedidoView.as_view(), name='borrar_pedidos'),
     # URL borrar factura
     path('facturas/<int:pk>/delete/', DeleteFacturaView.as_view(), name='borrar_facturas'),
-    # URL borrar componente
-    path('productos/componente/<int:pk>/delete/', DeleteComponenteView.as_view(), name='borrar_componentes'),
+    # URL borrar componente desde productoview
+    path('productos/componente/<int:pk>/delete/', DeleteComponenteProductView.as_view(), name='borrar_componentes'),
+    path('componente/<int:pk>/delete/', DeleteComponenteView.as_view(), name='borrar_componentes'),
 
     # EDITAR /editar/
     # URL editar cliente

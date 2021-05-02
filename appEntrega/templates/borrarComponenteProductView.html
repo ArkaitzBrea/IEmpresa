@@ -1,4 +1,6 @@
-{% block deleteComponente %}
+{% extends 'detalleProducto.html'%}
+{% block deleteComponenteProductView %}
+
 <div class="modale" id="modal1" id="delete-modal">
     <div class="modale-dialog">
         <header class="modale-header">
@@ -17,7 +19,7 @@
                 class="z-100 btn boton-nav btn-danger m-2 mx-4">Eliminar
             </button>
             <button class="z-100 btn boton-nav btn-secondary m-2 mx-4"
-                onclick="location.href='http://127.0.0.1:8000/appEntrega/componentes/{{componente.pk}}/editar/'">Cancelar
+                onclick="location.href='http://127.0.0.1:8000/appEntrega/productos/{{componente.componente_producto_padre}}/editar/'">Cancelar
             </button>
         </footer>
     </div>

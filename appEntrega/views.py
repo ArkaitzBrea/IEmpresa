@@ -237,6 +237,17 @@ class DeleteComponenteView(DeleteView):
         context['componente'] = Componente.objects.get(pk=self.kwargs['pk'])
         return context
 
+# Borrar Componente desde ProductView
+class DeleteComponenteProductView(DeleteView):
+    model = Componente
+    template_name = 'borrarComponenteProductView.html'
+    success_url = reverse_lazy('listaProducto')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['componente'] = Componente.objects.get(pk=self.kwargs['pk'])
+        return context
+
 
 # Clases para editar
 # Editar Cliente
