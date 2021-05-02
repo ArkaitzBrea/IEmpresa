@@ -75,8 +75,11 @@ li {
   margin-right: 2rem;
 }
 
+li:last-of-type{
+  margin-right: 0;
+}
+
 .logo_empresa {
-  margin-left: 2rem;
   text-decoration: none;
   font-size: 40px;
   color: #36ac42;
@@ -92,6 +95,15 @@ a.tituloenlaceP1 {
 
 .container-header {
   width: 95%;
+  margin: 0 auto;
+}
+
+.j-fstart{
+  justify-content: flex-start !important;
+}
+
+.j-fend{
+  justify-content: flex-end !important;
 }
 
 ul {

@@ -65,6 +65,14 @@
     width: 100%;
 }
 
+input {
+    border: none !important;
+    background-color: transparent !important;
+    outline: none !important;
+    display: block !important;
+    width: 100% !important;
+}
+
 .formulario__label {
     padding: 0.5rem 1rem;
     display: block;
@@ -109,6 +117,14 @@
 
 .formulario__grupo-input {
     position: relative;
+}
+
+.formulario__grupo-input input {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    display: block;
+    width: 100%;
 }
 
 .text-muted {
