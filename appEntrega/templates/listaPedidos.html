@@ -28,7 +28,7 @@
             <tbody>
                 {% if lista_pedidos %}
                 {% for pedido in lista_pedidos %}
-                <tr ondblclick="location.href='http://127.0.0.1:8000/appEntrega/pedidos/{{pedido.pk}}'">
+                <tr ondblclick="location.href='http://127.0.0.1:8000/appEntrega/pedidos/{{pedido.pk}}/'">
                     <td>{{pedido.pedido_referencia}}</td>
                     <td>{{pedido.pedido_descripcion}}</td>
                     <td>{{pedido.pedido_fecha}}</td>

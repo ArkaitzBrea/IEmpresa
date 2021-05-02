@@ -61,7 +61,7 @@ class PedidoDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['lista_facturas'] = Factura.objects.all().filter(referencia=self.kwargs['pk'])
+        context['lista_facturas'] = Factura.objects.all().filter(pedido_referencia=self.kwargs['pk'])
         return context
 
 
@@ -251,8 +251,9 @@ class UpdateProductoView(UpdateView):
 # Editar Pedido
 class UpdatePedidoView(UpdateView):
     model = Orden_Pedido
-    template_name = 'update.html'
-    fields = ['pedido_descripcion', 'cantidad']
+    template_name = 'detallePedido.html'
+    #template_name = 'updatePedido.html'
+    fields = ['pedido_descripcion', 'pedido_referencia', 'pedido_cliente_cif']
     success_url = reverse_lazy('listaPedido')
 
 
@@ -261,7 +262,7 @@ class UpdatePedidoView(UpdateView):
 
 class UpdateFacturaView(UpdateView):
     model = Factura
-    template_name = 'update.html'
+    template_name = 'updateFactura.html'
     fields = ['pedido_referencia', 'producto_referencia', 'unidades', 'descripcion']
     success_url = reverse_lazy('listaPedido')
 
