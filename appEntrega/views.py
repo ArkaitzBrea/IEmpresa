@@ -231,12 +231,23 @@ class DeleteFacturaView(DeleteView):
     template_name = 'borrarFactura.html'
     success_url = reverse_lazy('listaFactura')
 
+# Borrar Factura desde PedidoView
+class DeleteFacturaProductView(DeleteView):
+    model = Factura
+    template_name = 'borrarFacturaPedidoView.html'
+    success_url = reverse_lazy('listaFactura')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['factura'] = Factura.objects.get(pk=self.kwargs['pk'])
+        return context
+
 
 # Borrar Componente
 class DeleteComponenteView(DeleteView):
     model = Componente
     template_name = 'borrarComponente.html'
-    success_url = reverse_lazy('listaProducto')
+    success_url = reverse_lazy('listaComponente')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -261,7 +272,7 @@ class DeleteComponenteProductView(DeleteView):
 class UpdateClienteView(UpdateView):
     model = Cliente  # model en el que se basa
     template_name = 'updateCliente.html'  # html que utiliza
-    fields = ['email', 'telefono', 'nombre_cliente']  # campos editables
+    fields = ['nombre_empresa','email', 'telefono', 'nombre_cliente']  # campos editables
     success_url = reverse_lazy('listaCliente')  # URL a la que redirecciona
 
 

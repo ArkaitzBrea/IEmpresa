@@ -3,7 +3,7 @@ from . import views
 from appEntrega.views import PedidoDetailView, PedidoListView, CreateProductoView, CreateClienteView, \
     CreateComponenteView, CreatePedidoView, ClienteDetailView, ClienteListView, ProductoListView, ProductoDetailView, \
     ComponenteListView, \
-    DeleteProductoView, DeletePedidoView, DeleteClienteView, DeleteComponenteProductView, Index, UpdateClienteView, \
+    DeleteProductoView, DeletePedidoView, DeleteClienteView, DeleteComponenteProductView, DeleteFacturaProductView, Index, UpdateClienteView, \
     CreateFacturaView, DeleteFacturaView, DeleteComponenteView, UpdateComponenteView, \
     FacturaListView, FacturaDetailView
 
@@ -52,6 +52,8 @@ urlpatterns = [
     path('pedidos/<str:pk>/delete/', DeletePedidoView.as_view(), name='borrar_pedidos'),
     # URL borrar factura
     path('facturas/<str:pk>/delete/', DeleteFacturaView.as_view(), name='borrar_facturas'),
+    # URL borrar factura desde pedidoview
+    path('pedidos/factura/<str:pk>/delete/', DeleteFacturaProductView.as_view(), name='borrar_componentes'),
     # URL borrar componente desde productoview
     path('productos/componente/<int:pk>/delete/', DeleteComponenteProductView.as_view(), name='borrar_componentes'),
     # URL borrar componente

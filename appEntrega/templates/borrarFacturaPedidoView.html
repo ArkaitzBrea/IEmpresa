@@ -1,5 +1,5 @@
 {% extends 'detalleFactura.html'%}
-{% block deleteFactura %}
+{% block deleteFacturaPedidoView %}
 
 <div class="modale" id="modal1" id="delete-modal">
     <div class="modale-dialog">
@@ -19,7 +19,7 @@
                 class="z-100 btn boton-nav btn-danger m-2 mx-4">Eliminar
             </button>
             <button class="z-100 btn boton-nav btn-secondary m-2 mx-4"
-                onclick="location.href='http://127.0.0.1:8000/appEntrega/facturas/'">Cancelar
+                onclick="location.href='http://127.0.0.1:8000/appEntrega/pedidos/{{factura.pedido_referencia.pk}}/editar'">Cancelar
             </button>
         </footer>
     </div>
