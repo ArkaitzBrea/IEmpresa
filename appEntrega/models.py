@@ -13,17 +13,19 @@ class Cliente(models.Model):
     def __str__(self):
         return self.nombre_empresa
 
+
 # Tabla producto
 class Producto(models.Model):
-    producto_referencia = models.CharField(max_length=13, primary_key=True)                     
-    producto_nombre = models.CharField(max_length=50)   
-    producto_descripcion = models.CharField(max_length=250) 
-    producto_categoria = models.CharField(max_length=50)    
+    producto_referencia = models.CharField(max_length=13, primary_key=True)
+    producto_nombre = models.CharField(max_length=50)
+    producto_descripcion = models.CharField(max_length=250)
+    producto_categoria = models.CharField(max_length=50)
     producto_precio = models.DecimalField(max_digits=10, decimal_places=2, default=0)
 
     # Funcion que devuelve el producto_nombre cuando se visualiza en el /admin
     def __str__(self):
-        return self.producto_referencia
+        return self.producto_nombre
+
 
 # Tabla componente
 class Componente(models.Model):
@@ -39,9 +41,10 @@ class Componente(models.Model):
     def __int__(self):
         return self.componente_descripcion
 
+
 # Tabla orden_pedido
 class Orden_Pedido(models.Model):
-    pedido_referencia = models.CharField(max_length=12, primary_key=True)   
+    pedido_referencia = models.CharField(max_length=12, primary_key=True)
     pedido_fecha = models.DateField(auto_now=True)
     pedido_descripcion = models.TextField(max_length=250)
     pedido_cliente_cif = models.ForeignKey(Cliente, on_delete=models.CASCADE)
@@ -50,11 +53,15 @@ class Orden_Pedido(models.Model):
     def __int__(self):
         return self.pedido_descripcion
 
+    def __str__(self):
+        return self.pedido_descripcion
+
+
 # Tabla factura
 class Factura(models.Model):
-    referencia = models.CharField(max_length=12, primary_key=True)    
+    referencia = models.CharField(max_length=12, primary_key=True)
     pedido_referencia = models.ForeignKey(Orden_Pedido, on_delete=models.CASCADE)
-    producto_referencia = models.ForeignKey(Producto, on_delete=models.CASCADE)    
+    producto_referencia = models.ForeignKey(Producto, on_delete=models.CASCADE)
     unidades = models.PositiveIntegerField(default=1)
     linea_precio = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     descripcion = models.TextField(max_length=250)
