@@ -19,7 +19,6 @@
     position: absolute;
 }
 
-
 .c-grey {
     color: silver !important;
 }
@@ -43,4 +42,22 @@
 
 .bt-0 {
     border-top: none !important;
+}
+
+.imagen {
+    width: 100%;
+    height: 100%;
+}
+
+.imagen-bg{
+    background-image: url("../img/bg_create_producto.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    overflow: hidden;
+    background-size: cover;
+    /*fuerza que tome todo el espacio disponible guardando proporciones*/
+    height: 100vh;
+    /*detecta el tamaño de la pantalla y lo ajusta*/
+    min-height: 80rem;
 }

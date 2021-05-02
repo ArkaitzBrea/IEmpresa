@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="row contenedor justify-content-between m-footer mt-3">
-    <form id="newProduct" class="col-6" action="{% url 'producto_form' %}" method="POST">{% csrf_token %}
-        {% include "forms.html"%}
-    </form>
-
-    <div class="imagen">
-
+<div class="row contenedor justify-content-center m-footer mt-3">
+    <div class="form col-6">
+        <form id="newProduct" action="{% url 'producto_form' %}" method="POST">{% csrf_token %}
+            {% include "forms.html"%}
+        </form>
     </div>
 </div>
+
+
+
+
 
 <nav class=" navbar-light bg-light fixed-bottom nav-footer">
     <button type="submit" form="newProduct" class="btn boton-nav btn-primary m-2">Guardar</button>
