@@ -30,18 +30,22 @@
 					<th>UNIDADES</th>
 					<th>PEDIDO</th>
 					<th>PRECIO</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 {% if lista_facturas %}
                 {% for factura in lista_facturas %}
-                <tr ondblclick="location.href='http://127.0.0.1:8000/appEntrega/facturas/{{factura.pk}}'">
+                <tr ondblclick="location.href='http://127.0.0.1:8000/appEntrega/facturas/{{factura.pk}}/editar'">
                     <td>{{factura.referencia}}</td>
 					<td>{{factura.descripcion}}</td>
 					<td>{{factura.producto_referencia}}</td>
 					<td>{{factura.unidades}}</td>
 					<td>{{factura.pedido_referencia}}</td>
 					<td>{{factura.linea_precio}}</td>
+                    <td><button class="btn"
+                        onclick="location.href='http://127.0.0.1:8000/appEntrega/facturas/{{factura.pk}}/delete/'"><i
+                            class="fas fa-trash-alt"></i></button></td>
                 </tr>
                 {% endfor %}
 

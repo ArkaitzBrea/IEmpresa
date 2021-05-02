@@ -5,112 +5,17 @@
 <div class="contenedor my-3 row justify-content-around">
 
 	<!--  CLIENTE -->
-	<div class="cliente col-4">
+	<div class="producto col-4">
 		<h3 class="orange-color mt-3 mb-5">{{cliente.nombre_empresa}}</h3>
+
 		{% if cliente %}
-		<form id="updateProduct" class="contenedor" action="" method="POST">{% csrf_token %}
 
-			<!-- CIF -->
-			<div class="formulario__grupo mt-3 focus mb-5">
-				<div class="formulario__grupo-label d-flex">
-					<label for="cif" class="formulario__label">
-						<span class="formulario__span">CIF</span>
-						<div class="formulario__grupo-input">
-							<input autofocus="true" autocomplete="off" type="text" name="cif" id="cif"
-								class="formulario__input" value="{{cliente.cif}}">
-						</div>
-					</label>
-				</div>
-			</div>
+		{% block updateCliente %}
+		{% endblock %}
 
-			<!-- NOMBRE EMPRESA -->
-			<div class="formulario__grupo mt-3 focus mb-5">
-				<div class="formulario__grupo-label d-flex">
-					<label for="name" class="formulario__label">
-						<span class="formulario__span">Nombre Empresa</span>
-						<div class="formulario__grupo-input">
-							<input autofocus="true" autocomplete="off" type="text" name="name" id="name"
-								class="formulario__input" value="{{cliente.nombre_empresa}}">
-						</div>
-					</label>
-				</div>
-			</div>
-
-			<!-- EMAIL -->
-			<div class="formulario__grupo mt-3 focus mb-5">
-				<div class="formulario__grupo-label d-flex">
-					<label for="email" class="formulario__label">
-						<span class="formulario__span">Email</span>
-						<div class="formulario__grupo-input">
-							<input autofocus="true" autocomplete="off" type="email" name="email" id="email"
-								class="formulario__input" value="{{cliente.email}}">
-						</div>
-					</label>
-				</div>
-			</div>
-
-			<!-- Nº TELEFONO -->
-			<div class="formulario__grupo mt-3 focus mb-5">
-				<div class="formulario__grupo-label d-flex">
-					<label for="telefono" class="formulario__label">
-						<span class="formulario__span">TELEFONO</span>
-						<div class="formulario__grupo-input">
-							<input autofocus="true" autocomplete="off" type="tel" name="telefono" id="telefono"
-								class="formulario__input" value="{{cliente.telefono}}">
-						</div>
-					</label>
-				</div>
-			</div>
-
-
-			<!-- RESPONSABLE dpto. COMPRAS -->
-			<div class="formulario__grupo mt-3 focus mb-5 m-footer">
-				<div class="formulario__grupo-label d-flex">
-					<label for="nombre_cliente" class="formulario__label">
-						<span class="formulario__span">RESPONSABLE dpto. COMPRAS</span>
-						<div class="formulario__grupo-input">
-							<input autofocus="true" autocomplete="off" type="text" name="nombre_cliente" id="nombre_cliente"
-								class="formulario__input" value="{{cliente.nombre_cliente}}">
-						</div>
-					</label>
-				</div>
-			</div>
-		</form>
 		{% else %}
 		<p>No hay clientes</p>
 		{% endif %}
-		<table class="table-deustronic table table-striped table-hover">
-			<thead>
-				<tr>
-					<th>NOMBRE DE LA EMPRESA</th>
-					<th>CIF</th>
-					<th>EMAIL</th>
-					<th>Nº TELEFONO</th>
-					<th>RESPONSABLE dpto. COMPRAS</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				{% if cliente %}
-				<tr>
-					<td>{{cliente.nombre_empresa}}</td>
-					<td>{{cliente.cif}}</td>
-					<td>{{cliente.email}}</td>
-					<td>{{cliente.telefono}}</td>
-					<td>{{cliente.nombre_cliente}}</td>
-					<td><button class="btn"
-							onclick="location.href='http://127.0.0.1:8000/appEntrega/clientes/{{cliente.pk}}/delete/'"><i
-								class="fas fa-trash-alt"></i></button></td>
-				</tr>
-				{% else %}
-				<tr>
-					<td colspan="6">
-						<p>No existen clientes</p>
-					</td>
-				</tr>
-				{% endif %}
-			</tbody>
-		</table>
 	</div>
 </div>
 
@@ -118,12 +23,12 @@
 {% endblock %}
 
 
-<nav class="p-2 px-4 navbar-light bg-light fixed-bottom z-2">
+<!--  NAVEGACIÓN FOOTER -->
+<nav class="p-2 px-4 mt-5 navbar-light bg-light fixed-bottom z-2 m-footer">
 	<div class="row justify-content-between">
 		<div class="d-flex">
 			<div class="form-inline ml-auto">
-				<button type="submit" form="updateProduct" value="Update" class="btn boton-nav btn-primary m-2" 
-					onclick="location.href='http://127.0.0.1:8000/appEntrega/clientes/{{cliente.pk}}/editar/'">Guardar
+				<button type="submit" form="updateCliente" value="Update" class="btn boton-nav btn-primary m-2">Guardar
 				</button>
 			</div>
 			<div class="form-inline ml-auto">
@@ -139,4 +44,5 @@
 		</div>
 	</div>
 </nav>
+
 {% endblock %}

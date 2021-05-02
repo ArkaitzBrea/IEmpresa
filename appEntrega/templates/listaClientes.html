@@ -24,13 +24,12 @@
                     <th>Nº TELEFONO</th>
                     <th>RESPONSABLE dpto. COMPRAS</th>
                     <th></th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 {% if lista_clientes %}
                 {% for cliente in lista_clientes %}
-                <tr ondblclick="location.href='http://127.0.0.1:8000/appEntrega/clientes/{{cliente.pk}}'">
+                <tr ondblclick="location.href='http://127.0.0.1:8000/appEntrega/clientes/{{cliente.pk}}/editar'">
                     <td>{{cliente.nombre_empresa}}</td>
                     <td>{{cliente.cif}}</td>
                     <td>{{cliente.email}}</td>
@@ -39,9 +38,6 @@
                     <td><button class="btn"
                             onclick="location.href='http://127.0.0.1:8000/appEntrega/clientes/{{cliente.pk}}/delete/'"><i
                                 class="fas fa-trash-alt"></i></button></td>
-                    <td><button class="btn"
-                        onclick="location.href='http://127.0.0.1:8000/appEntrega/clientes/{{cliente.pk}}/editar/'"><i
-                            class="fas fa-trash-alt"></i></button></td></td>
                 </tr>
                 {% endfor %}
 

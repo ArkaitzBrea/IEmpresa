@@ -69,20 +69,8 @@ class ProductoDetailView(DetailView):
 # Vista de PedidoDetailView
 class PedidoDetailView(DetailView):
     model = Orden_Pedido
-    template_name = 'updatePedido.html'
+    template_name = 'detallePedido.html'
     context_object_name = 'pedido'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['lista_facturas'] = Factura.objects.all().filter(pedido_referencia=self.kwargs['pk'])
-        return context
-
-    # Editar Pedido
-    class UpdatePedidoView(UpdateView):
-        model = Orden_Pedido
-        # template_name = 'updatePedido.html'
-        fields = ['pedido_descripcion', 'pedido_referencia', 'pedido_cliente_cif']
-        success_url = reverse_lazy('listaPedido')
 
 
 # Vista de FacturaDetailView
@@ -95,13 +83,6 @@ class FacturaDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['lista_productos'] = Producto.objects.all().filter(producto_referencia=self.kwargs['pk'])
         return context
-
-    # Editar Factura
-    class UpdateFacturaView(UpdateView):
-        model = Factura
-        # template_name = 'updateFactura.html'
-        fields = ['pedido_referencia', 'producto_referencia', 'unidades', 'descripcion']
-        success_url = reverse_lazy('listaPedido')
 
 
 # Vistas para AÑADIR/CREAR
@@ -205,7 +186,7 @@ class CreateFacturaView(View):
             form.save()
 
             # Volvemos a la pagina que queramos despues de crear un nuevo producto
-            return redirect("listaPedidos")
+            return redirect("listaFactura")
 
         return render(request, 'nuevoFactura.html', {'form': form})
 
@@ -235,8 +216,8 @@ class DeleteClienteView(DeleteView):
 # Borrar Factura
 class DeleteFacturaView(DeleteView):
     model = Factura
-    template_name = 'borrar.html'
-    success_url = reverse_lazy('listaProducto')
+    template_name = 'borrarFactura.html'
+    success_url = reverse_lazy('listaFactura')
 
 
 # Borrar Componente
@@ -255,7 +236,7 @@ class DeleteComponenteView(DeleteView):
 # Editar Cliente
 class UpdateClienteView(UpdateView):
     model = Cliente  # model en el que se basa
-    template_name = 'update.html'  # html que utiliza
+    template_name = 'updateCliente.html'  # html que utiliza
     fields = ['email', 'telefono', 'nombre_cliente']  # campos editables
     success_url = reverse_lazy('listaCliente')  # URL a la que redirecciona
 
@@ -279,3 +260,17 @@ class UpdateComponenteView(UpdateView):
     template_name = 'update.html'
     fields = ['componente_producto_padre', 'componente_producto', 'componente_unidades', 'componente_descripcion']
     success_url = reverse_lazy('listaPedido')
+
+# Editar Pedido
+class UpdatePedidoView(UpdateView):
+    model = Orden_Pedido
+    template_name = 'updatePedido.html'
+    fields = ['pedido_descripcion', 'pedido_referencia', 'pedido_cliente_cif']
+    success_url = reverse_lazy('listaPedido')
+
+# Editar Factura
+class UpdateFacturaView(UpdateView):
+    model = Factura
+    template_name = 'updateFactura.html'
+    fields = ['pedido_referencia', 'producto_referencia', 'unidades', 'descripcion']
+    success_url = reverse_lazy('listaFactura')

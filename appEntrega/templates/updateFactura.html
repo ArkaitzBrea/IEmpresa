@@ -1,7 +1,6 @@
-{% extends 'detallePedido.html' %}
-{% block updatePedido %}
-<h3>ENTRA AL UPDATE!!</h3>
-<form action="" id="updatePedido" method="POST">{% csrf_token %}
+{% extends 'detalleFactura.html' %}
+{% block updateFactura %}
+<form action="" id="updateFactura" method="POST">{% csrf_token %}
     {% for field in form %}
     <div class="formulario__grupo mt-3 focus mb-5">
         <div class="formulario__grupo-label d-flex">
