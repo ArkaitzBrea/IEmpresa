@@ -44,6 +44,12 @@ class FacturaListView(ListView):
     template_name = 'listaFacturas.html'
     context_object_name = 'lista_facturas'
 
+# Vista de ComponentesListView
+class ComponenteListView(ListView):
+    model = Componente
+    template_name = 'listaComponentes.html'
+    context_object_name = 'lista_componentes'
+
 
 # Clases de DETAIL
 # Vista de ClienteDetailView
@@ -276,6 +282,11 @@ class UpdateProductoView(UpdateView):
 # Editar Componente
 class UpdateComponenteView(UpdateView):
     model = Componente
-    template_name = 'update.html'
+    template_name = 'updateComponente.html'
     fields = ['componente_producto_padre', 'componente_producto', 'componente_unidades', 'componente_descripcion']
-    success_url = reverse_lazy('listaPedido')
+    success_url = reverse_lazy('listaComponente')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['componente'] = Componente.objects.get(pk=self.kwargs['pk'])
+        return context

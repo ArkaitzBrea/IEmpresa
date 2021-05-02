@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuevo componente</title>
-</head>
-<body>
-    <form action="{% url 'componente_form'%}" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Guardar">
-    </form>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+<form action="{% url 'componente_form'%}" method="POST">
+    {% csrf_token %}
+    {% include "forms.html"%}
+</form>
+
+<nav class=" navbar-light bg-light fixed-bottom nav-footer">
+    <button type="submit" form="newProduct" class="btn boton-nav btn-primary m-2">Guardar</button>
+    <button onclick="location.href='http://127.0.0.1:8000/appEntrega/componentes'" class="btn boton-nav btn-secondary m-2"
+        type="button">Volver</button>
+</nav>
+{% endblock %}
