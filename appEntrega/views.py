@@ -56,25 +56,21 @@ class ClienteDetailView(DetailView):
 # Vista de PedidoDetailView
 class PedidoDetailView(DetailView):
     model = Orden_Pedido
-    template_name = 'detallePedido.html'
+    template_name = 'updatePedido.html'
     context_object_name = 'pedido'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['lista_facturas'] = Factura.objects.all().filter(pedido_referencia=self.kwargs['pk'])
         return context
-
-
-# Vista de ProductoDetailView
-class ProductoDetailView(DetailView):
-    model = Producto
-    template_name = 'detalleProducto.html'
-    context_object_name = 'producto'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['lista_componentes'] = Componente.objects.all().filter(componente_producto_padre=self.kwargs['pk'])
-        return context
+    
+    
+    # Editar Pedido
+    class UpdatePedidoView(UpdateView):
+        model = Orden_Pedido
+        # template_name = 'updatePedido.html'
+        fields = ['pedido_descripcion', 'pedido_referencia', 'pedido_cliente_cif']
+        success_url = reverse_lazy('listaPedido')
 
 
 # Vista de FacturaDetailView
@@ -87,6 +83,13 @@ class FacturaDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['lista_productos'] = Producto.objects.all().filter(producto_referencia=self.kwargs['pk'])
         return context
+
+    # Editar Factura
+    class UpdateFacturaView(UpdateView):
+        model = Factura
+        #template_name = 'updateFactura.html'
+        fields = ['pedido_referencia', 'producto_referencia', 'unidades', 'descripcion']
+        success_url = reverse_lazy('listaPedido')
 
 
 # Vistas para AÑADIR/CREAR
@@ -257,29 +260,7 @@ class ProductoDetailView(DetailView):
         fields = ['producto_nombre', 'producto_descripcion', 'producto_categoria', 'producto_precio']
         success_url = reverse_lazy('listaProducto')
 
-
-# Editar Pedido
-class UpdatePedidoView(UpdateView):
-    model = Orden_Pedido
-    template_name = 'detallePedido.html'
-    # template_name = 'updatePedido.html'
-    fields = ['pedido_descripcion', 'pedido_referencia', 'pedido_cliente_cif']
-    success_url = reverse_lazy('listaPedido')
-
-
-# Editar Factura
-
-
-class UpdateFacturaView(UpdateView):
-    model = Factura
-    template_name = 'updateFactura.html'
-    fields = ['pedido_referencia', 'producto_referencia', 'unidades', 'descripcion']
-    success_url = reverse_lazy('listaPedido')
-
-
 # Editar Componente
-
-
 class UpdateComponenteView(UpdateView):
     model = Componente
     template_name = 'update.html'

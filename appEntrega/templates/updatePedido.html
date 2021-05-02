@@ -1,5 +1,6 @@
 {% extends 'detallePedido.html' %}
 {% block updatePedido %}
+
 <form id="updateProduct" class="contenedor" action="" method="POST">{% csrf_token %}
 
     <!-- REFERENCIA -->
@@ -32,7 +33,7 @@
     <div class="formulario__grupo mt-3 focus mb-5">
         <div class="formulario__grupo-label d-flex">
             <label for="descripcion" class="formulario__label">
-                <span class="formulario__span">Descripción Producto</span>
+                <span class="formulario__span">Fecha pedido</span>
                 <div class="formulario__grupo-input">
                     <input autofocus="true" autocomplete="off" type="date" name="fecha" id="fecha"
                         class="formulario__input" value="{{pedido.pedido_fecha}}">
