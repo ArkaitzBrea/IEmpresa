@@ -288,11 +288,11 @@ class UpdatePedidoView(UpdateView):
     model = Orden_Pedido
     template_name = 'updatePedido.html'
     fields = ['pedido_descripcion', 'pedido_referencia', 'pedido_cliente_cif']
-    success_url = reverse_lazy('listaComponente')
+    success_url = reverse_lazy('listaPedido')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['componente'] = Componente.objects.get(pk=self.kwargs['pk'])
+        context['factura'] = Factura.objects.all().filter(pedido_referencia=self.kwargs['pk'])
         return context
 
 # Editar Factura
