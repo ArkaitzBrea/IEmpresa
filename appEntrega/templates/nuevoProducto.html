@@ -1,14 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<body>
-    <form id="newProduct" class="contenedor" action="{% url 'producto_form' %}" method="POST">{% csrf_token %}
+<div class="row contenedor justify-content-between m-footer mt-3">
+    <form id="newProduct" class="col-6" action="{% url 'producto_form' %}" method="POST">{% csrf_token %}
         {% include "forms.html"%}
     </form>
 
-    <nav class=" navbar-light bg-light fixed-bottom nav-footer">
-        <button type="submit" form="newProduct" class="btn boton-nav btn-primary m-2">Guardar</button>
-        <button onclick="location.href='http://127.0.0.1:8000/appEntrega'" class="btn boton-nav btn-secondary m-2"
-            type="button">Volver</button>
-    </nav>
-    {% endblock %}
+    <div class="imagen">
+
+    </div>
+</div>
+
+<nav class=" navbar-light bg-light fixed-bottom nav-footer">
+    <button type="submit" form="newProduct" class="btn boton-nav btn-primary m-2">Guardar</button>
+    <button onclick="location.href='http://127.0.0.1:8000/appEntrega'" class="btn boton-nav btn-secondary m-2"
+        type="button">Volver</button>
+</nav>
+{% endblock %}

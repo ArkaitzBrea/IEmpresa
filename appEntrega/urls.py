@@ -45,27 +45,25 @@ urlpatterns = [
 
     #BORRAR /delete/
     #URL borrar producto
-    path('productos/<int:pk>/delete/', DeleteProductoView.as_view(),name='borrar_producto'),
+    path('productos/<str:pk>/delete/', DeleteProductoView.as_view(),name='borrar_producto'),
     #URL borrar cliente
-    path('clientes/<int:pk>/delete/', DeleteClienteView.as_view(),name='borrar_clientes'),
+    path('clientes/<str:pk>/delete/', DeleteClienteView.as_view(),name='borrar_clientes'),
     #URL borrar pedido
     path('pedidos/<int:pk>/delete/', DeletePedidoView.as_view(),name='borrar_pedidos'),
     #URL borrar factura
     path('facturas/<int:pk>/delete/', DeleteFacturaView.as_view(),name='borrar_facturas'),
     #URL borrar componente
-    path('componente/<int:pk>/delete/', DeleteComponenteView.as_view(),name='borrar_componentes'),
+    path('productos/componente/<int:pk>/delete/', DeleteComponenteView.as_view(),name='borrar_componentes'),
 
     # EDITAR /editar/
     #URL editar cliente
     path('clientes/<pk>/editar', UpdateClienteView.as_view(),name='editar_cliente'),
     #URL editar cliente
-    path('productos/<pk>/editar/', UpdateProductoView.as_view(),name='editar_producto'),
+    path('productos/<str:pk>/editar/', UpdateProductoView.as_view(),name='editar_producto'),
     #URL editar cliente
     path('pedidos/<pk>/editar/', UpdatePedidoView.as_view(),name='editar_pedido'),
     #URL editar cliente
     path('componentes/<pk>/editar/', UpdateComponenteView.as_view(),name='editar_componente'),
     #URL editar cliente
     path('facturas/<pk>/editar/', UpdateFacturaView.as_view(),name='editar_factura'),
-
-
 ]

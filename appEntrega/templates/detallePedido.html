@@ -1,25 +1,144 @@
+{% extends 'base.html' %}
 {% block content %}
-	
-	<h1> Detalle del pedido: {{pedido.pedido_referencia}}</h1>
-	
-	{% if pedido %}
-		<ul>
-				<li>
-					<p><strong>Descripción del pedido: </strong>{{pedido.pedido_descripcion}}</p>
-				</li>
-				<li>
-					<p><strong>Referencia del pedido: </strong>{{pedido.pedido_referencia}}</p>
-				</li>
-				<li>
-					<p><strong>Fecha del pedido: </strong>{{pedido.pedido_fecha}}</p>
-				</li>
-				<li>
-					<p><strong>Precio del pedido: </strong>{{pedido.pedido_precio}}</p>
-				</li>
-		</ul>
 
-	{% else %}
+
+<div class="contenedor my-3 row justify-content-around">
+
+	<!--  PEDIDO -->
+	<div class="pedido col-4">
+		<h3 class="orange-color mt-3 mb-5">{{pedido.pedido_descripcion}}</h3>
+
+		{% if pedido %}
+		<form id="updateProduct" class="contenedor" action="" method="POST">{% csrf_token %}
+
+			<!-- REFERENCIA -->
+			<div class="formulario__grupo mt-3 focus mb-5">
+				<div class="formulario__grupo-label d-flex">
+					<label for="referencia" class="formulario__label">
+						<span class="formulario__span">Referencia Pedido</span>
+						<div class="formulario__grupo-input">
+							<input autofocus="true" autocomplete="off" type="text" name="referencia" id="referencia"
+								class="formulario__input" value="{{pedido.pedido_referencia}}">
+						</div>
+					</label>
+				</div>
+			</div>
+
+			<!-- DESCRIPCION -->
+			<div class="formulario__grupo mt-3 focus mb-5">
+				<div class="formulario__grupo-label d-flex">
+					<label for="name" class="formulario__label">
+						<span class="formulario__span">Descripcion del pedido</span>
+						<div class="formulario__grupo-input">
+							<input autofocus="true" autocomplete="off" type="text" name="name" id="name"
+								class="formulario__input" value="{{pedido.pedido_descripcion}}">
+						</div>
+					</label>
+				</div>
+			</div>
+
+			<!-- FECHA -->
+			<div class="formulario__grupo mt-3 focus mb-5">
+				<div class="formulario__grupo-label d-flex">
+					<label for="descripcion" class="formulario__label">
+						<span class="formulario__span">Descripción Producto</span>
+						<div class="formulario__grupo-input">
+							<input autofocus="true" autocomplete="off" type="date" name="fecha" id="fecha"
+								class="formulario__input" value="{{pedido.pedido_fecha}}">
+						</div>
+					</label>
+				</div>
+			</div>
+
+			<!-- CIF CLIENTE -->
+			<div class="formulario__grupo mt-3 focus mb-5">
+				<div class="formulario__grupo-label d-flex">
+					<label for="categoria" class="formulario__label">
+						<span class="formulario__span">CIF Cliente</span>
+						<div class="formulario__grupo-input">
+							<input autofocus="true" autocomplete="off" type="text" name="categoria" id="categoria"
+								class="formulario__input" value="{{pedido.pedido_cliente_cif}}">
+						</div>
+					</label>
+				</div>
+			</div>
+		</form>
+		{% else %}
 		<p>No hay pedidos</p>
-	{% endif %}
-	
+		{% endif %}
+	</div>
+
+
+
+	<!--  FACTURAS -->
+	<div class="facturas col-8">
+		<h3 class="orange-color mt-3 mb-5">Facturas del pedido {{pedido.pedido_referencia}}</h3>
+
+		<table class="table-deustronic table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>CÓDIGO FACTURA</th>
+					<th>DESCRIPCION</th>
+					<th>CODIGO PRODUCTO</th>
+					<th>UNIDADES</th>
+					<th>PRECIO</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				{% if lista_facturas %}
+				{% for f in lista_facturas %}
+				<tr ondblclick="location.href='http://127.0.0.1:8000/appEntrega/facturas/{{factura.pk}}'">
+					<td>{{f.referencia}}</td>
+					<td>{{f.descripcion}}</td>
+					<td>{{f.producto_referencia}}</td>
+					<td>{{f.unidades}}</td>
+					<td>{{f.linea_precio}}</td>
+					<td><button class="btn"
+							onclick="location.href='http://127.0.0.1:8000/appEntrega/facturas/{{f.pk}}/delete/'"><i
+								class="fas fa-trash-alt"></i></button></td>
+				</tr>
+				{% endfor %}
+				{% else %}
+				<tr>
+					<td colspan="5">
+						<p>No existen facturas</p>
+					</td>
+				</tr>
+				{% endif %}
+			</tbody>
+		</table>
+	</div>
+</div>
+
+{% block deletePedido %}
+{% endblock %}
+
+{% block deleteFactura %}
+{% endblock %}
+
+
+<!--  NAVEGACIÓN FOOTER -->
+<nav class="p-2 px-4 mt-5 navbar-light bg-light fixed-bottom z-2 m-footer">
+	<div class="row justify-content-between">
+		<div class="d-flex">
+			<div class="form-inline ml-auto">
+				<button type="submit" form="updateProduct" value="Update" class="btn boton-nav btn-primary m-2"
+					onclick="location.href='http://127.0.0.1:8000/appEntrega/pedidos/{{pedido.pk}}/editar/'">Guardar
+				</button>
+			</div>
+			<div class="form-inline ml-auto">
+				<button type="button" class="btn boton-nav btn-danger m-2" data-toggle="modal"
+					data-target="#delete-modal"
+					onclick="location.href='http://127.0.0.1:8000/appEntrega/pedidos/{{pedido.pk}}/delete/'">Eliminar
+				</button>
+			</div>
+		</div>
+		<div class="form-inline ml-auto">
+			<button onclick="location.href='http://127.0.0.1:8000/appEntrega/pedidos'"
+				class="btn boton-nav btn-secondary m-2" type="button">Volver</button>
+		</div>
+	</div>
+</nav>
+
 {% endblock %}

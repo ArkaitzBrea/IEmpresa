@@ -7,15 +7,7 @@
         <ul class="navbar-nav mr-auto flex-row">
             <li class="nav-item m-0 ml-3">
                 <i class="fas fa-plus-circle fa-lg c-grey"
-                onclick="location.href='http://127.0.0.1:8000/appEntrega/clientes/nuevo/'"></i>
-            </li>
-            <li class="nav-item m-0">
-                <i class="fas fa-pen fa-lg c-grey"
-                onclick="location.href='http://127.0.0.1:8000/appEntrega/clientes/{{cliente.pk}}/editar'"></i>
-            </li>
-            <li class="nav-item m-0">
-                <i class="fas fa-trash fa-lg c-grey"
-                onclick="location.href='http://127.0.0.1:8000/appEntrega/clientes/{{cliente.pk}}/borrar'"></i>
+                    onclick="location.href='http://127.0.0.1:8000/appEntrega/clientes/nuevo/'"></i>
             </li>
         </ul>
     </nav>
@@ -27,22 +19,26 @@
             <thead>
                 <tr>
                     <th>NOMBRE DE LA EMPRESA</th>
-					<th>CIF</th>
-					<th>EMAIL</th>
-					<th>Nº TELEFONO</th>
-					<th>RESPONSABLE dpto. COMPRAS</th>
+                    <th>CIF</th>
+                    <th>EMAIL</th>
+                    <th>Nº TELEFONO</th>
+                    <th>RESPONSABLE dpto. COMPRAS</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 {% if lista_clientes %}
                 {% for cliente in lista_clientes %}
                 <tr ondblclick="location.href='http://127.0.0.1:8000/appEntrega/clientes/{{cliente.pk}}'">
-					<td>{{cliente.nombre_empresa}}</td>
-					<td>{{cliente.cif}}</td>
-					<td>{{cliente.email}}</td>
-					<td>{{cliente.telefono}}</td>
-					<td>{{cliente.nombre_cliente}}</td>
-				</tr>
+                    <td>{{cliente.nombre_empresa}}</td>
+                    <td>{{cliente.cif}}</td>
+                    <td>{{cliente.email}}</td>
+                    <td>{{cliente.telefono}}</td>
+                    <td>{{cliente.nombre_cliente}}</td>
+                    <td><button class="btn"
+                            onclick="location.href='http://127.0.0.1:8000/appEntrega/clientes/{{cliente.pk}}/delete/'"><i
+                                class="fas fa-trash-alt"></i></button></td>
+                </tr>
                 {% endfor %}
 
                 {% else %}
@@ -50,6 +46,8 @@
                     <td colspan="5">
                         <p>No existen Clientes</p>
                     </td>
+                    <td><i class="fas fa-plus-circle fa-lg c-grey"
+                        onclick="location.href='http://127.0.0.1:8000/appEntrega/clientes/nuevo/'"></i></td>
                 </tr>
                 {% endif %}
             </tbody>

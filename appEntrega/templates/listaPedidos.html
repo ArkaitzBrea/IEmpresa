@@ -1,21 +1,64 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% block content %}
 
-<h1> Listado de pedidos</h1>
+<div class="">
+    <nav class="navbar navbar-light table-navbar">
+        <h2 class="orange-color">Pedidos</h2>
+        <ul class="navbar-nav mr-auto flex-row">
+            <li class="nav-item m-0 ml-3">
+                <i class="fas fa-plus-circle fa-lg c-grey"
+                    onclick="location.href='http://127.0.0.1:8000/appEntrega/pedidos/nuevo/'"></i>
+            </li>
+        </ul>
+    </nav>
+</div>
 
-{% if lista_pedidos %}
-<ul>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table-deustronic table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>REFERENCIA</th>
+                    <th>DESCRIPCION</th>
+                    <th>FECHA</th>
+                    <th>CIF CLIENTE</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if lista_pedidos %}
+                {% for pedido in lista_pedidos %}
+                <tr ondblclick="location.href='http://127.0.0.1:8000/appEntrega/pedidos/{{pedido.pk}}'">
+                    <td>{{pedido.pedido_referencia}}</td>
+                    <td>{{pedido.pedido_descripcion}}</td>
+                    <td>{{pedido.pedido_fecha}}</td>
+                    <td>{{pedido.pedido_cliente_cif}}</td>
+                    <td><button class="btn"
+                            onclick="location.href='http://127.0.0.1:8000/appEntrega/pedidos/{{pedido.pk}}/delete/'"><i
+                                class="fas fa-trash-alt"></i></button></td>
+                </tr>
+                {% endfor %}
 
-    {% for pedido in lista_pedidos %}
-    <li>
-        <a
-            href="http://127.0.0.1:8000/appEntrega/pedidos/{{pedido.pedido_referencia}}">{{pedido.pedido_descripcion}}</a>
-    </li>
-    {% endfor %}
+                {% else %}
+                <tr>
+                    <td colspan="4">
+                        <p>No existen Pedidos</p>
+                    </td>
+                    <td><i class="fas fa-plus-circle fa-lg c-grey"
+                        onclick="location.href='http://127.0.0.1:8000/appEntrega/pedidos/nuevo/'"></i></td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
 
-</ul>
-{% else %}
-<p>No hay pedidos</p>
-{% endif %}
+<nav class="navbar navbar-light bg-light fixed-bottom">
+    <div class="form-inline ml-auto">
+        <button onclick="location.href='http://127.0.0.1:8000/appEntrega'" class="btn boton-nav btn-secondary m-2"
+            type="button">Volver</button>
+
+    </div>
+</nav>
 
 {% endblock %}

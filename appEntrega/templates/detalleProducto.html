@@ -3,32 +3,88 @@
 
 
 <div class="contenedor my-3 row justify-content-around">
+
+	<!--  PRODUCTO -->
 	<div class="producto col-4">
 		<h3 class="orange-color mt-3 mb-5">{{producto.producto_nombre}}</h3>
 
 		{% if producto %}
-		<ul>
-			<li>
-				<p><strong>REFERENCIA PRODUCTO:</strong>{{producto.producto_referencia | upper }}</p>
-			</li>
-			<li>
-				<p><strong>DESCRIPCIÓN PRODUCTO: </strong>{{producto.producto_descripcion}}</p>
-			</li>
-			<li>
-				<p><strong>CATEGORÍA: </strong>{{producto.producto_categoria}}</p>
-			</li>
+		<form id="updateProduct" class="contenedor" action="" method="POST">{% csrf_token %}
 
-			<li>
-				<p><strong>PRECIO: </strong>{{producto.producto_precio}}</p>
-			</li>
+			<!-- REFERENCIA PRODUCTO -->
+			<div class="formulario__grupo mt-3 focus mb-5">
+				<div class="formulario__grupo-label d-flex">
+					<label for="referencia" class="formulario__label">
+						<span class="formulario__span">Referencia Producto</span>
+						<div class="formulario__grupo-input">
+							<input autofocus="true" autocomplete="off" type="text" name="referencia" id="referencia"
+								class="formulario__input" value="{{producto.producto_referencia}}">
+						</div>
+					</label>
+				</div>
+			</div>
 
-		</ul>
+			<!-- NOMBRE PRODUCTO -->
+			<div class="formulario__grupo mt-3 focus mb-5">
+				<div class="formulario__grupo-label d-flex">
+					<label for="name" class="formulario__label">
+						<span class="formulario__span">Nombre Producto</span>
+						<div class="formulario__grupo-input">
+							<input autofocus="true" autocomplete="off" type="text" name="name" id="name"
+								class="formulario__input" value="{{producto.producto_nombre}}">
+						</div>
+					</label>
+				</div>
+			</div>
 
+			<!-- DESCRIPCION PRODUCTO -->
+			<div class="formulario__grupo mt-3 focus mb-5">
+				<div class="formulario__grupo-label d-flex">
+					<label for="descripcion" class="formulario__label">
+						<span class="formulario__span">Descripción Producto</span>
+						<div class="formulario__grupo-input">
+							<input autofocus="true" autocomplete="off" type="text" name="descripcion" id="descripcion"
+								class="formulario__input" value="{{producto.producto_descripcion}}">
+						</div>
+					</label>
+				</div>
+			</div>
+
+			<!-- CATEGORIA PRODUCTO -->
+			<div class="formulario__grupo mt-3 focus mb-5">
+				<div class="formulario__grupo-label d-flex">
+					<label for="categoria" class="formulario__label">
+						<span class="formulario__span">Categoria Producto</span>
+						<div class="formulario__grupo-input">
+							<input autofocus="true" autocomplete="off" type="text" name="categoria" id="categoria"
+								class="formulario__input" value="{{producto.producto_categoria}}">
+						</div>
+					</label>
+				</div>
+			</div>
+
+
+			<!-- PRECIO PRODUCTO -->
+			<div class="formulario__grupo mt-3 focus mb-5 m-footer">
+				<div class="formulario__grupo-label d-flex">
+					<label for="precio" class="formulario__label">
+						<span class="formulario__span">Precio Producto</span>
+						<div class="formulario__grupo-input">
+							<input autofocus="true" autocomplete="off" type="text" name="precio" id="precio"
+								class="formulario__input" value="{{producto.producto_precio}}">
+						</div>
+					</label>
+				</div>
+			</div>
+		</form>
 		{% else %}
 		<p>No hay productos</p>
 		{% endif %}
 	</div>
 
+
+
+	<!--  COMPONENTES -->
 	<div class="componentes col-8">
 		<h3 class="orange-color mt-3 mb-5">Componentes de {{producto.producto_nombre}}</h3>
 
@@ -40,6 +96,7 @@
 					<th>UNIDADES</th>
 					<th>DESCRIPCION</th>
 					<th>PRECIO</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -53,11 +110,14 @@
 					<td>{{c.componente_unidades}}</td>
 					<td>{{c.componente_descripcion}}</td>
 					<td>{{c.componente_producto.producto_precio}}</td>
+					<td><button class="btn"
+							onclick="location.href='http://127.0.0.1:8000/appEntrega/productos/componente/{{c.pk}}/delete/'"><i
+								class="fas fa-trash-alt"></i></button></td>
 				</tr>
 				{% endfor %}
 				{% else %}
 				<tr>
-					<td colspan="5">
+					<td colspan="6">
 						<p>No existen componentes</p>
 					</td>
 				</tr>
@@ -67,19 +127,26 @@
 	</div>
 </div>
 
-{% block updateProduct %}
+{% block deleteProducto %}
 {% endblock %}
 
-<nav class="p-2 px-4 navbar-light bg-light fixed-bottom">
+{% block deleteComponente %}
+{% endblock %}
+
+
+<!--  NAVEGACIÓN FOOTER -->
+<nav class="p-2 px-4 mt-5 navbar-light bg-light fixed-bottom z-2 m-footer">
 	<div class="row justify-content-between">
 		<div class="d-flex">
 			<div class="form-inline ml-auto">
-				<button type="button" class="btn boton-nav btn-primary m-2">Guardar
+				<button type="submit" form="updateProduct" value="Update" class="btn boton-nav btn-primary m-2"
+					onclick="location.href='http://127.0.0.1:8000/appEntrega/productos/{{producto.pk}}/editar/'">Guardar
 				</button>
 			</div>
 			<div class="form-inline ml-auto">
 				<button type="button" class="btn boton-nav btn-danger m-2" data-toggle="modal"
-					data-target="#delete-modal" onclick="location.href='http://127.0.0.1:8000/appEntrega/productos/{{producto.pk}}/delete/'">Eliminar
+					data-target="#delete-modal"
+					onclick="location.href='http://127.0.0.1:8000/appEntrega/productos/{{producto.pk}}/delete/'">Eliminar
 				</button>
 			</div>
 		</div>
@@ -89,33 +156,5 @@
 		</div>
 	</div>
 </nav>
-
-
-<!--MODAL-->
-<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="delete-modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header p-4 d-flex align-items-center">
-                <h4 class="modal-title text-center">¿Desea eliminar el producto?</h4>
-                <button class="close" data-dismiss="modal" aria-label="Cerrar"><span
-                        aria-hidden="true">&times;</span></button>
-            </div>
-
-            <div class="modal-body p-5">
-                <form id="deleteProduct" method="post">
-                    {% csrf_token %}
-                    <p>Se eliminará de manera permanente {{producto.producto_nombre}}</p>
-                </form>
-            </div>
-            <div class="modal-footer bt-0 row justify-content-between">
-                <button type="submit" form="deleteProduct" value="Confirm"
-                    class="btn boton-nav btn-danger m-2 mx-4">Eliminar
-                </button>
-                <button class="btn boton-nav btn-secondary m-2 mx-4" data-dismiss="modal" aria-label="Cerrar">Cancelar
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
 
 {% endblock %}
