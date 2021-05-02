@@ -7,7 +7,6 @@
 	<!--  CLIENTE -->
 	<div class="cliente col-4">
 		<h3 class="orange-color mt-3 mb-5">{{cliente.nombre_empresa}}</h3>
-
 		{% if cliente %}
 		<form id="updateProduct" class="contenedor" action="" method="POST">{% csrf_token %}
 
@@ -80,14 +79,46 @@
 		{% else %}
 		<p>No hay clientes</p>
 		{% endif %}
+		<table class="table-deustronic table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>NOMBRE DE LA EMPRESA</th>
+					<th>CIF</th>
+					<th>EMAIL</th>
+					<th>Nº TELEFONO</th>
+					<th>RESPONSABLE dpto. COMPRAS</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				{% if cliente %}
+				<tr>
+					<td>{{cliente.nombre_empresa}}</td>
+					<td>{{cliente.cif}}</td>
+					<td>{{cliente.email}}</td>
+					<td>{{cliente.telefono}}</td>
+					<td>{{cliente.nombre_cliente}}</td>
+					<td><button class="btn"
+							onclick="location.href='http://127.0.0.1:8000/appEntrega/clientes/{{cliente.pk}}/delete/'"><i
+								class="fas fa-trash-alt"></i></button></td>
+				</tr>
+				{% else %}
+				<tr>
+					<td colspan="6">
+						<p>No existen clientes</p>
+					</td>
+				</tr>
+				{% endif %}
+			</tbody>
+		</table>
 	</div>
 </div>
 
 {% block deleteCliente %}
 {% endblock %}
 
-<!--  NAVEGACIÓN FOOTER -->
-<nav class="p-2 px-4 mt-5 navbar-light bg-light fixed-bottom z-2 m-footer">
+
+<nav class="p-2 px-4 navbar-light bg-light fixed-bottom z-2">
 	<div class="row justify-content-between">
 		<div class="d-flex">
 			<div class="form-inline ml-auto">
@@ -108,5 +139,4 @@
 		</div>
 	</div>
 </nav>
-
 {% endblock %}
