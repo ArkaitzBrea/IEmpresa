@@ -240,19 +240,29 @@ class UpdateClienteView(UpdateView):
     success_url = reverse_lazy('listaCliente')  # URL a la que redirecciona
 
 
-# Editar Producto
-class UpdateProductoView(UpdateView):
+class ProductoDetailView(DetailView):
     model = Producto
+    #template_name = 'detalleProducto.html'
+    context_object_name = 'producto'
     template_name = 'updateProducto.html'
-    fields = ['producto_nombre', 'producto_descripcion', 'producto_categoria', 'producto_precio']
-    success_url = reverse_lazy('listaProducto')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['lista_componentes'] = Componente.objects.all().filter(componente_producto_padre=self.kwargs['pk'])
+        return context
+
+    class UpdateProductoView(UpdateView):
+        model = Producto
+        #template_name = 'updateProducto.html'
+        fields = ['producto_nombre', 'producto_descripcion', 'producto_categoria', 'producto_precio']
+        success_url = reverse_lazy('listaProducto')
 
 
 # Editar Pedido
 class UpdatePedidoView(UpdateView):
     model = Orden_Pedido
     template_name = 'detallePedido.html'
-    #template_name = 'updatePedido.html'
+    # template_name = 'updatePedido.html'
     fields = ['pedido_descripcion', 'pedido_referencia', 'pedido_cliente_cif']
     success_url = reverse_lazy('listaPedido')
 

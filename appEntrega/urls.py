@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 from appEntrega.views import PedidoDetailView, PedidoListView, CreateProductoView, CreateClienteView, \
     CreateComponenteView, CreatePedidoView, ClienteDetailView, ClienteListView, ProductoListView, ProductoDetailView, \
-    DeleteProductoView, DeletePedidoView, DeleteClienteView, Index,UpdateClienteView,UpdatePedidoView,UpdateProductoView, \
+    DeleteProductoView, DeletePedidoView, DeleteClienteView, Index,UpdateClienteView,UpdatePedidoView, \
     CreateFacturaView, DeleteFacturaView, DeleteComponenteView, UpdateComponenteView, UpdateFacturaView,\
     FacturaListView, FacturaDetailView
 
@@ -59,7 +59,7 @@ urlpatterns = [
     #URL editar cliente
     path('clientes/<str:pk>/editar/', UpdateClienteView.as_view(),name='editar_cliente'),
     #URL editar cliente
-    path('productos/<str:pk>/editar/', UpdateProductoView.as_view(),name='editar_producto'),
+    path('productos/<str:pk>/editar/', ProductoDetailView.as_view(),name='editar_producto'),
     #URL editar cliente
     path('pedidos/<str:pk>/editar/', UpdatePedidoView.as_view(),name='editar_pedido'),
     #URL editar cliente
