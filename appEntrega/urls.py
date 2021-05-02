@@ -1,20 +1,22 @@
 from django.urls import path
 from . import views
 from appEntrega.views import PedidoDetailView, PedidoListView, CreateProductoView, CreateClienteView, \
-    CreateComponenteView, CreatePedidoView, ClienteDetailView, ClienteListView, ProductoListView, ProductoDetailView, \
-    DeleteProductoView, DeletePedidoView, DeleteClienteView, Index,UpdateClienteView, \
-    CreateFacturaView, DeleteFacturaView, DeleteComponenteView, UpdateComponenteView,  \
+    CreateComponenteView, CreatePedidoView, ClienteDetailView, ClienteListView, ProductoListView, ProductoDetailView, ComponenteListView, \
+    DeleteProductoView, DeletePedidoView, DeleteClienteView, Index, UpdateClienteView, \
+    CreateFacturaView, DeleteFacturaView, DeleteComponenteView, UpdateComponenteView, \
     FacturaListView, FacturaDetailView
 
 urlpatterns = [
     path('', Index, name='index'),
-    #URL LISTA
+    # URL LISTA
     # URL lista pedidos
     path('pedidos/', PedidoListView.as_view(), name='listaPedido'),
     # URL lista clientes
     path('clientes/', ClienteListView.as_view(), name='listaCliente'),
     # URL lista productos
     path('productos/', ProductoListView.as_view(), name='listaProducto'),
+    # URL lista compoentes
+    path('componentes/', ComponenteListView.as_view(), name='listaComponente'),
     # URL lista productos
     path('facturas/', FacturaListView.as_view(), name='listaFactura'),
 
@@ -28,9 +30,7 @@ urlpatterns = [
     # URL detalle factura
     path('facturas/<str:pk>', FacturaDetailView.as_view(), name='detalleFactura'),
 
-
-
-    #CREAR  /nuevo/
+    # CREAR  /nuevo/
     # URL nueva factura
     path('facturas/nuevo/', views.CreateFacturaView.as_view(), name='factura_form'),
     # URL nuevo producto
@@ -42,28 +42,27 @@ urlpatterns = [
     # URL nuevo orden_pedido
     path('pedidos/nuevo/', views.CreatePedidoView.as_view(), name='pedido_form'),
 
-
-    #BORRAR /delete/
-    #URL borrar producto
-    path('productos/<str:pk>/delete/', DeleteProductoView.as_view(),name='borrar_producto'),
-    #URL borrar cliente
-    path('clientes/<str:pk>/delete/', DeleteClienteView.as_view(),name='borrar_clientes'),
-    #URL borrar pedido
-    path('pedidos/<int:pk>/delete/', DeletePedidoView.as_view(),name='borrar_pedidos'),
-    #URL borrar factura
-    path('facturas/<int:pk>/delete/', DeleteFacturaView.as_view(),name='borrar_facturas'),
-    #URL borrar componente
-    path('productos/componente/<int:pk>/delete/', DeleteComponenteView.as_view(),name='borrar_componentes'),
+    # BORRAR /delete/
+    # URL borrar producto
+    path('productos/<str:pk>/delete/', DeleteProductoView.as_view(), name='borrar_producto'),
+    # URL borrar cliente
+    path('clientes/<str:pk>/delete/', DeleteClienteView.as_view(), name='borrar_clientes'),
+    # URL borrar pedido
+    path('pedidos/<int:pk>/delete/', DeletePedidoView.as_view(), name='borrar_pedidos'),
+    # URL borrar factura
+    path('facturas/<int:pk>/delete/', DeleteFacturaView.as_view(), name='borrar_facturas'),
+    # URL borrar componente
+    path('productos/componente/<int:pk>/delete/', DeleteComponenteView.as_view(), name='borrar_componentes'),
 
     # EDITAR /editar/
-    #URL editar cliente
-    path('clientes/<str:pk>/editar/', UpdateClienteView.as_view(),name='editar_cliente'),
-    #URL editar producto
-    path('productos/<str:pk>/editar/', views.UpdateProductoView.as_view() ,name='editar_producto'),
-    #URL editar pedido
-    path('pedidos/<str:pk>/editar/', views.UpdatePedidoView.as_view(),name='editar_pedido'),
-    #URL editar componente
-    path('componentes/<int:pk>/editar/', views.UpdateComponenteView.as_view(),name='editar_componente'),
-    #URL editar factura
-    path('facturas/<str:pk>/editar/', views.UpdateFacturaView.as_view(),name='editar_factura'),
+    # URL editar cliente
+    path('clientes/<str:pk>/editar/', UpdateClienteView.as_view(), name='editar_cliente'),
+    # URL editar producto
+    path('productos/<str:pk>/editar/', views.UpdateProductoView.as_view(), name='editar_producto'),
+    # URL editar pedido
+    path('pedidos/<str:pk>/editar/', PedidoDetailView.as_view(), name='editar_pedido'),
+    # URL editar componente
+    path('componentes/<int:pk>/editar/', UpdateComponenteView.as_view(), name='editar_componente'),
+    # URL editar factura
+    path('facturas/<str:pk>/editar/', FacturaDetailView.as_view(), name='editar_factura'),
 ]
