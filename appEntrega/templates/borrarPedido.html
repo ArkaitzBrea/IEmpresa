@@ -4,22 +4,22 @@
 <div class="modale" id="modal1" id="delete-modal">
     <div class="modale-dialog">
         <header class="modale-header">
-            <h4 class="modale-title text-center">¿Desea eliminar el cliente?</h4>
+            <h4 class="modale-title text-center">¿Desea eliminar el pedido?</h4>
             <button class="z-100 close" data-dismiss="modale" aria-label="Cerrar"><span
                     aria-hidden="true">&times;</span></button>
         </header>
         <section class="modale-content">
-            <form id="deleteProduct" method="post">
+            <form id="deletePedido" method="post">
                 {% csrf_token %}
-                <p>Se eliminará de manera permanente {{cliente.nombre_cliente}}</p>
+                <p>Se eliminará de manera permanente el pedido:  {{pedido.pedido_descripcion}}</p>
             </form>
         </section>
         <footer class="d-flex justify-content-between">
-            <button type="submit" form="deleteProduct" value="Confirm"
+            <button type="submit" form="deletePedido" value="Confirm"
                 class="z-100 btn boton-nav btn-danger m-2 mx-4">Eliminar
             </button>
             <button class="z-100 btn boton-nav btn-secondary m-2 mx-4"
-                onclick="location.href='http://127.0.0.1:8000/appEntrega/clientes/{{cliente.pk}}'">Cancelar
+                onclick="location.href='http://127.0.0.1:8000/appEntrega/pedidos'">Cancelar
             </button>
         </footer>
     </div>

@@ -1,6 +1,6 @@
 {% extends 'detallePedido.html' %}
-{% block updatePedido %}
-<h3>ENTRA AL UPDATE!!</h3>
+{% block updatePedido_ %}
+
 <form action="" id="updatePedido" method="POST">{% csrf_token %}
     {% for field in form %}
     <div class="formulario__grupo mt-3 focus mb-5">
@@ -8,7 +8,7 @@
             <label for="referencia" class="formulario__label">
                 <span class="formulario__span">{{ field.label_tag }}</span>
                 <div class="formulario__grupo-input">
-                  {{field}}
+                    {{field}}
                 </div>
             </label>
             <p class="formulario__p text-muted">{{ field.errors }}</p>

@@ -44,6 +44,7 @@ class FacturaListView(ListView):
     template_name = 'listaFacturas.html'
     context_object_name = 'lista_facturas'
 
+
 # Vista de ComponentesListView
 class ComponenteListView(ListView):
     model = Componente
@@ -211,6 +212,11 @@ class DeletePedidoView(DeleteView):
     template_name = 'borrarPedido.html'
     success_url = reverse_lazy('listaPedido')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['pedido'] = Orden_Pedido.objects.get(pk=self.kwargs['pk'])
+        return context
+
 
 # Borrar Cliente
 class DeleteClienteView(DeleteView):
@@ -237,6 +243,7 @@ class DeleteComponenteView(DeleteView):
         context['componente'] = Componente.objects.get(pk=self.kwargs['pk'])
         return context
 
+
 # Borrar Componente desde ProductView
 class DeleteComponenteProductView(DeleteView):
     model = Componente
@@ -258,7 +265,7 @@ class UpdateClienteView(UpdateView):
     success_url = reverse_lazy('listaCliente')  # URL a la que redirecciona
 
 
-# update producto  - COPIAR ESTA EN LOS DEMÁS - ES LA VISTA BUENA PARA PODER EDITAR Y MOSTRAR DETAILVIEW
+# update producto  - 
 class UpdateProductoView(UpdateView):
     model = Producto
     template_name = 'updateProducto.html'
@@ -268,6 +275,19 @@ class UpdateProductoView(UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['lista_componentes'] = Componente.objects.all().filter(componente_producto_padre=self.kwargs['pk'])
+        return context
+
+
+# Editar Pedido
+class UpdatePedidoView(UpdateView):
+    model = Orden_Pedido
+    template_name = 'updatePedido.html'
+    fields = ['pedido_descripcion', 'pedido_referencia', 'pedido_cliente_cif']
+    success_url = reverse_lazy('listaPedido')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['lista_facturas'] = Factura.objects.all().filter(pedido_referencia=self.kwargs['pk'])
         return context
 
 
@@ -281,19 +301,6 @@ class UpdateComponenteView(UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['componente'] = Componente.objects.get(pk=self.kwargs['pk'])
-        return context
-
-# Editar Pedido
-class UpdatePedidoView(UpdateView):
-    model = Orden_Pedido
-    template_name = 'updatePedido.html'
-    fields = ['pedido_descripcion', 'pedido_referencia', 'pedido_cliente_cif']
-    success_url = reverse_lazy('listaPedido')
-
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['factura'] = Factura.objects.all().filter(pedido_referencia=self.kwargs['pk'])
         return context
 
 
