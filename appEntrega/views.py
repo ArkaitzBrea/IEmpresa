@@ -243,7 +243,7 @@ class UpdateClienteView(UpdateView):
 # Editar Producto
 class UpdateProductoView(UpdateView):
     model = Producto
-    template_name = 'update.html'
+    template_name = 'updateProducto.html'
     fields = ['producto_nombre', 'producto_descripcion', 'producto_categoria', 'producto_precio']
     success_url = reverse_lazy('listaProducto')
 

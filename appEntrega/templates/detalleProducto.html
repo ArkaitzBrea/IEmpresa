@@ -9,74 +9,8 @@
 		<h3 class="orange-color mt-3 mb-5">{{producto.producto_nombre}}</h3>
 
 		{% if producto %}
-		<form id="updateProduct" class="contenedor" action="" method="POST">{% csrf_token %}
-
-			<!-- REFERENCIA PRODUCTO -->
-			<div class="formulario__grupo mt-3 focus mb-5">
-				<div class="formulario__grupo-label d-flex">
-					<label for="referencia" class="formulario__label">
-						<span class="formulario__span">Referencia Producto</span>
-						<div class="formulario__grupo-input">
-							<input autofocus="true" autocomplete="off" type="text" name="referencia" id="referencia"
-								class="formulario__input" value="{{producto.producto_referencia}}">
-						</div>
-					</label>
-				</div>
-			</div>
-
-			<!-- NOMBRE PRODUCTO -->
-			<div class="formulario__grupo mt-3 focus mb-5">
-				<div class="formulario__grupo-label d-flex">
-					<label for="name" class="formulario__label">
-						<span class="formulario__span">Nombre Producto</span>
-						<div class="formulario__grupo-input">
-							<input autofocus="true" autocomplete="off" type="text" name="name" id="name"
-								class="formulario__input" value="{{producto.producto_nombre}}">
-						</div>
-					</label>
-				</div>
-			</div>
-
-			<!-- DESCRIPCION PRODUCTO -->
-			<div class="formulario__grupo mt-3 focus mb-5">
-				<div class="formulario__grupo-label d-flex">
-					<label for="descripcion" class="formulario__label">
-						<span class="formulario__span">Descripción Producto</span>
-						<div class="formulario__grupo-input">
-							<input autofocus="true" autocomplete="off" type="text" name="descripcion" id="descripcion"
-								class="formulario__input" value="{{producto.producto_descripcion}}">
-						</div>
-					</label>
-				</div>
-			</div>
-
-			<!-- CATEGORIA PRODUCTO -->
-			<div class="formulario__grupo mt-3 focus mb-5">
-				<div class="formulario__grupo-label d-flex">
-					<label for="categoria" class="formulario__label">
-						<span class="formulario__span">Categoria Producto</span>
-						<div class="formulario__grupo-input">
-							<input autofocus="true" autocomplete="off" type="text" name="categoria" id="categoria"
-								class="formulario__input" value="{{producto.producto_categoria}}">
-						</div>
-					</label>
-				</div>
-			</div>
-
-
-			<!-- PRECIO PRODUCTO -->
-			<div class="formulario__grupo mt-3 focus mb-5 m-footer">
-				<div class="formulario__grupo-label d-flex">
-					<label for="precio" class="formulario__label">
-						<span class="formulario__span">Precio Producto</span>
-						<div class="formulario__grupo-input">
-							<input autofocus="true" autocomplete="off" type="text" name="precio" id="precio"
-								class="formulario__input" value="{{producto.producto_precio}}">
-						</div>
-					</label>
-				</div>
-			</div>
-		</form>
+			{% block updateProduct %}
+			{% endblock %}
 		{% else %}
 		<p>No hay productos</p>
 		{% endif %}
