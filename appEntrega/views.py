@@ -321,6 +321,7 @@ class UpdateComponenteView(UpdateView):
 # Editar Factura
 class UpdateFacturaView(UpdateView):
     model = Factura
+    context_object_name = 'factura'
     template_name = 'updateFactura.html'
     fields = ['pedido_referencia', 'producto_referencia', 'unidades', 'descripcion']
     success_url = reverse_lazy('listaFactura')

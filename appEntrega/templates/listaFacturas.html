@@ -36,7 +36,7 @@
             <tbody>
                 {% if lista_facturas %}
                 {% for factura in lista_facturas %}
-                <tr ondblclick="location.href='http://127.0.0.1:8000/appEntrega/facturas/{{factura.pk}}/editar'">
+                <tr ondblclick="location.href='http://127.0.0.1:8000/appEntrega/facturas/{{factura.pk}}/editar/'">
                     <td>{{factura.referencia}}</td>
 					<td>{{factura.descripcion}}</td>
 					<td>{{factura.producto_referencia}}</td>
@@ -61,9 +61,12 @@
     </div>
 </div>
 
+{% block deleteFactura %}
+{% endblock %}
+
 <nav class="navbar navbar-light bg-light fixed-bottom">
     <div class="form-inline ml-auto">
-        <button onclick="location.href='http://127.0.0.1:8000/appEntrega'" class="btn boton-nav btn-secondary m-2"
+        <button onclick="location.href='http://127.0.0.1:8000/appEntrega'" class="btn boton-nav btn-secondary m-2 z-2"
             type="button">Volver</button>
 
     </div>
