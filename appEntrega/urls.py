@@ -20,7 +20,7 @@ urlpatterns = [
 
     # URL Detalle
     # URL detalle pedido
-    path('pedidos/<int:pk>', PedidoDetailView.as_view(), name='detallePedido'),
+    path('pedidos/<int:pk>/', PedidoDetailView.as_view(), name='detallePedido'),
     # URL detalle cliente
     path('clientes/<int:pk>', ClienteDetailView.as_view(), name='detalleCliente'),
     # URL detalle producto
@@ -57,13 +57,13 @@ urlpatterns = [
 
     # EDITAR /editar/
     #URL editar cliente
-    path('clientes/<pk>/editar', UpdateClienteView.as_view(),name='editar_cliente'),
+    path('clientes/<str:pk>/editar/', UpdateClienteView.as_view(),name='editar_cliente'),
     #URL editar cliente
     path('productos/<str:pk>/editar/', UpdateProductoView.as_view(),name='editar_producto'),
     #URL editar cliente
-    path('pedidos/<pk>/editar/', UpdatePedidoView.as_view(),name='editar_pedido'),
+    path('pedidos/<str:pk>/editar/', UpdatePedidoView.as_view(),name='editar_pedido'),
     #URL editar cliente
-    path('componentes/<pk>/editar/', UpdateComponenteView.as_view(),name='editar_componente'),
+    path('componentes/<int:pk>/editar/', UpdateComponenteView.as_view(),name='editar_componente'),
     #URL editar cliente
-    path('facturas/<pk>/editar/', UpdateFacturaView.as_view(),name='editar_factura'),
+    path('facturas/<str:pk>/editar/', UpdateFacturaView.as_view(),name='editar_factura'),
 ]

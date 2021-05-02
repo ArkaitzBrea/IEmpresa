@@ -1,0 +1,58 @@
+{% extends 'detallePedido.html' %}
+{% block updatePedido %}
+<form id="updateProduct" class="contenedor" action="" method="POST">{% csrf_token %}
+
+    <!-- REFERENCIA -->
+    <div class="formulario__grupo mt-3 focus mb-5">
+        <div class="formulario__grupo-label d-flex">
+            <label for="referencia" class="formulario__label">
+                <span class="formulario__span">Referencia Pedido</span>
+                <div class="formulario__grupo-input">
+                    <input autofocus="true" autocomplete="off" type="text" name="referencia" id="referencia"
+                        class="formulario__input" value="{{pedido.pedido_referencia}}">
+                </div>
+            </label>
+        </div>
+    </div>
+
+    <!-- DESCRIPCION -->
+    <div class="formulario__grupo mt-3 focus mb-5">
+        <div class="formulario__grupo-label d-flex">
+            <label for="name" class="formulario__label">
+                <span class="formulario__span">Descripcion del pedido</span>
+                <div class="formulario__grupo-input">
+                    <input autofocus="true" autocomplete="off" type="text" name="name" id="name"
+                        class="formulario__input" value="{{pedido.pedido_descripcion}}">
+                </div>
+            </label>
+        </div>
+    </div>
+
+    <!-- FECHA -->
+    <div class="formulario__grupo mt-3 focus mb-5">
+        <div class="formulario__grupo-label d-flex">
+            <label for="descripcion" class="formulario__label">
+                <span class="formulario__span">Descripción Producto</span>
+                <div class="formulario__grupo-input">
+                    <input autofocus="true" autocomplete="off" type="date" name="fecha" id="fecha"
+                        class="formulario__input" value="{{pedido.pedido_fecha}}">
+                </div>
+            </label>
+        </div>
+    </div>
+
+    <!-- CIF CLIENTE -->
+    <div class="formulario__grupo mt-3 focus mb-5">
+        <div class="formulario__grupo-label d-flex">
+            <label for="categoria" class="formulario__label">
+                <span class="formulario__span">CIF Cliente</span>
+                <div class="formulario__grupo-input">
+                    <input autofocus="true" autocomplete="off" type="text" name="categoria" id="categoria"
+                        class="formulario__input" value="{{pedido.pedido_cliente_cif}}">
+                </div>
+            </label>
+        </div>
+    </div>
+</form>
+
+{% endblock %}
