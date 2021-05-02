@@ -36,7 +36,7 @@
             <tbody>
                 {% if lista_facturas %}
                 {% for factura in lista_facturas %}
-                <tr ondblclick="location.href='http://127.0.0.1:8000/appEntrega/facturas/{{factura.pk}}/editar'">
+                <tr ondblclick="location.href='http://127.0.0.1:8000/appEntrega/facturas/{{factura.pk}}/editar/'">
                     <td>{{factura.referencia}}</td>
 					<td>{{factura.descripcion}}</td>
 					<td>{{factura.producto_referencia}}</td>
