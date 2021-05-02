@@ -36,7 +36,8 @@
 			<tbody>
 				{% if lista_componentes %}
 				{% for c in lista_componentes %}
-				<tr ondblclick="location.href='http://127.0.0.1:8000/appEntrega/productos/{{c.componente_producto}}/editar'">
+				<tr
+					ondblclick="location.href='http://127.0.0.1:8000/appEntrega/productos/{{c.componente_producto}}/editar'">
 					<td>
 						{{c.componente_producto.producto_referencia}}
 					</td>

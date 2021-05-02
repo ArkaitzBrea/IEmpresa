@@ -8,6 +8,7 @@ class ProductoForm(forms.ModelForm):
         model = Producto
         fields = '__all__'
 
+
 # Formulario nuevo cliente
 class ClienteForm(forms.ModelForm):
     class Meta:
@@ -27,6 +28,7 @@ class PedidoForm(forms.ModelForm):
     class Meta:
         model = Orden_Pedido
         fields = '__all__'
+
 
 # Formulario nueva  factura
 class FacturaForm(forms.ModelForm):

@@ -9,13 +9,57 @@
 		<h3 class="orange-color mt-3 mb-5">PEDIDO: {{pedido.pedido_referencia}}</h3>
 
 		{% if pedido %}
-		
-		{% block updatePedido_ %}
+
+		{% block updatePedido %}
 		{% endblock %}
 
 		{% else %}
 		<p>No hay pedidos</p>
 		{% endif %}
+	</div>
+
+	<!-- FACTURAS -->
+	<div class="componentes col-8">
+		<h3 class="orange-color mt-3 mb-5">Facturas de {{c.referencia}}</h3>
+
+		<table class="table-deustronic table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>CÓDIGO</th>
+					<th>REFERENCIA PEDIDO</th>
+					<th>DESCRIPCIÓN</th>
+					<th>UNIDADES</th>
+					<th>DESCRIPCION</th>
+					<th>PRECIO</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				{% if lista_facturas %}
+				{% for c in lista_facturas %}
+				<tr>
+					<td>
+						{{c.referencia}}
+					</td>
+					<td>{{c.pedido_referencia}}</td>
+					<td>{{c.descripcion}}</td>
+					<td>{{c.producto_referencia}}</td>
+					<td>{{c.unidades}}</td>
+					<td>{{c.linea_precio}}</td>
+					<td><button class="btn"
+							onclick="location.href='http://127.0.0.1:8000/appEntrega/pedidos/factura/{{c.pk}}/delete/'"><i
+								class="fas fa-trash-alt"></i></button></td>
+				</tr>
+				{% endfor %}
+				{% else %}
+				<tr>
+					<td colspan="7">
+						<p>No existen facturas</p>
+					</td>
+				</tr>
+				{% endif %}
+			</tbody>
+		</table>
 	</div>
 </div>
 
