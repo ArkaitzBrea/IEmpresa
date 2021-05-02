@@ -11,8 +11,7 @@
         <section class="modale-content">
             <form id="deleteProduct" method="post">
                 {% csrf_token %}
-                <p>Se eliminará de manera permanente el componente con el código: <strong>{{c.pk}}</strong>
-                </p>
+                <p>Se eliminará de manera permanente el componente con el id: <strong>{{componente.pk}}</strong></p>
             </form>
         </section>
         <footer class="d-flex justify-content-between">
@@ -20,7 +19,7 @@
                 class="z-100 btn boton-nav btn-danger m-2 mx-4">Eliminar
             </button>
             <button class="z-100 btn boton-nav btn-secondary m-2 mx-4"
-                onclick="location.href='http://127.0.0.1:8000/appEntrega/productos/{{producto.pk}}'">Cancelar
+                onclick="location.href='http://127.0.0.1:8000/appEntrega/productos/{{componente.componente_producto_padre}}/editar/'">Cancelar
             </button>
         </footer>
     </div>

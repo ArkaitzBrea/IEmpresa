@@ -36,7 +36,7 @@
 			<tbody>
 				{% if lista_componentes %}
 				{% for c in lista_componentes %}
-				<tr ondblclick="location.href='http://127.0.0.1:8000/appEntrega/productos/{{producto.pk}}'">
+				<tr ondblclick="location.href='http://127.0.0.1:8000/appEntrega/productos/{{c.componente_producto}}/editar'">
 					<td>
 						{{c.componente_producto.producto_referencia}}
 					</td>
@@ -49,6 +49,11 @@
 								class="fas fa-trash-alt"></i></button></td>
 				</tr>
 				{% endfor %}
+				<tr>
+					<td class="bg-info" colspan="6">
+						<p>nota: doble click en componente para acceder a su producto</p>
+					</td>
+				</tr>
 				{% else %}
 				<tr>
 					<td colspan="6">
