@@ -290,10 +290,12 @@ class UpdatePedidoView(UpdateView):
     fields = ['pedido_descripcion', 'pedido_referencia', 'pedido_cliente_cif']
     success_url = reverse_lazy('listaPedido')
 
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['factura'] = Factura.objects.all().filter(pedido_referencia=self.kwargs['pk'])
         return context
+
 
 # Editar Factura
 class UpdateFacturaView(UpdateView):
