@@ -66,12 +66,17 @@ class ProductoDetailView(DetailView):
         success_url = reverse_lazy('listaProducto')
 
 
-# update producto
+# update producto  - COPIAR ESTA EN LOS DEMÁS - ES LA VISTA BUENA PARA PODER EDITAR Y MOSTRAR DETAILVIEW
 class UpdateProductoView(UpdateView):
     model = Producto
-    template_name = 'update.html'
+    template_name = 'updateProducto.html'
     fields = ['producto_nombre', 'producto_descripcion', 'producto_categoria', 'producto_precio']
     success_url = reverse_lazy('listaProducto')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['lista_componentes'] = Componente.objects.all().filter(componente_producto_padre=self.kwargs['pk'])
+        return context
 
 
 # Vista de PedidoDetailView
