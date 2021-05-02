@@ -3,7 +3,7 @@ from . import views
 from appEntrega.views import PedidoDetailView, PedidoListView, CreateProductoView, CreateClienteView, \
     CreateComponenteView, CreatePedidoView, ClienteDetailView, ClienteListView, ProductoListView, ProductoDetailView, \
     DeleteProductoView, DeletePedidoView, DeleteClienteView, Index,UpdateClienteView, \
-    CreateFacturaView, DeleteFacturaView, DeleteComponenteView, UpdateComponenteView, \
+    CreateFacturaView, DeleteFacturaView, DeleteComponenteView, UpdateComponenteView,  \
     FacturaListView, FacturaDetailView
 
 urlpatterns = [
@@ -27,7 +27,7 @@ urlpatterns = [
     path('productos/<str:pk>', ProductoDetailView.as_view(), name='detalleProducto'),
     # URL detalle factura
     path('facturas/<str:pk>', FacturaDetailView.as_view(), name='detalleFactura'),
-    
+
 
 
     #CREAR  /nuevo/
@@ -59,7 +59,7 @@ urlpatterns = [
     #URL editar cliente
     path('clientes/<str:pk>/editar/', UpdateClienteView.as_view(),name='editar_cliente'),
     #URL editar cliente
-    path('productos/<str:pk>/editar/', ProductoDetailView.as_view(),name='editar_producto'),
+    path('productos/<str:pk>/editar/', views.UpdateProductoView.as_view() ,name='editar_producto'),
     #URL editar cliente
     path('pedidos/<str:pk>/editar/', PedidoDetailView.as_view(),name='editar_pedido'),
     #URL editar cliente

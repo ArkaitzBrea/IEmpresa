@@ -1,7 +1,25 @@
 {% extends 'detalleProducto.html' %}
 {% block updateProduct %}
 
-<form id="updateProduct" class="contenedor" action="" method="POST">{% csrf_token %}
+<form action="{% url 'producto_form' %}" method="POST">{% csrf_token %}
+    <div class="row justify-content-between">
+        {% for field in form %}
+        <div class="formulario__grupo mt-3 focus mb-5">
+            <div class="formulario__grupo-label d-flex">
+                <label for="referencia" class="formulario__label">
+                    <span class="formulario__span">{{ field.label_tag }}</span>
+                    <div class="formulario__grupo-input">
+                        <p class="formulario__input"></p>{{ field }}</p>
+                    </div>
+                </label>
+                <p class="formulario__p text-muted">{{ field.errors }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</form>
+
+<form id="updateProduct" class="contenedor" method="POST">{% csrf_token %}
     <!-- REFERENCIA PRODUCTO -->
     <div class="formulario__grupo mt-3 focus mb-5">
         <div class="formulario__grupo-label d-flex">
@@ -68,5 +86,4 @@
         </div>
     </div>
 </form>
-
 {% endblock %}
