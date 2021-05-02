@@ -59,6 +59,11 @@ class PedidoDetailView(DetailView):
     template_name = 'detallePedido.html'
     context_object_name = 'pedido'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['lista_facturas'] = Factura.objects.all().filter(referencia=self.kwargs['pk'])
+        return context
+
 
 # Vista de ProductoDetailView
 class ProductoDetailView(DetailView):

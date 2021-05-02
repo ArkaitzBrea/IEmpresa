@@ -1,16 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuevo cliente</title>
-</head>
-<body>
-    <form action="{% url 'cliente_form' %}" method="POST">
+{% extends 'base.html' %}
+{% block content %}
+<div class="row contenedor justify-content-between m-footer mt-3">
+    <form id="newProduct" class="col-6" action="{% url 'cliente_form' %}" method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Guardar">
+        {% include "forms.html"%}
     </form>
-</body>
-</html>
+
+    <div class="imagen">
+
+    </div>
+</div>
+
+<nav class=" navbar-light bg-light fixed-bottom nav-footer">
+    <button type="submit" form="newProduct" class="btn boton-nav btn-primary m-2">Guardar</button>
+    <button onclick="location.href='http://127.0.0.1:8000/appEntrega'" class="btn boton-nav btn-secondary m-2"
+        type="button">Volver</button>
+</nav>
+{% endblock %}

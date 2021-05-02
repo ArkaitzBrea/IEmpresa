@@ -28,7 +28,7 @@ class ClienteForm(forms.ModelForm):
         fields = '__all__'
 
 
-# Formulario nuevo cliente
+# Formulario nuevo componente
 
 
 class ComponenteForm(forms.ModelForm):
@@ -37,7 +37,7 @@ class ComponenteForm(forms.ModelForm):
         fields = '__all__'
 
 
-# Formulario nuevo cliente
+# Formulario nuevo pedido
 
 
 class PedidoForm(forms.ModelForm):
