@@ -113,3 +113,12 @@ ul {
 h1 {
   margin: 0 !important;
 }
+
+/*  RELOJ  */
+.reloj{
+  text-align: center;
+}
+.fecha{
+  color: white;
+  font-size: 1.6rem;
+}
