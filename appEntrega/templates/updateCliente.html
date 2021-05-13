@@ -2,16 +2,17 @@
 {% block updateCliente %}
 <form action="" id="updateCliente" method="POST">{% csrf_token %}
     {% for field in form %}
-    <div class="formulario__grupo mt-3 focus mb-5">
+    <div class="formulario__grupo mt-3 focus fixed mb-5">
         <div class="formulario__grupo-label d-flex">
-            <label for="cif" class="formulario__label">
+            <label for="referencia" class="formulario__label">
                 <span class="formulario__span">{{ field.label_tag }}</span>
                 <div class="formulario__grupo-input">
-                  {{field}}
+                    {{field}}
+                    <i class="fas formulario__i"></i>
                 </div>
             </label>
-            <p class="formulario__p text-muted">{{ field.errors }}</p>
         </div>
+        <p class="formulario__p text-muted mb-0">Por favor, asegurese de introducir el campo correctamente</p>
     </div>
     {% endfor %}
 </form>
