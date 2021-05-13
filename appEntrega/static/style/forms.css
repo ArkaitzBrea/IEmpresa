@@ -127,8 +127,65 @@ input, select, textarea {
     width: 100%;
 }
 
-.text-muted {
-    color: #6c757d !important;
+.focus.fixed .formulario__label {
+    border-color: silver;
+}
+
+.focus.fixed .formulario__span {
+    color: silver;
+}
+
+.focus.wrong .formulario__label {
+    border-color: #b92e16;
+}
+
+.focus.wrong .formulario__span {
+    color: #b92e16;
+}
+
+.focus.question .formulario__label {
+    border-color: #ffc107;
+}
+
+.focus.question .formulario__span {
+    color: #ffc107;
+}
+
+.formulario__p {
+    color: #1a1b15;
+    font-size: 1.2rem;
+    text-align: justify;
+    margin-top: 1rem;
+    padding: 0 5rem 0 0;
+    display: none;
+}
+
+.formulario__grupo-input {
+    position: relative;
+}
+
+.formulario__i {
+    position: absolute;
+    top: calc(50% - 0.6rem);
+    right: 0.8rem;
+    color: #b92e16;
+}
+
+.formulario__i.correct {
+    color: #17bf63;
+}
+
+.formulario__i.warning {
+    color: #ffc107;
+}
+
+#alerta-roja {
+    display: none;
+    transition: 0.5s ease all;
+}
+
+#alerta-roja p {
+    color: #1a1b15;
 }
 
 .m-footer {
