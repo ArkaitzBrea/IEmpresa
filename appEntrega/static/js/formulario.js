@@ -1,25 +1,16 @@
 const expresiones = {
     text: /^[a-zA-Z0-9\s]{1,250}$/, // Letras, numeros, espacios
-    mail: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    number: /^[,.+-]{1,14}$/ // 7 a 14 numeros.
+    email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+    number: /^\d{1,14}$/
 }
 
 const formulario = document.getElementById('formulario');
+const inputs = document.querySelectorAll('.formulario__grupo-input input');
 
 let formulario__grupo = "";
 let formulario__p = "";
 let formulario__i = "";
 let cerrarAlertaEstado = 0;
-
-let campos = {
-    name: false,
-    apellidos: false,
-    correo: false,
-    id_producto_referencia: false,
-    contrasenya: false,
-    contrasenya2: false
-}
-const inputs = document.querySelectorAll('.formulario__grupo-input input');
 
 document.addEventListener('DOMContentLoaded', function () {
     estadoFormulario();
@@ -36,8 +27,9 @@ function estadoFormulario() {
             fijarContenidoFocus(formulario__grupo, formulario__i);
         }
         input.onblur = () => {
+            debugger;
             if (input.value.trim().length === 0) {
-                borrarContenido(formulario__grupo, formulario__i, input.id);
+                borrarContenido(formulario__grupo, formulario__i);
 
             } else {
                 validarTextos(input);
@@ -47,44 +39,37 @@ function estadoFormulario() {
 }
 
 function validarTextos(input) {
-    console.log("entro validar textos")
     const type = input.type;
     const value = input.value;
 
     if (expresiones[type].test(value))
-        mensajeCorrecto(formulario__grupo, formulario__p, formulario__i, input.type);
+        mensajeCorrecto(formulario__grupo, formulario__p, formulario__i);
     else
-        mensajeIncorrecto(formulario__grupo, formulario__p, formulario__i, input.type);
+        mensajeIncorrecto(formulario__grupo, formulario__p, formulario__i);
 }
 
 
-function mensajeCorrecto(formulario__grupo, formulario__p, formulario__i, inputType) {
+function mensajeCorrecto(formulario__grupo, formulario__p, formulario__i) {
     formulario__grupo.classList.remove('wrong', 'question');
     formulario__grupo.classList.add('fixed');
     formulario__p.classList.remove('mostrar');
     formulario__i.classList.remove('fa-times-circle', 'fa-question-circle', 'warning');
     formulario__i.classList.add('fa-check-circle', 'correct');
-
-    campos[inputType] = true;
 }
 
-function mensajeIncorrecto(formulario__grupo, formulario__p, formulario__i, inputType) {
+function mensajeIncorrecto(formulario__grupo, formulario__p, formulario__i) {
     formulario__grupo.classList.remove('question');
     formulario__grupo.classList.add('wrong');
     formulario__p.classList.add('mostrar');
     formulario__i.classList.remove('fa-check-circle', 'correct', 'warning');
     formulario__i.classList.add('fa-times-circle');
-
-    campos[inputType] = false;
 }
 
-function borrarContenido(formulario__grupo, formulario__i, inputType) {
+function borrarContenido(formulario__grupo, formulario__i) {
     formulario__grupo.classList.remove('fixed');
     formulario__grupo.classList.remove('focus');
     formulario__i.classList.remove('fa-times-circle', 'fa-check-circle', 'fa-question-circle', 'correct');
     formulario__grupo.lastChild.previousSibling.classList.remove('mostrar');
-
-    campos[inputType] = false;
 }
 
 function fijarContenidoFocus(formulario__grupo, formulario__i) {
