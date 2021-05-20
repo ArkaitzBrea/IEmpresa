@@ -17,6 +17,7 @@ urlpatterns = [
     path('clientes/', ClienteListView.as_view(), name='listaCliente'),
     # URL lista productos
     path('productos/', ProductoListView.as_view(), name='listaProducto'),
+    path('productos-json/', views.getProducts, name='listaProducto'),
     # URL lista compoentes
     path('componentes/', ComponenteListView.as_view(), name='listaComponente'),
     # URL lista productos

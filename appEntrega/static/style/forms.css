@@ -191,3 +191,7 @@ input, select, textarea {
 .m-footer {
     padding-bottom: 3rem;
 }
+
+.focus{
+    color: #1a73e8;
+}
