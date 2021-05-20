@@ -107,3 +107,7 @@ ul {
 .mb__5 {
     margin-bottom: 5rem;
 }
+
+#configuracion {
+    display:inline-block;
+}
