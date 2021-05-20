@@ -1,7 +1,7 @@
 const expresiones = {
-    text: /^[a-zA-Z0-9\s]{1,250}$/, // Letras, numeros, espacios
+    text: /^.{1,250}$/, // Letras, numeros, espacios
     email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    number: /^\d{1,14}$/
+    number: /^[0-9.,]{1,14}$/
 }
 
 const formulario = document.getElementById('formulario');
