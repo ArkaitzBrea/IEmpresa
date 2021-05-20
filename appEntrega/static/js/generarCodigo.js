@@ -1,9 +1,36 @@
 const tablaProductos = document.querySelector('#tablaProductos');
 const tablaProductosBody = tablaProductos.childNodes[3];
+
 let datosProductos = '';
+
+const orderUp = document.getElementById('orderUp')
+const orderDown = document.getElementById('orderDown')
+const opcionesOrdenar = document.getElementById('opcionesOrdenar');
+
+orderUp.addEventListener('click', () => {
+
+    orderUp.classList.remove('c-grey')
+    orderDown.classList.add('c-grey')
+    ordenar();
+})
+
+orderDown.addEventListener('click', () => {
+
+    orderDown.classList.remove('c-grey')
+    orderUp.classList.add('c-grey')
+    ordenar();
+})
+
+opcionesOrdenar.addEventListener('change', (e) => {
+    localStorage.setItem("metodoOrdenar", e.target.value);
+    ordenar();
+})
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
+
+    localStorage.setItem("metodoOrdenar", "producto_precio")
 
     fetch('http://127.0.0.1:8000/appEntrega/productos-json/', {
         headers: {
@@ -12,12 +39,12 @@ document.addEventListener('DOMContentLoaded', function () {
     })
         .then(response => response.json())
         .then(data => datosProductos = data)
-        .then(() => datosProductos.length > 0 ? generarCodigoProductos() : generarCodigoVacio());
+        .then(() => { ordenar() })
+        //.then(() => datosProductos.length > 0 ? generarCodigoProductos() : generarCodigoVacio());
 });
 
 
 function generarCodigoProductos() {
-
     datosProductos.forEach(pro => {
         let tr = document.createElement('TR')
 
@@ -49,7 +76,7 @@ function generarCodigoProductos() {
     });
 }
 
-function generarCodigoVacio() { 
+function generarCodigoVacio() {
     let tr = document.createElement('TR')
     let td = document.createElement('TD')
 
@@ -58,4 +85,24 @@ function generarCodigoVacio() {
 
     tr.appendChild(td);
     tablaProductosBody.appendChild(tr)
+}
+
+function ordenar() {
+    let metodoOrdenar = localStorage.getItem("metodoOrdenar")
+
+    if (orderUp.classList.contains('c-grey')) {
+        datosProductos.sort((a, b) =>
+            a.producto_precio > b.producto_precio ? 1 : -1
+        )
+    } else {
+        datosProductos.sort((a, b) =>
+            b.producto_precio > a.producto_precio ? 1 : -1
+        );
+    }
+
+    tablaProductosBody.childNodes.forEach(child => {
+        tablaProductosBody.removeChild(child)
+    })
+
+    generarCodigoProductos();
 }

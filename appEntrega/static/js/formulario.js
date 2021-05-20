@@ -13,6 +13,7 @@ let formulario__i = "";
 let cerrarAlertaEstado = 0;
 
 document.addEventListener('DOMContentLoaded', function () {
+
     estadoFormulario();
 });
 
