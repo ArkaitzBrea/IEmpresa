@@ -325,3 +325,8 @@ class UpdateFacturaView(UpdateView):
     template_name = 'updateFactura.html'
     fields = ['pedido_referencia', 'producto_referencia', 'unidades', 'descripcion']
     success_url = reverse_lazy('listaFactura')
+
+# SettingsView
+def settingsView(request):
+    context = {'foo': 'bar'}
+    return render(request, 'settingsView.html', context)

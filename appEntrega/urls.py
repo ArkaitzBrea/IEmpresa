@@ -4,7 +4,7 @@ from appEntrega.views import PedidoDetailView, PedidoListView, CreateProductoVie
     CreateComponenteView, CreatePedidoView, ClienteDetailView, ClienteListView, ProductoListView, ProductoDetailView, \
     ComponenteListView, \
     DeleteProductoView, DeletePedidoView, DeleteClienteView, DeleteComponenteProductView, DeleteFacturaProductView, \
-    Index, UpdateClienteView, \
+    Index, UpdateClienteView, settingsView,\
     CreateFacturaView, DeleteFacturaView, DeleteComponenteView, UpdateComponenteView, UpdateFacturaView, \
     FacturaListView, FacturaDetailView
 
@@ -71,4 +71,7 @@ urlpatterns = [
     path('componentes/<int:pk>/editar/', UpdateComponenteView.as_view(), name='editar_componente'),
     # URL editar factura
     path('facturas/<str:pk>/editar/', UpdateFacturaView.as_view(), name='editar_factura'),
+
+    # URL Configuración de vista
+    path('configuracion/', settingsView, name='ConfiguracionView'),
 ]
