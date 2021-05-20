@@ -32,26 +32,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% if lista_productos %}
-                {% for producto in lista_productos %}
-                <tr ondblclick="location.href='http://127.0.0.1:8000/appEntrega/productos/{{producto.pk}}/editar'">
-                    <td>
-                        {{producto.producto_referencia}}
-                    </td>
-                    <td>{{producto.producto_nombre}}</td>
-                    <td>{{producto.producto_descripcion}}</td>
-                    <td>{{producto.producto_categoria}}</td>
-                    <td>{{producto.producto_precio}}</td>
-                </tr>
-                {% endfor %}
-
-                {% else %}
-                <tr>
-                    <td colspan="5">
-                        <p>No existen Componentes</p>
-                    </td>
-                </tr>
-                {% endif %}
+                
             </tbody>
         </table>
         <p>nota: doble click para acceder a detalle</p>

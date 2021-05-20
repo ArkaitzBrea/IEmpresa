@@ -8,6 +8,7 @@ from django.views import View
 from .models import Orden_Pedido, Cliente, Producto, Componente, Factura
 from .forms import ProductoForm, ClienteForm, ComponenteForm, PedidoForm, FacturaForm
 from django.urls import reverse_lazy
+import json, simplejson
 
 
 # Index
@@ -36,6 +37,11 @@ class ProductoListView(ListView):
     model = Producto
     template_name = 'listaProductos.html'
     context_object_name = 'lista_productos'
+
+
+def getProducts(request):
+    myListRaw = simplejson.dumps(list(Producto.objects.all().values()))
+    return HttpResponse(myListRaw, content_type="application/json")
 
 
 # Vista de FacturaListView
@@ -231,6 +237,7 @@ class DeleteFacturaView(DeleteView):
     template_name = 'borrarFactura.html'
     success_url = reverse_lazy('listaFactura')
 
+
 # Borrar Factura desde PedidoView
 class DeleteFacturaProductView(DeleteView):
     model = Factura
@@ -272,7 +279,7 @@ class DeleteComponenteProductView(DeleteView):
 class UpdateClienteView(UpdateView):
     model = Cliente  # model en el que se basa
     template_name = 'updateCliente.html'  # html que utiliza
-    fields = ['nombre_empresa','email', 'telefono', 'nombre_cliente']  # campos editables
+    fields = ['nombre_empresa', 'email', 'telefono', 'nombre_cliente']  # campos editables
     success_url = reverse_lazy('listaCliente')  # URL a la que redirecciona
 
 
@@ -294,15 +301,13 @@ class UpdatePedidoView(UpdateView):
     model = Orden_Pedido
     context_object_name = 'pedido'
     template_name = 'updatePedido.html'
-    fields = ['pedido_referencia', 'pedido_cliente_cif','pedido_descripcion']
+    fields = ['pedido_referencia', 'pedido_cliente_cif', 'pedido_descripcion']
     success_url = reverse_lazy('listaPedido')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['lista_facturas'] = Factura.objects.all().filter(pedido_referencia=self.kwargs['pk'])
         return context
-
-    
 
 
 # Editar Componente
@@ -325,6 +330,7 @@ class UpdateFacturaView(UpdateView):
     template_name = 'updateFactura.html'
     fields = ['pedido_referencia', 'producto_referencia', 'unidades', 'descripcion']
     success_url = reverse_lazy('listaFactura')
+
 
 # SettingsView
 def settingsView(request):
