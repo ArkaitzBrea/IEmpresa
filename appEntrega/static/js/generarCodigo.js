@@ -27,7 +27,6 @@ opcionesOrdenar.addEventListener('change', (e) => {
 })
 
 
-
 document.addEventListener('DOMContentLoaded', function () {
 
     localStorage.setItem("metodoOrdenar", "producto_precio")
@@ -39,12 +38,12 @@ document.addEventListener('DOMContentLoaded', function () {
     })
         .then(response => response.json())
         .then(data => datosProductos = data)
-        .then(() => { ordenar() })
-        //.then(() => datosProductos.length > 0 ? generarCodigoProductos() : generarCodigoVacio());
+        .then(() => datosProductos.length > 0 ? ordenar() : generarCodigoVacio());
 });
 
 
 function generarCodigoProductos() {
+    tablaProductos.appendChild(tablaProductosBody);
     datosProductos.forEach(pro => {
         let tr = document.createElement('TR')
 
@@ -74,6 +73,7 @@ function generarCodigoProductos() {
 
         tablaProductosBody.appendChild(tr)
     });
+    console.log(datosProductos.length)
 }
 
 function generarCodigoVacio() {
@@ -91,18 +91,55 @@ function ordenar() {
     let metodoOrdenar = localStorage.getItem("metodoOrdenar")
 
     if (orderUp.classList.contains('c-grey')) {
-        datosProductos.sort((a, b) =>
-            a.producto_precio > b.producto_precio ? 1 : -1
-        )
+        ordenarAscendente(metodoOrdenar);
+
     } else {
-        datosProductos.sort((a, b) =>
-            b.producto_precio > a.producto_precio ? 1 : -1
-        );
+        ordenarDescendente(metodoOrdenar);
     }
-
-    tablaProductosBody.childNodes.forEach(child => {
-        tablaProductosBody.removeChild(child)
-    })
-
+    if (tablaProductosBody.childNodes.length > 1) {
+        for (let i = 0; i <= datosProductos.length; i++) {
+            if (tablaProductosBody.hasChildNodes()) {
+                tablaProductosBody.removeChild(tablaProductosBody.firstChild)
+            }
+        }
+    }
     generarCodigoProductos();
+}
+
+function ordenarAscendente(metodoOrdenar) {
+    if (metodoOrdenar == "producto_referencia") {
+        datosProductos.sort((a, b) =>
+            a.producto_referencia > b.producto_referencia ? 1 : -1)
+    } else if (metodoOrdenar == "producto_nombre") {
+        datosProductos.sort((a, b) =>
+            a.producto_nombre > b.producto_nombre ? 1 : -1)
+    } else if (metodoOrdenar == "producto_descripcion") {
+        datosProductos.sort((a, b) =>
+            a.producto_descripcion > b.producto_descripcion ? 1 : -1)
+    } else if (metodoOrdenar == "producto_categoria") {
+        datosProductos.sort((a, b) =>
+            a.producto_categoria > b.producto_categoria ? 1 : -1)
+    } else if (metodoOrdenar == "producto_precio") {
+        datosProductos.sort((a, b) =>
+            a.producto_precio > b.producto_precio ? 1 : -1)
+    }
+}
+
+function ordenarDescendente(metodoOrdenar) {
+    if (metodoOrdenar == "producto_referencia") {
+        datosProductos.sort((b, a) =>
+            a.producto_referencia > b.producto_referencia ? 1 : -1)
+    } else if (metodoOrdenar == "producto_nombre") {
+        datosProductos.sort((b, a) =>
+            a.producto_nombre > b.producto_nombre ? 1 : -1)
+    } else if (metodoOrdenar == "producto_descripcion") {
+        datosProductos.sort((b, a) =>
+            a.producto_descripcion > b.producto_descripcion ? 1 : -1)
+    } else if (metodoOrdenar == "producto_categoria") {
+        datosProductos.sort((b, a) =>
+            a.producto_categoria > b.producto_categoria ? 1 : -1)
+    } else if (metodoOrdenar == "producto_precio") {
+        datosProductos.sort((b, a) =>
+            a.producto_precio > b.producto_precio ? 1 : -1)
+    }
 }
