@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h2>Tamaño de fuente: </h2>
-    <button class="font-control" id="font-up">A<sup>+</sup></button>
-    <button class="font-control" id="font-down">A<sup>-</sup></button><br>
+<p>Tamaño de fuente: <p>
+    <button class="font-control" id="subirBtn">A<sup>+</sup></button>
+    <button class="font-control" id="bajarBtn">A<sup>-</sup></button>
     <br><br>
 
-<h2>Color del fondo</h2>
-    <button id="negroBtb">Blanco</button>
-    <button id="blancoBtn">Negro</button>
+<p>Color del fondo<p>
+    <button type="button" onclick="fondoBlanco()">Fondo Blanco</button>
+    <button type="button" onclick="fondoNegro()">Fondo Negro</button>
     <br><br>
+
 {% endblock %}

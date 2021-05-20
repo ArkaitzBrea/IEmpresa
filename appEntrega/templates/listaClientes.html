@@ -30,7 +30,7 @@
                 {% if lista_clientes %}
                 {% for cliente in lista_clientes %}
                 <tr ondblclick="location.href='http://127.0.0.1:8000/appEntrega/clientes/{{cliente.pk}}/editar'">
-                    <td>{{cliente.nombre_empresa}}</td>
+                    <td><p>{{cliente.nombre_empresa}}</p></td>
                     <td>{{cliente.cif}}</td>
                     <td>{{cliente.email}}</td>
                     <td>{{cliente.telefono}}</td>

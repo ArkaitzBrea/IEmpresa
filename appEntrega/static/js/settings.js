@@ -1,35 +1,63 @@
+// RESTAURAR ESTILOS ANTERIORES
+obtenerEstilosAnteriores();
+
+function obtenerEstilosAnteriores(){
+  let fondo = localStorage.getItem("colorFondo");
+  let letra = localStorage.getItem("colorLetra");
+  let fuente = localStorage.getItem("fuente")
+  document.body.style.backgroundColor = fondo;
+  document.body.style.color = letra;
+  document.documentElement.style.setProperty('--font-size', fuente)
+  console.log(fondo);
+  console.log(letra);
+  console.log(fuente);
+}
+
 // CONTROL DE TAMAÑO DE FUENTE
 const getFontSize = () =>
-  parseFloat(getComputedStyle(document.documentElement)
-    .getPropertyValue('--font-size'))
+  parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--font-size'))
 
-const fontUp = element => {
+const subirFuente = element => {
   element.addEventListener('click', () => {
     let fontSize = getFontSize()
-    document.documentElement
-      .style.setProperty('--font-size', `${fontSize * 1.1}`)
+    document.documentElement.style.setProperty('--font-size', `${fontSize * 1.1}`)
+    localStorage.setItem("fuente", fontSize)
   })
 }
 
-const fontDown = element => {
+const bajarFuente = element => {
   element.addEventListener('click', () => {
     let fontSize = getFontSize()
-    document.documentElement
-      .style.setProperty('--font-size', `${fontSize * 0.9}`)
+    document.documentElement.style.setProperty('--font-size', `${fontSize * 0.9}`)
+    localStorage.setItem("fuente", fontSize)
   })
 }
 
 addEventListener('keyup', e => {
-  if(e.key === 'ArrowUp') document.getElementById('font-up').click()
-  if(e.key === 'ArrowDown') document.getElementById('font-down').click()
+  if (e.key === 'ArrowUp') document.getElementById('subirBtn').click()
+  if (e.key === 'ArrowDown') document.getElementById('bajarBtn').click()
 })
 
-fontUp(document.getElementById('font-up'))
-fontDown(document.getElementById('font-down'))
+subirFuente(document.getElementById('subirBtn'))
+bajarFuente(document.getElementById('bajarBtn'))
 
 
 // -----------------------------------------------------------------------------------------
 // CONTROL DE COLOR DEL FONDO
-const btnNegro = document.getElementById('negroBtn');
-const btnBlanco = document.getElementById('blancoBtn');
+function fondoNegro() {
+  document.body.style.backgroundColor = "black";
+  document.body.style.color = "white";
+  let fondo = "black";
+  let letra = "white";
+  localStorage.setItem("colorFondo", fondo);
+  localStorage.setItem("colorLetra", letra);
+}
 
+function fondoBlanco() {
+  document.body.style.backgroundColor = "white";
+  document.body.style.color = "black";
+  let fondo = "white";
+  let letra = "black";
+  localStorage.setItem("colorFondo", fondo);
+  localStorage.setItem("colorLetra", letra);
+}
