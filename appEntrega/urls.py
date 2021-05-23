@@ -4,7 +4,7 @@ from appEntrega.views import PedidoDetailView, PedidoListView, CreateProductoVie
     CreateComponenteView, CreatePedidoView, ClienteDetailView, ClienteListView, ProductoListView, ProductoDetailView, \
     ComponenteListView, \
     DeleteProductoView, DeletePedidoView, DeleteClienteView, DeleteComponenteProductView, DeleteFacturaProductView, \
-    Index, UpdateClienteView, settingsView,\
+    Index, UpdateClienteView, contactoView, settingsView,\
     CreateFacturaView, DeleteFacturaView, DeleteComponenteView, UpdateComponenteView, UpdateFacturaView, \
     FacturaListView, FacturaDetailView
 
@@ -75,4 +75,7 @@ urlpatterns = [
 
     # URL Configuración de vista
     path('configuracion/', settingsView, name='ConfiguracionView'),
+
+    # URL contactoView
+    path('contacto/', contactoView, name='ContactoView'),
 ]

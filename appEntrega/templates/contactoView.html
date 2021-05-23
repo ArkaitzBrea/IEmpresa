@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Enviar correo de contacto:</h2> <br>
+<form action="#" method="post">
+    {% csrf_token %}
+    <input type="text" name="mail" id="mailInput" placeholder="escribeaqui@tucorreo.com">
+    <input type="submit" value="Enviar">
+</form>
+
+{% endblock %}

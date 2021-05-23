@@ -9,6 +9,9 @@ from .models import Orden_Pedido, Cliente, Producto, Componente, Factura
 from .forms import ProductoForm, ClienteForm, ComponenteForm, PedidoForm, FacturaForm
 from django.urls import reverse_lazy
 import json, simplejson
+from django.template.loader import get_template
+from django.core.mail import EmailMultiAlternatives
+from django.conf import settings
 
 
 # Index
@@ -336,3 +339,33 @@ class UpdateFacturaView(UpdateView):
 def settingsView(request):
     context = {'foo': 'bar'}
     return render(request, 'settingsView.html', context)
+
+# Envio de mails ContactoView
+def contactoView(request):
+    
+    context = {'foo': 'bar'}
+
+    if request.method == 'POST':
+        mail = request.POST.get('mail')
+        telefonoContacto = request.POST.get('telefonoContacto')
+        send_email(mail)
+    
+    return render(request, 'contactoView.html', context)
+
+def send_email(mail):
+    print(mail)
+    context = {'mail': mail}
+    template = get_template('correo.html')
+    content = template.render(context)
+
+    email = EmailMultiAlternatives(
+        'DEUSTRONIC S.A.',
+        'Hola! Gracias por confiar en DEUSTRONIC, pronto se pondrán en contacto con usted.',
+        settings.EMAIL_HOST_USER,
+        [mail],
+    )
+
+    email.attach_alternative(content, 'text/html')
+    email.send()
+
+
