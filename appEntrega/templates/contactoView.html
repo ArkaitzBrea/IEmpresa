@@ -4,8 +4,24 @@
 <h2>Enviar correo de contacto:</h2> <br>
 <form action="#" method="post">
     {% csrf_token %}
-    <input type="text" name="mail" id="mailInput" placeholder="escribeaqui@tucorreo.com">
-    <input type="submit" value="Enviar">
-</form>
+    <strong>
+        <label>
+    <p class="introCorreo">Escribe tu correo aquí:</p></strong>
+    <input class="emailCorreo" type="text" name="mail" id="mailInput" placeholder="ejemplo@gmail.com">
+</label>
+<br><br>
+<nav>
+<nav class="navbar navbar-light bg-light fixed-bottom">
+    <button class="btn boton-nav btn-primary m-2"  >
+<input  type="submit" value="Enviar">
+
+</button>
+</nav>
+
+
+
+
+
+
 
 {% endblock %}
