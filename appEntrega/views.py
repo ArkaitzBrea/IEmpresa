@@ -79,7 +79,7 @@ class ProductoDetailView(DetailView):
     class UpdateProductoView(UpdateView):
         model = Producto
         template_name = 'updateProducto.html'
-        fields = ['producto_nombre', 'producto_descripcion', 'producto_categoria', 'producto_precio']
+        fields = ['producto_nombre', 'producto_descripcion', 'producto_categoria', 'producto_precio','producto_pdf']
         success_url = reverse_lazy('listaProducto')
 
 
@@ -298,7 +298,7 @@ class UpdateClienteView(UpdateView):
 class UpdateProductoView(UpdateView):
     model = Producto
     template_name = 'updateProducto.html'
-    fields = ['producto_nombre', 'producto_descripcion', 'producto_categoria', 'producto_precio']
+    fields = ['producto_nombre', 'producto_descripcion', 'producto_categoria', 'producto_precio','producto_pdf']
     success_url = reverse_lazy('listaProducto')
 
     def get_context_data(self, **kwargs):
