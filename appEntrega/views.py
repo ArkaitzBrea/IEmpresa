@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, get_list_or_404
 from django.views.generic.list import ListView
+from django.views.generic import CreateView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import DeleteView, UpdateView
 from django.views import View
@@ -103,6 +104,13 @@ class FacturaDetailView(DetailView):
 
 # Vistas para AÑADIR/CREAR
 # Vista de formulario de crear un nuevo producto
+class CreateProductoView(CreateView):
+    model = Producto
+    form_class = ProductoForm
+    template_name = 'nuevoProducto.html'
+    success_url = reverse_lazy('listaProducto')
+
+'''
 class CreateProductoView(View):
     def get(self, request, *args, **kwargs):
         form = ProductoForm()
@@ -121,7 +129,7 @@ class CreateProductoView(View):
             return redirect("listaProducto")
 
         return render(request, 'nuevoProducto.html', {'form': form})
-
+'''
 
 # Vista de formulario de crear un nuevo cliente
 class CreateClienteView(View):

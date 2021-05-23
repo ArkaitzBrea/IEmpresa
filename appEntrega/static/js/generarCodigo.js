@@ -71,6 +71,11 @@ function generarCodigoProductos() {
         tdPtrecio.textContent = pro.producto_precio
         tr.appendChild(tdPtrecio);
 
+        let tdArchivo = document.createElement('TD')
+        tdArchivo.textContent = pro.producto_archivo
+        tr.appendChild(tdArchivo);
+        
+
         tablaProductosBody.appendChild(tr)
     });
     console.log(datosProductos.length)
@@ -80,7 +85,7 @@ function generarCodigoVacio() {
     let tr = document.createElement('TR')
     let td = document.createElement('TD')
 
-    td.colSpan = "5"
+    td.colSpan = "6"
     td.textContent = "No existen productos"
 
     tr.appendChild(td);
