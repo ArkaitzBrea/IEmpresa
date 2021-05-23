@@ -88,9 +88,10 @@
 					onclick="location.href='http://127.0.0.1:8000/appEntrega/productos/{{producto.pk}}/delete/'">Eliminar
 				</button>
 			</div>
-			<a href="http://127.0.0.1:8000/media/{{producto.producto_pdf}}" class="btn" download="">Descargar</a>
-		</div>
-		<div class="form-inline ml-auto">
+			<div class="form-inline ml-auto">
+				<a href="http://127.0.0.1:8000/media/{{producto.producto_pdf}}" class="btn boton-nav btn-info m-2" download="" style="text-align: center;">Descargar</a>		
+			</div>
+		<div class="d-flex">
 			<button onclick="location.href='http://127.0.0.1:8000/appEntrega/productos'"
 				class="btn boton-nav btn-secondary m-2" type="button">Volver</button>
 		</div>
