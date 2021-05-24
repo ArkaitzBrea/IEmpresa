@@ -22,14 +22,13 @@ table td{
 
 .table-deustronic td {
     font-size: 14px;
-    padding: 0.5rem;
+    padding: auto;
     text-align: center !important;
     cursor: pointer !important;
 }
 
 .table-navbar {
     position: sticky;
-    background-color: white;
     z-index: 1;
     top: 0;
     width: 100%;
