@@ -90,13 +90,13 @@ li:last-of-type{
 a.tituloenlaceP1 {
   text-decoration: none;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 30px;
+  font-size: auto;
   color: #ffffff;
   float: left;
 }
 
 .container-header {
-  width: 95%;
+  width: auto;
   margin: 0 auto;
 }
 
@@ -117,14 +117,15 @@ h1 {
 }
 
 .botonesHeader {
-  padding-left: 15%;
+  justify-content: end;
 }
 
 /*  RELOJ  */
 .reloj{
   text-align: center;
+  margin: auto;
 }
 .fecha{
   color: white;
-  font-size: 1.6rem;
+  font-size: auto;
 }
