@@ -79,7 +79,7 @@ class ProductoDetailView(DetailView):
     class UpdateProductoView(UpdateView):
         model = Producto
         template_name = 'updateProducto.html'
-        fields = ['producto_nombre', 'producto_descripcion', 'producto_categoria', 'producto_precio','producto_pdf']
+        fields = ['producto_nombre', 'producto_descripcion', 'producto_categoria', 'producto_precio', 'producto_pdf']
         success_url = reverse_lazy('listaProducto')
 
 
@@ -110,6 +110,7 @@ class CreateProductoView(CreateView):
     template_name = 'nuevoProducto.html'
     success_url = reverse_lazy('listaProducto')
 
+
 '''
 class CreateProductoView(View):
     def get(self, request, *args, **kwargs):
@@ -131,6 +132,7 @@ class CreateProductoView(View):
         return render(request, 'nuevoProducto.html', {'form': form})
 '''
 
+
 # Vista de formulario de crear un nuevo cliente
 class CreateClienteView(View):
     def get(self, request, *args, **kwargs):
@@ -145,8 +147,8 @@ class CreateClienteView(View):
         form = ClienteForm(request.POST)
         if form.is_valid():
             form.save()
-
-            # Volvemos a la pagina que queramos despues de crear un nuevo producto
+            send_email(form.cleaned_data['email'])
+            # Volvemos a la pagina que queramos despues de crear un nuevo cliente
             return redirect("listaCliente")
 
         return render(request, 'nuevoCliente.html', {'form': form})
@@ -298,7 +300,7 @@ class UpdateClienteView(UpdateView):
 class UpdateProductoView(UpdateView):
     model = Producto
     template_name = 'updateProducto.html'
-    fields = ['producto_nombre', 'producto_descripcion', 'producto_categoria', 'producto_precio','producto_pdf']
+    fields = ['producto_nombre', 'producto_descripcion', 'producto_categoria', 'producto_precio', 'producto_pdf']
     success_url = reverse_lazy('listaProducto')
 
     def get_context_data(self, **kwargs):
@@ -348,23 +350,22 @@ def settingsView(request):
     context = {'foo': 'bar'}
     return render(request, 'settingsView.html', context)
 
+
 # Envio de mails ContactoView
 def contactoView(request):
-    
     context = {'foo': 'bar'}
 
     if request.method == 'POST':
         mail = request.POST.get('mail')
         telefonoContacto = request.POST.get('telefonoContacto')
         send_email(mail)
-    
+
     return render(request, 'contactoView.html', context)
+
 
 def send_email(mail):
     print(mail)
     context = {'mail': mail}
-    template = get_template('correo.html')
-    content = template.render(context)
 
     email = EmailMultiAlternatives(
         'DEUSTRONIC S.A.',
@@ -372,8 +373,4 @@ def send_email(mail):
         settings.EMAIL_HOST_USER,
         [mail],
     )
-
-    email.attach_alternative(content, 'text/html')
     email.send()
-
-

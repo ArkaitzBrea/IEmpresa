@@ -78,4 +78,6 @@ urlpatterns = [
 
     # URL contactoView
     path('contacto/', contactoView, name='ContactoView'),
+
+    path('contacto-email/<str:mail>/', views.send_email, name='Send-mail')
 ]
