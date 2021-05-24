@@ -72,9 +72,8 @@ function generarCodigoProductos() {
         tr.appendChild(tdPtrecio);
 
         let tdArchivo = document.createElement('TD')
-        tdArchivo.textContent = pro.producto_archivo
+        tdArchivo.textContent = pro.producto_pdf
         tr.appendChild(tdArchivo);
-        
 
         tablaProductosBody.appendChild(tr)
     });
