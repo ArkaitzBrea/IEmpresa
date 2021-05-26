@@ -30,7 +30,6 @@
 					<th>UNIDADES</th>
 					<th>DESCRIPCION</th>
 					<th>PRECIO</th>
-					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -76,11 +75,19 @@
 
 <!--  NAVEGACIÓN FOOTER -->
 <nav class="p-2 px-4 mt-5 navbar-light bg-light fixed-bottom z-2 m-footer">
-	<div class="row justify-content-between">
+	<div class="row justify-content-between align-items-center">
 		<div class="d-flex">
 			<div class="form-inline ml-auto">
 				<button type="submit" form="updateProducto" value="Update" class="btn boton-nav btn-primary m-2">Guardar
 				</button>
+			</div>
+			<div class="form-inline ml-auto">
+				<a href="http://127.0.0.1:8000/media/{{producto.producto_pdf}}" class="btn boton-nav btn-info m-2"
+					download="">Descargar</a>
+			</div>
+			<div class="form-inline ml-auto">
+				<a href="http://127.0.0.1:8000/media/{{producto.producto_pdf}}" class="btn boton-nav btn-success m-2"
+					target="_blank">Visualizar</a>
 			</div>
 			<div class="form-inline ml-auto">
 				<button type="button" class="btn boton-nav btn-danger m-2" data-toggle="modal"
@@ -89,11 +96,10 @@
 				</button>
 			</div>
 		</div>
-		<div class="form-inline ml-auto">
+		<div class="d-flex pr-3">
 			<button onclick="location.href='http://127.0.0.1:8000/appEntrega/productos'"
 				class="btn boton-nav btn-secondary m-2" type="button">Volver</button>
 		</div>
-	</div>
 </nav>
 
 {% endblock %}

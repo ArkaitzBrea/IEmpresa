@@ -2,7 +2,7 @@
 {% block content %}
 <div class="row contenedor justify-content-center m-footer mt-3">
     <div class="form col-6">
-        <form id="newProduct" action="{% url 'producto_form' %}" method="POST">{% csrf_token %}
+        <form id="newProduct" action="{% url 'producto_form' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
             {% include "forms.html"%}
         </form>
     </div>

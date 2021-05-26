@@ -21,6 +21,8 @@ class Producto(models.Model):
     producto_descripcion = models.CharField(max_length=250)
     producto_categoria = models.CharField(max_length=50)
     producto_precio = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    #Atributo fichero
+    producto_pdf = models.FileField(blank=True,null=True)
 
     # Funcion que devuelve el producto_nombre cuando se visualiza en el /admin
     def __str__(self):

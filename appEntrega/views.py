@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, get_list_or_404
 from django.views.generic.list import ListView
+from django.views.generic import CreateView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import DeleteView, UpdateView
 from django.views import View
@@ -78,7 +79,7 @@ class ProductoDetailView(DetailView):
     class UpdateProductoView(UpdateView):
         model = Producto
         template_name = 'updateProducto.html'
-        fields = ['producto_nombre', 'producto_descripcion', 'producto_categoria', 'producto_precio']
+        fields = ['producto_nombre', 'producto_descripcion', 'producto_categoria', 'producto_precio', 'producto_pdf']
         success_url = reverse_lazy('listaProducto')
 
 
@@ -103,6 +104,14 @@ class FacturaDetailView(DetailView):
 
 # Vistas para AÑADIR/CREAR
 # Vista de formulario de crear un nuevo producto
+class CreateProductoView(CreateView):
+    model = Producto
+    form_class = ProductoForm
+    template_name = 'nuevoProducto.html'
+    success_url = reverse_lazy('listaProducto')
+
+
+'''
 class CreateProductoView(View):
     def get(self, request, *args, **kwargs):
         form = ProductoForm()
@@ -121,6 +130,7 @@ class CreateProductoView(View):
             return redirect("listaProducto")
 
         return render(request, 'nuevoProducto.html', {'form': form})
+'''
 
 
 # Vista de formulario de crear un nuevo cliente
@@ -137,8 +147,8 @@ class CreateClienteView(View):
         form = ClienteForm(request.POST)
         if form.is_valid():
             form.save()
-
-            # Volvemos a la pagina que queramos despues de crear un nuevo producto
+            send_email(form.cleaned_data['email'])
+            # Volvemos a la pagina que queramos despues de crear un nuevo cliente
             return redirect("listaCliente")
 
         return render(request, 'nuevoCliente.html', {'form': form})
@@ -290,7 +300,7 @@ class UpdateClienteView(UpdateView):
 class UpdateProductoView(UpdateView):
     model = Producto
     template_name = 'updateProducto.html'
-    fields = ['producto_nombre', 'producto_descripcion', 'producto_categoria', 'producto_precio']
+    fields = ['producto_nombre', 'producto_descripcion', 'producto_categoria', 'producto_precio', 'producto_pdf']
     success_url = reverse_lazy('listaProducto')
 
     def get_context_data(self, **kwargs):
@@ -340,23 +350,22 @@ def settingsView(request):
     context = {'foo': 'bar'}
     return render(request, 'settingsView.html', context)
 
+
 # Envio de mails ContactoView
 def contactoView(request):
-    
     context = {'foo': 'bar'}
 
     if request.method == 'POST':
         mail = request.POST.get('mail')
         telefonoContacto = request.POST.get('telefonoContacto')
         send_email(mail)
-    
+
     return render(request, 'contactoView.html', context)
+
 
 def send_email(mail):
     print(mail)
     context = {'mail': mail}
-    template = get_template('correo.html')
-    content = template.render(context)
 
     email = EmailMultiAlternatives(
         'DEUSTRONIC S.A.',
@@ -364,8 +373,4 @@ def send_email(mail):
         settings.EMAIL_HOST_USER,
         [mail],
     )
-
-    email.attach_alternative(content, 'text/html')
     email.send()
-
-

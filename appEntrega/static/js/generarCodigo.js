@@ -70,17 +70,27 @@ function generarCodigoProductos() {
         let tdPtrecio = document.createElement('TD')
         tdPtrecio.textContent = pro.producto_precio
         tr.appendChild(tdPtrecio);
+        
 
-        tablaProductosBody.appendChild(tr)
+        let tdArchivo = document.createElement('TD')
+        let aArchivo = document.createElement('A')
+        aArchivo.setAttribute('download', '')
+        aArchivo.href = `http://127.0.0.1:8000/media/${pro.producto_pdf}/`
+ 
+
+        aArchivo.innerHTML = '<i class="fas fa-download"></i>';
+
+        tdArchivo.appendChild(aArchivo);
+        tr.appendChild(tdArchivo);
+        tablaProductosBody.appendChild(tr);
     });
-    console.log(datosProductos.length)
 }
 
 function generarCodigoVacio() {
     let tr = document.createElement('TR')
     let td = document.createElement('TD')
 
-    td.colSpan = "5"
+    td.colSpan = "7"
     td.textContent = "No existen productos"
 
     tr.appendChild(td);

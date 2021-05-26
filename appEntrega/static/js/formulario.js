@@ -28,7 +28,6 @@ function estadoFormulario() {
             fijarContenidoFocus(formulario__grupo, formulario__i);
         }
         input.onblur = () => {
-            debugger;
             if (input.value.trim().length === 0) {
                 borrarContenido(formulario__grupo, formulario__i);
 
