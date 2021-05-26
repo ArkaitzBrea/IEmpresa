@@ -44,10 +44,10 @@ bajarFuente(document.getElementById('bajarBtn'))
 
 // -----------------------------------------------------------------------------------------
 // CONTROL DE COLOR DEL FONDO
-function fondoNegro() {
-  document.body.style.backgroundColor = "#DAC8E4";
+function fondoNoche() {
+  document.body.style.backgroundColor = "#eddfc5";
   document.body.style.color = "black";
-  let fondo = "#DAC8E4";
+  let fondo = "#eddfc5";
   let letra = "black";
   localStorage.setItem("colorFondo", fondo);
   localStorage.setItem("colorLetra", letra);

@@ -2,13 +2,25 @@
 {% block content %}
 
 <p>Tamaño de fuente: <p>
-    <button class="font-control" id="subirBtn">A<sup>+</sup></button>
-    <button class="font-control" id="bajarBtn">A<sup>-</sup></button>
-    <br><br>
+    <div id="botonesFuente">  
+        <button class="font-control" id="subirBtn">A<sup>+</sup></button>
+        <button class="font-control" id="bajarBtn">A<sup>-</sup></button>
+        <br><br>
+    </div>
 
 <p>Color del fondo<p>
-    <button type="button" onclick="fondoBlanco()">Fondo Blanco</button>
-    <button type="button" onclick="fondoNegro()">Fondo Negro</button>
-    <br><br>
+    <div id="botonesFondo">
+        <button type="button" onclick="fondoBlanco()">Fondo Blanco</button>
+        <button type="button" onclick="fondoNoche()">Fondo Noche</button>
+        <br><br>
+    </div>
+
+<nav class="navbar navbar-light bg-light fixed-bottom">
+    <div class="form-inline ml-auto">
+        <button onclick="location.href='http://127.0.0.1:8000/appEntrega'" class="btn boton-nav btn-secondary m-2"
+            type="button">Volver</button>
+
+    </div>
+</nav>
 
 {% endblock %}
