@@ -15,14 +15,10 @@ p.logo_empresa {
 }
 
 header.cabeceraPortada {
-  background-image: url(https://img.freepik.com/free-vector/blue-copy-space-digital-background_23-2148821698.jpg?size=626&ext=jpg);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-color: #2481c6;
   width: 100%;
   overflow: hidden;
 }
-
-
 
 img.registroLogoP1 {
   position: relative;
@@ -40,7 +36,7 @@ img.registroLogoP1 {
 
 .tituloenlaceP1 {
   color: rgb(255, 255, 255);
-  font-size: 25px;
+  font-size: 40px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   margin-left: 25px;
   top: -30px;
@@ -77,14 +73,13 @@ li {
   margin-right: 2rem;
 }
 
-li:last-of-type{
+li:last-of-type {
   margin-right: 0;
 }
 
 .logo_empresa {
   text-decoration: none;
   font-size: 40px;
-  color: #36ac42;
 }
 
 a.tituloenlaceP1 {
@@ -100,11 +95,11 @@ a.tituloenlaceP1 {
   margin: 0 auto;
 }
 
-.j-fstart{
+.j-fstart {
   justify-content: flex-start !important;
 }
 
-.j-fend{
+.j-fend {
   justify-content: flex-end !important;
 }
 
@@ -120,12 +115,18 @@ h1 {
   justify-content: end;
 }
 
+.icono-header {
+  font-size: 2.5rem !important;
+}
+
 /*  RELOJ  */
-.reloj{
+
+.reloj {
   text-align: center;
   margin: auto;
 }
-.fecha{
+
+.fecha {
   color: white;
-  font-size: auto;
+  font-size: 35px;
 }
