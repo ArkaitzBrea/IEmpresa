@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h2>Enviar correo de contacto:</h2> <br>
+<h2>Enviar correo de contacto al cliente por incidencia:</h2> <br>
 <form action="#" method="post" id="correo">
     {% csrf_token %}
     <strong>
         <label>
-            <p class="introCorreo">Escribe tu correo aquí:</p>
+            <p class="introCorreo">Escribe el correo del cliente aquí:</p>
         </label>
     </strong>
     <input class="emailCorreo" type="text" name="mail" id="mailInput" placeholder="ejemplo@gmail.com">
