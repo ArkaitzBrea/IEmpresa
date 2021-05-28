@@ -147,7 +147,8 @@ class CreateClienteView(View):
         form = ClienteForm(request.POST)
         if form.is_valid():
             form.save()
-            send_email(form.cleaned_data['email'])
+            esCreado = True
+            send_email(form.cleaned_data['email'], esCreado)
             # Volvemos a la pagina que queramos despues de crear un nuevo cliente
             return redirect("listaCliente")
 
@@ -357,20 +358,28 @@ def contactoView(request):
 
     if request.method == 'POST':
         mail = request.POST.get('mail')
-        telefonoContacto = request.POST.get('telefonoContacto')
-        send_email(mail)
+        esCreado = False
+        send_email(mail, esCreado)
 
     return render(request, 'contactoView.html', context)
 
 
-def send_email(mail):
+def send_email(mail, esCreado):
     print(mail)
     context = {'mail': mail}
-
-    email = EmailMultiAlternatives(
-        'DEUSTRONIC S.A.',
-        'Hola! Gracias por confiar en DEUSTRONIC, pronto se pondrán en contacto con usted.',
-        settings.EMAIL_HOST_USER,
-        [mail],
-    )
-    email.send()
+    if(esCreado == False):
+        email = EmailMultiAlternatives(
+            'DEUSTRONIC S.A.',
+            'Hola! Al parecer, su empresa ha provocado una incidencia en nuestro sistema. Pronto, Deustronic S.A. se pondrá en contacto con usted mediante el nº de teléfono que indicó al realizarse el alta. Disculpe las molestias.',
+            settings.EMAIL_HOST_USER,
+            [mail],
+        )
+        email.send()
+    else:
+        email = EmailMultiAlternatives(
+            'DEUSTRONIC S.A.',
+            'Hola! Gracias por dar de alta su empresa en Deustronic S.A. y por confiar en nosotros. Será un placer trabajar con usted!',
+            settings.EMAIL_HOST_USER,
+            [mail],
+        )
+        email.send()

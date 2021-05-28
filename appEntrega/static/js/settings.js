@@ -13,7 +13,6 @@ function obtenerEstilosAnteriores() {
 }
 
 
-if (settings) {
   // CONTROL DE TAMAÑO DE FUENTE
   const getFontSize = () =>
     parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--font-size'))
@@ -54,6 +53,7 @@ if (settings) {
     localStorage.setItem("colorLetra", letra);
   }
 
+
   function fondoBlanco() {
     document.body.style.backgroundColor = "white";
     document.body.style.color = "black";
@@ -62,5 +62,16 @@ if (settings) {
     localStorage.setItem("colorFondo", fondo);
     localStorage.setItem("colorLetra", letra);
   }
+
+// -----------------------------------------------------------------------------------------
+// CONTROL DE COLOR DEL FONDO
+function fondoNoche() {
+  document.body.style.backgroundColor = "#eddfc5";
+  document.body.style.color = "black";
+  let fondo = "#eddfc5";
+  let letra = "black";
+  localStorage.setItem("colorFondo", fondo);
+  localStorage.setItem("colorLetra", letra);
+
 }
 
