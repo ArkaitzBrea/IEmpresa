@@ -35,19 +35,43 @@ button:disabled {
 }
 
 .button-div {
-  width: 225px;
-  height: 225px;
-  padding: 10px;
+  width: 150px;
+  height: 150px;
+  padding: 5px;
 }
 
 .panel-de-botones {
   max-width: 100%;
 }
 
-.icono-index{
-  font-size: 4rem !important;
+.icono-index {
+  font-size: 2rem !important;
 }
 
-.text-index{
-  font-size: 2rem !important;
+.text-index {
+  font-size: 1rem !important;
+}
+
+.orange-back {
+  background: rgba(239, 126, 58, .4) !important;
+  font-weight: 100 !important;
+}
+
+.contenido{
+  width: 100%;
+  margin-left: 12px !important;
+  position: relative;
+}
+
+.img{
+  z-index: 50;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  bottom: 0;
+  right: 0;
+}
+
+img .img{
+  width: 50rem;
 }

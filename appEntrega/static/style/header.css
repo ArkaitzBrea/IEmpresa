@@ -36,8 +36,8 @@ img.registroLogoP1 {
 
 .tituloenlaceP1 {
   color: rgb(255, 255, 255);
-  font-size: 40px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 30px !important;
+  font-weight: bold;
   margin-left: 25px;
   top: -30px;
   text-decoration: none;
@@ -116,7 +116,11 @@ h1 {
 }
 
 .icono-header {
-  font-size: 2.5rem !important;
+  font-size: 3rem !important;
+}
+
+.icono-nav{
+  font-size: 1.5rem !important;
 }
 
 /*  RELOJ  */
@@ -128,5 +132,5 @@ h1 {
 
 .fecha {
   color: white;
-  font-size: 35px;
+  font-size: 25px !important;
 }
