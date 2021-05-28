@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h2>Enviar correo de contacto al cliente por incidencia:</h2> <br>
+<h2>Enviar correo de contacto al cliente por incidencia</h2> <br>
 <form action="#" method="post" id="correo">
     {% csrf_token %}
     <strong>
@@ -16,7 +16,7 @@
 <nav class="navbar navbar-light bg-light fixed-bottom">
     <button class="btn boton-nav btn-primary m-2" type="submit" form="correo">Enviar</button>
     <button class="btn boton-nav btn-secondary m-2"
-        onclick="location.href='http://127.0.0.1:8000/appEntrega/'">Vovler</button>
+        onclick="location.href='http://127.0.0.1:8000/appEntrega/'">Volver</button>
 </nav>
 
 
