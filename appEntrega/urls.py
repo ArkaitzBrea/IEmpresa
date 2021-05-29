@@ -53,11 +53,11 @@ urlpatterns = [
     # URL borrar pedido
     path('pedidos/<str:pk>/delete/', DeletePedidoView.as_view(), name='borrar_pedidos'),
     # URL borrar factura
-    path('facturas/<str:pk>/delete/', DeleteFacturaView.as_view(), name='borrar_facturas'),
+    path('factura/<str:pk>/delete/', DeleteFacturaView.as_view(), name='borrar_facturas'),
     # URL borrar factura desde pedidoview
-    path('pedidos/factura/<str:pk>/delete/', DeleteFacturaProductView.as_view(), name='borrar_componentes'),
+    path('pedidos/factura/<str:pk>/delete/', DeleteFacturaProductView.as_view(), name='borrar_factura_producto'),
     # URL borrar componente desde productoview
-    path('productos/componente/<int:pk>/delete/', DeleteComponenteProductView.as_view(), name='borrar_componentes'),
+    path('productos/componente/<int:pk>/delete/', DeleteComponenteProductView.as_view(), name='borrar_componente_producto'),
     # URL borrar componente
     path('componente/<int:pk>/delete/', DeleteComponenteView.as_view(), name='borrar_componentes'),
 
