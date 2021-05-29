@@ -115,3 +115,12 @@ ul {
 .border {
     border: 1.4px solid #dee2e6 !important;
 }
+
+.auto{
+    width: auto !important;
+}
+
+.black{
+    color: black !important;
+}
+
