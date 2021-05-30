@@ -1,5 +1,6 @@
-let euros;
-comprobarMoneda();
+const euros = document.getElementById('settings');
+
+
 
 function comprobarMoneda(){
     if (euros == true) {
